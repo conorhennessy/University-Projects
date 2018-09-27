@@ -11,7 +11,7 @@ Once complete submit your lab report and the .java files you created to the fold
 Your .java files can be uploaded to the Code folder and a lab report template is provide for you to complete.
 An example of the format your lab script should follow can be found on Moodle under the labs section.
 
-You are required to upload and commit your completed report and code for this lab on the assignment repository by end of each week / before your next lab session.
+You are required to upload and commit your completed report and code for each lab on the assignment repository by end of each week / before the next lab session.
 
 You need to copy the whole ce203-Labs-5-to-8-<your Github ID> assignment repository once you have completed all reports and code for labs 5 to 8. Upload this as a single zip file onto Faser under: Labs 5 to 8 All Reports & Code by: Friday 14th December 2018 before 23:59:59.
 
