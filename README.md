@@ -13,4 +13,4 @@ An example of the format your lab script should follow can be found on Moodle un
 
 You are required to upload and commit your completed report and code for each lab on the assignment repository by end of each week / before the next lab session.
 
-You need to copy the whole ce203-Labs-5-to-8-<your Github ID> assignment repository once you have completed all reports and code for labs 1 to 4. Upload this as a single zip file onto Faser under: Labs 5 to 8 All Reports & Code by: Friday 9th November 2018 before 23:59:59.
+You need to copy the whole ce203-Labs-5-to-8-<your Github ID> assignment repository once you have completed all reports and code for labs 1 to 4. Upload this as a single zip file onto Faser under: Labs 5 to 8 All Reports & Code by: Friday 9th November 2018 before 11:59:59.
