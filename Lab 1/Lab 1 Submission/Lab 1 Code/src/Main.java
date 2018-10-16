@@ -1,3 +1,4 @@
+import Exercise3.*;
 import shapes.*;
 
 public class Main {
@@ -14,5 +15,9 @@ public class Main {
             shape.printName();
             shape.draw();
         }
+
+
+        employee[] employees =  new employee[3];
+        //add employees here
     }
 }
