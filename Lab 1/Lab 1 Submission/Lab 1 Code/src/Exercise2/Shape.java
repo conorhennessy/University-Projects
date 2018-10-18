@@ -1,4 +1,4 @@
-package shapes;
+package Exercise2;
 
 public abstract class Shape {
     protected String name = "shape";

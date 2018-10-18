@@ -11,7 +11,7 @@ public abstract class employee {
         this.dob = dob;
     }
 
-    public void details() { System.out.println("I am an employee called " + name + " with a salary of " + salary + "dob of " + dob); }
+    public void details() { System.out.println("\nI am an employee called " + name + ", with a salary of " + salary + " and DofB of " + dob); }
 
     public abstract void information();
 

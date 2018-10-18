@@ -1,4 +1,4 @@
-package shapes;
+package Exercise2;
 
 public class Circle extends Shape {
     protected int centerX;

@@ -1,4 +1,4 @@
-package shapes;
+package Exercise2;
 
 public class Rectangle extends Shape {
     protected int    centerX;
