@@ -1,4 +1,4 @@
-package Assignment1;
+package Assignment1.Exercise1;
 
 import javax.swing.*;
 import java.awt.*;
