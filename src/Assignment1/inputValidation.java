@@ -17,7 +17,7 @@ public class inputValidation extends JTextField {
             return value;
         }
         catch (Exception e) {
-        // value received is not an integer
+            // value received is not an integer
             setText("");
         }
         return value;
