@@ -6,6 +6,8 @@ import java.awt.event.ActionListener;
 public class DrawCalc extends JFrame {
     TextField text;
 
+    JPanel cPanel;  //This panel is initialised here so that I can access adn add a label in my button action method
+
     Square defaultSq = new Square(50, 50, 0);
     Circle defaultCircle = new Circle(50, 50, 0);
 
@@ -15,7 +17,7 @@ public class DrawCalc extends JFrame {
         setResizable(false);
 
 
-        JPanel cPanel = new JPanel(){
+        cPanel = new JPanel(){
 
             @Override
             public void paintComponent(Graphics g){
@@ -78,10 +80,6 @@ public class DrawCalc extends JFrame {
             //Convert input of the text field to Int
             int value = Integer.parseInt(theApp.text.getText());
 
-            //On every button press label is re-written
-            JLabel infoLabel = new JLabel();
-
-
 
 
             if (actionType == 1) {
@@ -89,27 +87,30 @@ public class DrawCalc extends JFrame {
                 defaultSq.setSize(value);
                 defaultCircle.setSize(0);
 
-                infoLabel.setText(defaultSq.info());
+                System.out.println(defaultSq.info());
             } else if (actionType == 2) {
                 //Calculate area of square as Calc Area button pressed
                 defaultSq.getArea();
 
-                infoLabel.setText(defaultSq.info());
+                JOptionPane.showMessageDialog(DrawCalc.this, defaultSq.info());
+                System.out.println(defaultSq.info());
+
             } else if (actionType == 3) {
                 //Set radius of circle as button pressed
                 defaultSq.setSize(0);
                 defaultCircle.setSize(value);
 
-                infoLabel.setText(defaultCircle.info());
+                System.out.println(defaultCircle.info());
             } else if (actionType == 4) {
                 //Calculate area of circle as Calc Area button pressed
                 defaultCircle.getArea();
 
-                infoLabel.setText(defaultCircle.info());
+                JOptionPane.showMessageDialog(DrawCalc.this, defaultCircle.info());
+                System.out.println(defaultCircle.info());
             }
 
+            //do these things with every button press
             theApp.repaint();
-            theApp.add(infoLabel);
         }
     }
 
