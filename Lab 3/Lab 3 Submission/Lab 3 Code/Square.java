@@ -20,4 +20,8 @@ public class Square extends Shape {
         return area;
     }
 
+    public String info(){
+        return "Square with length: "+sideLength+" & area of "+getArea();
+    }
+
 }
