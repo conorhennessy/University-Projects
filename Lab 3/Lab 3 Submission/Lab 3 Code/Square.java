@@ -1,3 +1,5 @@
+import java.awt.*;
+
 public class Square extends Shape {
     int sideLength;
 
@@ -13,8 +15,9 @@ public class Square extends Shape {
     }
 
     @Override
-    public double getArea(){
+    public double getArea() {
         double area = Math.pow(sideLength, 2);
         return area;
     }
+
 }

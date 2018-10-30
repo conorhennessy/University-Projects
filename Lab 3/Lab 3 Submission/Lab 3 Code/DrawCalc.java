@@ -7,7 +7,7 @@ public class DrawCalc extends JFrame {
     TextField text;
 
     public DrawCalc() {
-        setSize(400, 400);
+        setSize(750, 750);
         setLayout(new BorderLayout());
 
 
@@ -49,7 +49,6 @@ public class DrawCalc extends JFrame {
         DrawCalc theApp;
         int actionType;
 
-
         public ButtonHandler(DrawCalc theApp, int actionType) {
             this.theApp = theApp;
             this.actionType = actionType;
@@ -59,17 +58,24 @@ public class DrawCalc extends JFrame {
         public void actionPerformed(ActionEvent e) {
             //Convert input of the text field to Int
             int value = Integer.parseInt(theApp.text.getText());
+
             Square defaultSq = new Square(50, 50, 20);
             Circle defaultCircle = new Circle(50, 50, 20);
+
+            DrawCalc frame = new DrawCalc();
+
             if (actionType == 1) {
                 //Set length of square as set button was pressed
                 defaultSq.setSize(value);
+                frame.repaint();
             } else if (actionType == 2) {
                 //Calculate area of square as Calc Area button pressed
                 defaultSq.getArea();
             } else if (actionType == 3) {
                 //Set radius of circle as button pressed
                 defaultCircle.setSize(value);
+                frame.repaint();
+
             } else if (actionType == 4) {
                 //Calculate area of circle as Calc Area button pressed
                 defaultCircle.getArea();
@@ -79,5 +85,18 @@ public class DrawCalc extends JFrame {
 
     public static void main(String[] args) {
         new DrawCalc();
+    }
+}
+
+class ShapePanel extends JPanel{
+    DrawCalc theApp;
+
+    void Panel(DrawCalc app) { theApp = app; }
+
+    public void paintComponent(Graphics g)
+    {
+        super.paintComponent(g);
+        g.setColor(Color.green);
+        g.fillRect(50, 50, this.getSize(), this.getSize());
     }
 }
