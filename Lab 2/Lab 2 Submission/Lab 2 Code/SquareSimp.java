@@ -4,8 +4,6 @@ import java.awt.event.*;
 
 public class SquareSimp
 {
-
-
     public static void main( String[] args )
     {
         FilledFrame frame = new FilledFrame();
@@ -41,21 +39,19 @@ class FilledFrame extends JFrame
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                JOptionPane.showMessageDialog(null, "Hi Boyo! :D");
+                JOptionPane.showMessageDialog(getContentPane(), "Hi Boyo! :D");
             }
         });
 
-        butSmall.addActionListener(new butListener(200, this));
+        butSmall.addActionListener(new butListener(150, this));
 
-        butMedium.addActionListener(new butListener(400, this));
+        butMedium.addActionListener(new butListener(300, this));
 
-        butLarge.addActionListener(new butListener(600, this));
-
+        butLarge.addActionListener(new butListener(400, this));
 
     }
 
     class butListener implements ActionListener {
-        SquarePanel panel;
         int size;
         FilledFrame frame;
 
@@ -65,18 +61,10 @@ class FilledFrame extends JFrame
         }
 
         public void actionPerformed(ActionEvent s) {
-            setSize(size+100, size+100);
+            frame.size = size;
+            frame.repaint();
         }
     }
-
-
-//    class butLargeListener implements ActionListener {
-//        public void actionPerformed(ActionEvent s) {
-//            size = 600;
-//            setSize(size+100, size+100);
-//        }
-//    }
-
 }
 
 class SquarePanel extends JPanel
