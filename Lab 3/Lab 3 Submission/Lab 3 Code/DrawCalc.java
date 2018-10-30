@@ -6,13 +6,27 @@ import java.awt.event.ActionListener;
 public class DrawCalc extends JFrame {
     TextField text;
 
+    Square defaultSq = new Square(50, 50, 20);
+    Circle defaultCircle = new Circle(50, 50, 20);
+
     public DrawCalc() {
         setSize(750, 750);
         setLayout(new BorderLayout());
 
 
-        JPanel cPanel = new JPanel();
+        JPanel cPanel = new JPanel(){
+
+            @Override
+            public void paintComponent(Graphics g){
+                super.paintComponent(g);
+                g.setColor(Color.green);
+
+                g.fillRect(defaultSq.posX, defaultSq.posY, defaultSq.sideLength, defaultSq.sideLength);
+            }
+        };
+
         JPanel sPanel = new JPanel();
+        JLabel info = new JLabel("Shape info");
 
         text = new TextField(10);
         sPanel.add(text);
@@ -42,6 +56,8 @@ public class DrawCalc extends JFrame {
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
+
+
     }
 
 
@@ -59,23 +75,22 @@ public class DrawCalc extends JFrame {
             //Convert input of the text field to Int
             int value = Integer.parseInt(theApp.text.getText());
 
-            Square defaultSq = new Square(50, 50, 20);
-            Circle defaultCircle = new Circle(50, 50, 20);
 
-            DrawCalc frame = new DrawCalc();
+            //DrawCalc frame = new DrawCalc();
 
             if (actionType == 1) {
                 //Set length of square as set button was pressed
                 defaultSq.setSize(value);
-                frame.repaint();
+                defaultCircle.setSize(0);
+                theApp.repaint();
             } else if (actionType == 2) {
                 //Calculate area of square as Calc Area button pressed
                 defaultSq.getArea();
             } else if (actionType == 3) {
                 //Set radius of circle as button pressed
+                defaultSq.setSize(0);
                 defaultCircle.setSize(value);
-                frame.repaint();
-
+                theApp.repaint();
             } else if (actionType == 4) {
                 //Calculate area of circle as Calc Area button pressed
                 defaultCircle.getArea();
@@ -85,18 +100,5 @@ public class DrawCalc extends JFrame {
 
     public static void main(String[] args) {
         new DrawCalc();
-    }
-}
-
-class ShapePanel extends JPanel{
-    DrawCalc theApp;
-
-    void Panel(DrawCalc app) { theApp = app; }
-
-    public void paintComponent(Graphics g)
-    {
-        super.paintComponent(g);
-        g.setColor(Color.green);
-        g.fillRect(50, 50, this.getSize(), this.getSize());
     }
 }
