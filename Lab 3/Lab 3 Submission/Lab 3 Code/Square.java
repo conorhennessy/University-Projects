@@ -8,7 +8,7 @@ public class Square extends Shape {
     }
 
     @Override
-    public void setLength(int x) {
+    public void setSize(int x) {
         sideLength = x;
     }
 

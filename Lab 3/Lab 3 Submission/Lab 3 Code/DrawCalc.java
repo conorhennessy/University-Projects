@@ -62,14 +62,14 @@ public class DrawCalc extends JFrame {
             Square defaultSq = new Square(50, 50, 20);
             Circle defaultCircle = new Circle(50, 50, 20);
             if (actionType == 1) {
-                //Set length of shape as set button was pressed
-                defaultSq.setLength(value);
+                //Set length of square as set button was pressed
+                defaultSq.setSize(value);
             } else if (actionType == 2) {
                 //Calculate area of square as Calc Area button pressed
                 defaultSq.getArea();
             } else if (actionType == 3) {
                 //Set radius of circle as button pressed
-                defaultCircle.setLength(value);
+                defaultCircle.setSize(value);
             } else if (actionType == 4) {
                 //Calculate area of circle as Calc Area button pressed
                 defaultCircle.getArea();
