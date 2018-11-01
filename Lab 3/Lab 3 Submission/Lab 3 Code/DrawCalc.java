@@ -18,7 +18,6 @@ public class DrawCalc extends JFrame {
 
 
         cPanel = new JPanel(){
-
             @Override
             public void paintComponent(Graphics g){
                 super.paintComponent(g);
@@ -29,29 +28,29 @@ public class DrawCalc extends JFrame {
                 g.fillOval(defaultCircle.posX, defaultCircle.posY, defaultCircle.radius, defaultCircle.radius);
             }
         };
-
         JPanel sPanel = new JPanel();
 
-
-        text = new TextField(10);
+        text = new TextField(10);                            //Field item for user size input
         sPanel.add(text);
 
+        //All frame items for squares
         JLabel sqrButtonLabel = new JLabel("Square: ");
         JButton sqrSetBut = new JButton("Set");
         JButton sqrCalcAreaBut = new JButton("Calc Area");
         sqrSetBut.addActionListener(new ButtonHandler(this, 1));
         sqrCalcAreaBut.addActionListener(new ButtonHandler(this, 2));
 
+        //All frame items for circles
         JLabel circleButtonLabel = new JLabel("Circle: ");
         JButton circleSetBut = new JButton("Set");
         JButton circleCalcAreaBut = new JButton("Calc Area");
         circleSetBut.addActionListener(new ButtonHandler(this, 3));
         circleCalcAreaBut.addActionListener(new ButtonHandler(this, 4));
 
+        //Putting all Square & Circle items into pannels to go into frames
         sPanel.add(sqrButtonLabel);
         sPanel.add(sqrSetBut);
         sPanel.add(sqrCalcAreaBut);
-
         sPanel.add(circleButtonLabel);
         sPanel.add(circleSetBut);
         sPanel.add(circleCalcAreaBut);
@@ -81,36 +80,40 @@ public class DrawCalc extends JFrame {
             int value = Integer.parseInt(theApp.text.getText());
 
 
-
             if (actionType == 1) {
-                //Set length of square as set button was pressed
+                //Set Square button  -  set size of square
                 defaultSq.setSize(value);
                 defaultCircle.setSize(0);
 
                 System.out.println(defaultSq.info());
             } else if (actionType == 2) {
-                //Calculate area of square as Calc Area button pressed
-                defaultSq.getArea();
-
-                JOptionPane.showMessageDialog(DrawCalc.this, defaultSq.info());
-                System.out.println(defaultSq.info());
+                // Calc area button  -  calculate area of current shape
+                if (defaultSq.sideLength == 0){              //Handling to see if the button is pressed while a circle is actually drawn
+                    JOptionPane.showMessageDialog(DrawCalc.this, defaultCircle.info());
+                }
+                else {
+                    //Calculate area of square as Calc Area button pressed
+                    JOptionPane.showMessageDialog(DrawCalc.this, defaultSq.info());
+                }
 
             } else if (actionType == 3) {
-                //Set radius of circle as button pressed
+                //Set Square button  -  set radius of circle
                 defaultSq.setSize(0);
                 defaultCircle.setSize(value);
 
                 System.out.println(defaultCircle.info());
             } else if (actionType == 4) {
-                //Calculate area of circle as Calc Area button pressed
-                defaultCircle.getArea();
-
-                JOptionPane.showMessageDialog(DrawCalc.this, defaultCircle.info());
-                System.out.println(defaultCircle.info());
+                // Calc area button  -  calculate area of current shape
+                if (defaultCircle.radius == 0){              //Handling to see if the button is pressed while a square is actually drawn
+                    JOptionPane.showMessageDialog(DrawCalc.this, defaultSq.info());
+                }
+                else {
+                    //Calculate area of circle as Calc Area button pressed
+                    JOptionPane.showMessageDialog(DrawCalc.this, defaultCircle.info());
+                }
             }
 
-            //do these things with every button press
-            theApp.repaint();
+            theApp.repaint();                                //With each button press, shape is repainted
         }
     }
 
