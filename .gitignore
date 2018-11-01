@@ -1,0 +1,7 @@
+Lab 1 Submission\Lab 1 Code\.idea\
+Lab 1 Submission\Lab 1 Code\out\
+
+*.xml
+*.iml
+*.class
+*.tmp
