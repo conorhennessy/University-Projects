@@ -5,6 +5,16 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+//TO DO
+//text here needs to be changed to student code and all that is asked for in assignment outline, blue text by default
+//when incorrect input is typed (non integer in any field) - only invalid field(s) cleared, error displayed, red text by default
+//ensure text positioned center
+//welcome message displayed on center panel
+//ensure reset button is at TOP and clears all fields
+//ensure exceptions are handled by program
+
+
+
 public class CE203_2018_Ex1 {
     public CE203_2018_Ex1() {
         JFrame mainFrame = new JFrame("CE203 Assignment 1");
