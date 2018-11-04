@@ -1,8 +1,19 @@
 package Assignment1;
 
 import javax.swing.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class inputValidation extends JTextField {
+    public inputValidation(String t){
+        super(t);
+        this.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) {
+                setText("");   //Clear colour label (R,G,B) from TextField on click
+            }
+        });
+    }
+
     int value;
     public int validateColour(){
         try {
@@ -17,7 +28,7 @@ public class inputValidation extends JTextField {
             return value;
         }
         catch (Exception e) {
-            // value received is not an integer
+            // Value received from this field is not an integer
             setText("");
         }
         return value;
