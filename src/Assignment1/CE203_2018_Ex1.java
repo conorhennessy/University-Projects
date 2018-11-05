@@ -12,29 +12,18 @@ import java.awt.event.ActionListener;
 public class CE203_2018_Ex1 {
     public CE203_2018_Ex1() {
         JFrame mainFrame = new JFrame("CE203 Assignment 1");
-        mainFrame.setSize(600, 300);
+        mainFrame.setSize(750, 300);
         mainFrame.setLayout(new BorderLayout());
 
         //Text setup
         JPanel textPanel = new JPanel();
-        JLabel text = new JLabel("CE203 Assignment 1, submitted by: 1703055");  //TODO position this vertical center
-        text.setFont(new Font("Monaco", Font.BOLD, 25));
-        text.setForeground(Color.BLUE);
-        textPanel.add(text);
+        JLabel textLabel = new JLabel("CE203 Assignment 1, submitted by: 1703055");  //TODO position this vertical center maybe?
+        textLabel.setFont(new Font("Monaco", Font.BOLD, 25));
+        textLabel.setForeground(Color.BLUE);
+        textPanel.add(textLabel);
 
-        //Reset button setup
-        JPanel resetPanel = new JPanel();
-        JButton resetButton = new JButton("Reset");
-        resetPanel.add(resetButton);
-        resetButton.addActionListener(new ActionListener() {  //TODO button actually need to clear stuff
-            //Action for when reset button pressed
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                text.setForeground(Color.BLACK);
-            }
-        });
 
-        //Colour setup here
+        //Colour setup
         JPanel rgbPanel = new JPanel();
         rgbPanel.setLayout(new GridLayout(1, 4));
         inputValidation red = new inputValidation("R");
@@ -45,19 +34,34 @@ public class CE203_2018_Ex1 {
         rgbPanel.add(green);
         rgbPanel.add(blue);
         rgbPanel.add(setButton);
-        setButton.addActionListener(new ActionListener() {  //TODO when incorrect input is typed (non integer in any field) - error displayed, red text by default
-            // Action for when Set button is pressed
+        setButton.addActionListener(new ActionListener() {                                //TODO when incorrect input is typed error text to be RED
             @Override
-            public void actionPerformed(ActionEvent e) {
-                text.setText("1703055");
-                text.setFont(new Font("Monaco", Font.BOLD, 30));
-                text.setForeground(new Color(red.validateColour(), green.validateColour(), blue.validateColour()));
+            public void actionPerformed(ActionEvent e) {   // Action for when Set button is pressed
+                textLabel.setText("1703055");
+                textLabel.setFont(new Font("Monaco", Font.BOLD, 30));
+                textLabel.setForeground(new Color(red.validateColour(textLabel), green.validateColour(textLabel), blue.validateColour(textLabel)));  //Here the label is also passed to the method in order to change it
             }
         });
+
+        //Reset button setup
+        JPanel resetPanel = new JPanel();
+        JButton resetButton = new JButton("Reset");
+        resetPanel.add(resetButton);
+        resetButton.addActionListener(new ActionListener() {
+            //Action for when reset button pressed
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                textLabel.setText("CE203 Assignment 1, submitted by: 1703055");
+                textLabel.setForeground(Color.BLUE);
+                red.setText("");
+                green.setText("");
+                blue.setText("");
+            }
+        });
+
         mainFrame.add(resetPanel, BorderLayout.NORTH);
         mainFrame.add(textPanel, BorderLayout.CENTER);
         mainFrame.add(rgbPanel, BorderLayout.SOUTH);
-
 
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         mainFrame.setVisible(true);

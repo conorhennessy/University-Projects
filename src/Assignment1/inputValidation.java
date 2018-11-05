@@ -1,6 +1,7 @@
 package Assignment1;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -15,7 +16,8 @@ public class inputValidation extends JTextField {
     }
 
     int value;
-    public int validateColour(){
+    public int validateColour(JLabel label){
+        if (getText().length() > 7) { setText("255"); }    // Error handling to deal with strings that are too large to be integers!  Thus set to be 255.
         try {
             value = Integer.parseInt(getText());
             if (value < 0) {
@@ -25,11 +27,12 @@ public class inputValidation extends JTextField {
                 value = 255;
                 setText("255");
             }
-            return value;
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             // Value received from this field is not an integer
+            label.setText("Invalid input in colour field(s)! Please try again below!");
+            label.setFont(new Font("Monaco", Font.BOLD | Font.ITALIC, 20));
             setText("");
+            label.setForeground(Color.RED);  //TODO Actually set it as RED :/
         }
         return value;
     }
