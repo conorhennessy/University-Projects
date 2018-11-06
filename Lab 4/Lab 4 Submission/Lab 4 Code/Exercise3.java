@@ -1,14 +1,12 @@
-import java.util.Iterator;
 import java.util.List;
 import java.util.Vector;
 
 public class Exercise3 {
     static void replaceNegList(List<Integer> l){
-        for (Iterator<Integer> it = l.iterator(); it.hasNext();){
-            Integer val = it.next();
-            if ( val < 0){
-                l.set(l.indexOf(val), val * -1);
-            }
+        int i = 0;
+        for (Integer x:l){
+            l.set(i, new Integer(Math.abs(x)));
+            i++;
         }
     }
 
