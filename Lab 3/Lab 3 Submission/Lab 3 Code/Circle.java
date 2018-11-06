@@ -1,4 +1,4 @@
-public class Circle extends Shape {
+    public class Circle extends Shape {
     Integer radius;
 
     public Circle(Integer posX, Integer posY, Integer radius){
