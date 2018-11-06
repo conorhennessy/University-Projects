@@ -31,7 +31,7 @@ class Lab4
 
     public static void main(String[] args) {
         Vector<String> vec1 = new Vector<String>();
-        vec1.add("Hello");
+        vec1.add("Hello");  //TODO Add more code to check that your method works correctly when there is only one element in the vector and also when there are duplicate elements.
         vec1.add("world");
         vec1.add("xxxx");
         vec1.add("aardvark");
