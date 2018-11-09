@@ -31,8 +31,8 @@
       <file leaf-file-name="CE203_2018_Ex1.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Assignment1/CE203_2018_Ex1.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="49" column="21" lean-forward="true" selection-start-line="49" selection-end-line="50" />
+            <state relative-caret-position="444">
+              <caret line="34" column="16" selection-start-line="34" selection-start-column="8" selection-end-line="34" selection-end-column="16" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -43,11 +43,10 @@
       <file leaf-file-name="CE203_2018_Ex2.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Assignment1/CE203_2018_Ex2.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="25" column="169" selection-start-line="25" selection-start-column="169" selection-end-line="25" selection-end-column="169" />
+            <state relative-caret-position="437">
+              <caret line="38" column="41" lean-forward="true" selection-start-line="38" selection-start-column="41" selection-end-line="38" selection-end-column="41" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1269#1278#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -622,12 +621,12 @@
       <workItem from="1541077245898" duration="1873000" />
       <workItem from="1541347215765" duration="11020000" />
       <workItem from="1541766467727" duration="645000" />
-      <workItem from="1541778014852" duration="1997000" />
+      <workItem from="1541778014852" duration="3305000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25180000" />
+    <option name="totallyTimeSpent" value="26488000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -652,7 +651,7 @@
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.33262485" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.33262485" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
@@ -704,7 +703,6 @@
           <caret line="8" column="36" lean-forward="true" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1269#1278#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -792,8 +790,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Assignment1/CE203_2018_Ex1.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="49" column="21" lean-forward="true" selection-start-line="49" selection-end-line="50" />
+        <state relative-caret-position="444">
+          <caret line="34" column="16" selection-start-line="34" selection-start-column="8" selection-end-line="34" selection-end-column="16" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -802,11 +800,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Assignment1/CE203_2018_Ex2.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="25" column="169" selection-start-line="25" selection-start-column="169" selection-end-line="25" selection-end-column="169" />
+        <state relative-caret-position="437">
+          <caret line="38" column="41" lean-forward="true" selection-start-line="38" selection-start-column="41" selection-end-line="38" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1269#1278#0" expanded="true" />
           </folding>
         </state>
       </provider>
