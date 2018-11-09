@@ -34,7 +34,7 @@ public class CE203_2018_Ex1 {
         rgbPanel.add(green);
         rgbPanel.add(blue);
         rgbPanel.add(setButton);
-        setButton.addActionListener(new ActionListener() {                                //TODO when incorrect input is typed error text to be RED
+        setButton.addActionListener(new ActionListener() {                                //TODO when incorrect input is typed (in ANY field)error text to be RED
             @Override
             public void actionPerformed(ActionEvent e) {   // Action for when Set button is pressed
                 textLabel.setText("1703055");
