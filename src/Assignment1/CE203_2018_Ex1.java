@@ -101,7 +101,7 @@ class inputValidation extends JTextField {
             label.setText("Invalid input in colour field(s)! Please try again below!");
             label.setFont(new Font("Monaco", Font.BOLD | Font.ITALIC, 20));
             setText("");
-            label.setForeground(Color.RED);  //TODO Actually set it as RED :/
+            label.setForeground(Color.RED);
             return false;
         }
     }
