@@ -36,12 +36,14 @@ public class CE203_2018_Ex1 {
         rgbPanel.add(green);
         rgbPanel.add(blue);
         rgbPanel.add(setButton);
-        setButton.addActionListener(new ActionListener() {                                //TODO when incorrect input is typed (in ANY field) error text to be RED
+        setButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {   // Action for when Set button is pressed
                 textLabel.setText("1703055");
                 textLabel.setFont(new Font("Monaco", Font.BOLD, 30));
-                textLabel.setForeground(new Color(red.validateColour(textLabel), green.validateColour(textLabel), blue.validateColour(textLabel)));  //Here the label is also passed to the method in order to change it
+                if ((red.validateColour(textLabel) && green.validateColour(textLabel) && blue.validateColour(textLabel))) {
+                    textLabel.setForeground(new Color(Integer.parseInt(red.getText()), Integer.parseInt(green.getText()), Integer.parseInt(blue.getText())));
+                }
             }
         });
 
@@ -80,28 +82,27 @@ class inputValidation extends JTextField {
         });
     }
 
-    int value;
 
-    public int validateColour(JLabel label) {
-        if (getText().length() > 7) {
+
+    public boolean validateColour(JLabel label) {
+        if (getText().length() > 7) {  // Error handling to deal with strings that are too large to be integers!  Thus set to be 255.
             setText("255");
-        }    // Error handling to deal with strings that are too large to be integers!  Thus set to be 255.
+        }
         try {
-            value = Integer.parseInt(getText());
+            int value = Integer.parseInt(getText());
             if (value < 0) {
-                value = 200;
                 setText("200");
             } else if (value > 255) {
-                value = 255;
                 setText("255");
             }
+            return true;
         } catch (Exception e) {
             // Value received from this field is not an integer
             label.setText("Invalid input in colour field(s)! Please try again below!");
             label.setFont(new Font("Monaco", Font.BOLD | Font.ITALIC, 20));
             setText("");
             label.setForeground(Color.RED);  //TODO Actually set it as RED :/
+            return false;
         }
-        return value;
     }
 }
