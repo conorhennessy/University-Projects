@@ -7,6 +7,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+//TODO Comments for what each method does & what each instance of variable is used for. No comments on what each line does
+
+
 
 public class CE203_2018_Ex1 {
     public static void main(String[] args) {
@@ -74,7 +77,7 @@ public class CE203_2018_Ex1 {
 }
 
 class inputValidation extends JTextField {
-    public inputValidation(String t) {
+    inputValidation(String t) {
         super(t);
         this.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
@@ -84,7 +87,7 @@ class inputValidation extends JTextField {
     }
 
 
-    public boolean validateColour(JLabel label) {
+    boolean validateColour(JLabel label) {
         if (getText().length() > 7) {  // Error handling to deal with strings that are too large to be integers!  Thus set to be 255.
             setText("255");
         }
