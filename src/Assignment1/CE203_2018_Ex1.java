@@ -7,9 +7,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-//TODO ensure exceptions are handled by program
-
-
 
 public class CE203_2018_Ex1 {
     public static void main(String[] args) {
@@ -18,11 +15,14 @@ public class CE203_2018_Ex1 {
         mainFrame.setLayout(new BorderLayout());
 
         //Text setup
+        JPanel innerPanel = new JPanel();
         JPanel textPanel = new JPanel();
-        JLabel textLabel = new JLabel("CE203 Assignment 1, submitted by: 1703055");  //TODO position this vertical center maybe?
+        JLabel textLabel = new JLabel("CE203 Assignment 1, submitted by: 1703055");
         textLabel.setFont(new Font("Monaco", Font.BOLD, 25));
         textLabel.setForeground(Color.BLUE);
-        textPanel.add(textLabel);
+        textPanel.setLayout(new GridBagLayout());  // Inorder to get the text positioned center to the frame - both vertically and horizontally
+        textPanel.add(innerPanel);
+        innerPanel.add(textLabel);
 
 
         //Colour setup
@@ -46,6 +46,7 @@ public class CE203_2018_Ex1 {
                 }
             }
         });
+
 
         //Reset button setup
         JPanel resetPanel = new JPanel();
@@ -81,7 +82,6 @@ class inputValidation extends JTextField {
             }
         });
     }
-
 
 
     public boolean validateColour(JLabel label) {
