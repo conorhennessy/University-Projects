@@ -22,7 +22,6 @@ public class CE203_2018_Ex2 {
         //Input text field setup
         JPanel inputPanel = new JPanel();
         inValidation inField = new inValidation();
-        //TODO JTextField to be extended like in EX 1 to ensure only contain letters, numbers and hyphens.  Input Must begin with letter
         //TODO ensure appropriate error displayed for incorrect inputs
         inField.setColumns(50);
         inputPanel.add(inField);
@@ -41,7 +40,6 @@ public class CE203_2018_Ex2 {
 
         //Button Setup
         // Many event handlers with one for each button as each is quite different and to show the coe more simply
-        //TODO get each anonymous action listener to do stuff
         //TODO Ensure appropriate message and output is displayed in textLabel for each button press
         JPanel buttonPanel = new JPanel();
         JButton addWord = new JButton("Add Word");
@@ -51,6 +49,7 @@ public class CE203_2018_Ex2 {
                 textLabel.setText("\"" + inField.getText() + "\" has been added to the list.");
                 if (inField.validateInput(textLabel)) {
                     wordList.add(inField.getText());
+                    inField.setText("");
                 }
             }
         });
@@ -58,9 +57,8 @@ public class CE203_2018_Ex2 {
         wordsEndingSearch.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {   // Action for when 'Add Word' button is pressed
-                if (inField.getText().length() != 1) {
+                if (inField.getText().length() > 1) {
                     textLabel.setText("More than one character inputted, please try again...");
-                    textLabel.setForeground(Color.RED);  //TODO fix colouring of this to go back to black
                 }
                 else if (inField.validateInput(textLabel)) {
                     String searchLetter = inField.getText().toLowerCase();
@@ -81,19 +79,22 @@ public class CE203_2018_Ex2 {
         wordOccurrences.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {   // Action for when 'Add Word' button is pressed
+                if (inField.getText().equals("")) {
+                    textLabel.setText("There are currently " + wordList.size() + " words in the list.");
+                }
                 if (inField.validateInput(textLabel)) {
-                    if (inField.getText().length() == 0) {
-                        textLabel.setText("There are currently " + wordList.size() + " words in the list.");
+                    int count = 0;
+                    ArrayList<Integer> posList = new ArrayList<>();
+                    for (String word : wordList) {
+                        if (inField.getText().equals(word)) {
+                            count++;
+                            posList.add(wordList.indexOf(word)); // Get the location of the word in the list
+                        }
+                    }
+                    if (count == 0) {
+                        textLabel.setText("\"" + inField.getText() + "\" Does not occur in the list!");
                     }
                     else {
-                        int count = 0;
-                        ArrayList<Integer> posList = new ArrayList<>();
-                        for (String word : wordList) {
-                            if (inField.getText().equals(word)) {
-                                count++;
-                                posList.add(wordList.indexOf(word));
-                            }
-                        }
                         textLabel.setText("\"" + inField.getText() + "\" occurs " + count + " time(s) in the list. At position(s): " + Arrays.toString(posList.toArray()));
                     }
                 }
@@ -159,7 +160,6 @@ class inValidation extends JTextField {
 
     public boolean validateInput(JLabel label) {
         try{
-            // TODO Handling for ensuring words are the structure as required. May only letters, numbers, and hyphens (-) and must begin with a letter
             String regEx = "^[a-zA-Z][a-zA-Z1-9-]*";
             if (this.getText().matches(regEx)) {
                 return true;
