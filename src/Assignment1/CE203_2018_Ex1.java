@@ -13,14 +13,14 @@ import java.awt.event.MouseEvent;
 
 public class CE203_2018_Ex1 {
     public static void main(String[] args) {
-        JFrame mainFrame = new JFrame("CE203 Assignment 1 Ex1, submitted by: 1703055");
+        JFrame mainFrame = new JFrame("CE203 Assignment 1 Exercise 1, submitted by: 1703055");
         mainFrame.setSize(750, 300);
         mainFrame.setLayout(new BorderLayout());
 
         //Text setup with panels initialised and JLabel added to panel
         JPanel innerPanel = new JPanel();
         JPanel textPanel = new JPanel();
-        JLabel textLabel = new JLabel("CE203 Assignment 1, submitted by: 1703055");
+        JLabel textLabel = new JLabel("CE203 Assignment 1 Exercise 1, submitted by: 1703055");
         textLabel.setFont(new Font("Monaco", Font.BOLD, 25));
         textLabel.setForeground(Color.BLUE);
         textPanel.setLayout(new GridBagLayout());  // Inorder to get the text positioned center to the frame - both vertically and horizontally

@@ -16,7 +16,7 @@ import java.util.LinkedList;
 
 public class CE203_2018_Ex2 {
     public static void main(String[] args) {
-        JFrame mainFrame = new JFrame("CE203 Assignment 1 Ex2, submitted by: 1703055");  // mainFrame created as basis of UI which houses all other panels and elements within
+        JFrame mainFrame = new JFrame("CE203 Assignment 1 Exercise 2, submitted by: 1703055");  // mainFrame created as basis of UI which houses all other panels and elements within
         mainFrame.setSize(1400, 400);
         mainFrame.setLayout(new BorderLayout());
 
@@ -35,7 +35,7 @@ public class CE203_2018_Ex2 {
         //Text output panel setup with a Jlabel within, to show the relevant outputs with button presses
         JPanel innerPanel = new JPanel();
         JPanel textPanel = new JPanel();
-        JLabel textLabel = new JLabel("Welcome to the word list store!   CE203 Ex2, submitted by: 1703055");
+        JLabel textLabel = new JLabel("Welcome to the word list store!   CE203 Assignment 1 Exercise 2, submitted by: 1703055");
         textLabel.setFont(new Font("Monaco", Font.BOLD, 25));
         textPanel.setLayout(new GridBagLayout());  // Inorder to get the text positioned center to the frame - both vertically and horizontally
         textPanel.add(innerPanel);
@@ -89,7 +89,7 @@ public class CE203_2018_Ex2 {
                         textLabel.setText("No words were found ending in \"" + searchLetter + "\"!");
                     }
                     else {
-                        textLabel.setText(tempList.size() + " Words found ending in \"" + searchLetter + "\" : " + Arrays.toString(tempList.toArray()));
+                        textLabel.setText(tempList.size() + " Word() found ending in \"" + searchLetter + "\" : " + Arrays.toString(tempList.toArray()));
                     }
                 }
 
@@ -186,7 +186,7 @@ public class CE203_2018_Ex2 {
                 // Full clearing of the linkedList and an appropriate message displayed to user
                 textLabel.setText("The list has now been cleared!");
                 wordList.clear();
-                textLabel.setText("");
+                inField.setText("");
             }
 
         });
