@@ -1,8 +1,9 @@
-//You are supposed to add your comments
+// Commented version of program - Submitted bt 1703055
 
 import java.util.*;
 
-public class TicTacToe {
+public class
+TicTacToe {
 
     public static void main(String[] args) {
         AIplayer AI= new AIplayer(); 
@@ -10,7 +11,7 @@ public class TicTacToe {
         Point p = new Point(0, 0);
         Random rand = new Random();
         
-        b.displayBoard();
+        b.displayBoard();  //   Calls the method which draws the current board to the console
 
         System.out.println("Who makes first move? (1)Computer (2)User: ");
         int choice = b.scan.nextInt();
