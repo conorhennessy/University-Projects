@@ -6,45 +6,45 @@ public class
 TicTacToe {
 
     public static void main(String[] args) {
-        AIplayer AI= new AIplayer(); 
+        AIplayer AI = new AIplayer();
         Board b = new Board();
         Point p = new Point(0, 0);
         Random rand = new Random();
-        
+
         b.displayBoard();  //   Calls the method which draws the current board to the console
 
         System.out.println("Who makes first move? (1)Computer (2)User: ");
         int choice = b.scan.nextInt();
-        if(choice == 1){
-            AI.callMinimax(0, 1, b);
-	    for (PointsAndScores pas : AI.rootsChildrenScores) {
-	        System.out.println("Point: " + pas.point + " Score: " + pas.score);
-	    }
-            b.placeAMove(AI.returnBestMove(), 1); 
-            b.displayBoard();
-        }
-        
-        while (!b.isGameOver()) {
-            System.out.println("Your move: line (1, 2, or 3) column (1, 2, or 3)");
-            Point userMove = new Point(b.scan.nextInt()-1, b.scan.nextInt()-1);
-	    while (b.getState(userMove)!=0) {
-	    	System.out.println("Invalid move. Make your move again: ");
-	    	userMove.x=b.scan.nextInt()-1;
-	    	userMove.y=b.scan.nextInt()-1;
-	    }
-	    b.placeAMove(userMove, 2);  
-            b.displayBoard();
-            
-            if (b.isGameOver()) {
-                break;
-            } 
-            
+        if (choice == 1) {
             AI.callMinimax(0, 1, b);
             for (PointsAndScores pas : AI.rootsChildrenScores) {
                 System.out.println("Point: " + pas.point + " Score: " + pas.score);
             }
-            b.placeAMove(AI.returnBestMove(), 1); 
+            b.placeAMove(AI.returnBestMove(), 1);
             b.displayBoard();
+        }
+
+        while (!b.isGameOver()) {
+            System.out.println("Your move: line (1, 2, or 3) column (1, 2, or 3)");
+            Point userMove = new Point(b.scan.nextInt() - 1, b.scan.nextInt() - 1);
+            while (b.getState(userMove) != 0) {  // Error handling: while their selection is a point on the board that is already full, ask them for their move again.
+                System.out.println("Invalid move. Make your move again: ");
+                userMove.x = b.scan.nextInt() - 1;
+                userMove.y = b.scan.nextInt() - 1;
+            }
+            b.placeAMove(userMove, 2);  //   Calls the method which places users move (which is a point obj.) on the naughts and crosses board
+            b.displayBoard();  //  As a new piece has been placed on the board, show board to console
+
+            if (b.isGameOver()) {
+                break;
+            }
+
+            AI.callMinimax(0, 1, b);
+            for (PointsAndScores pas : AI.rootsChildrenScores) {
+                System.out.println("Point: " + pas.point + " Score: " + pas.score);
+            }
+            b.placeAMove(AI.returnBestMove(), 1);
+            b.displayBoard();  //  As a new piece has been placed on the board, show board to console
         }
         if (b.hasXWon()) {
             System.out.println("Unfortunately, you lost!");
@@ -53,5 +53,5 @@ TicTacToe {
         } else {
             System.out.println("It's a draw!");
         }
-    }    
+    }
 }
