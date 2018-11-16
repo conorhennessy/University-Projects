@@ -25,7 +25,7 @@ TicTacToe {
         }
         
         while (!b.isGameOver()) {
-            System.out.println("Your move: line (1, 2, or 3) colunm (1, 2, or 3)");
+            System.out.println("Your move: line (1, 2, or 3) column (1, 2, or 3)");
             Point userMove = new Point(b.scan.nextInt()-1, b.scan.nextInt()-1);
 	    while (b.getState(userMove)!=0) {
 	    	System.out.println("Invalid move. Make your move again: ");
