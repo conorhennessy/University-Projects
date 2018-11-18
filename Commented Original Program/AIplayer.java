@@ -1,11 +1,11 @@
 // Commented version of program - Submitted by 1703055
 
-import java.util.*;
+import java.util.*;  // Import of the package (classes) required. Here importing all classes from the util folder.  where util if the utility classes
 
-class AIplayer { 
-    List<Point> availablePoints;
-    List<PointsAndScores> rootsChildrenScores;
-    Board b = new Board();
+class AIplayer {  //  Star of the class declaration stating the name of the object as AIplayer
+    List<Point> availablePoints; // Initiating the availablePoints List which only take the point object type - used for
+    List<PointsAndScores> rootsChildrenScores;  //
+    Board b = new Board(); //
     
     public AIplayer() {
     }
