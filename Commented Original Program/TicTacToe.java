@@ -15,7 +15,7 @@ TicTacToe {
 
         System.out.println("Who makes first move? (1)Computer (2)User: ");
         // User input is taken and if user selects computer first, AI takes a turn
-        // This consists of AI picks a place by calling callMinimax method, the output all points and scores potential places
+        // This consists of AI picks a place by calling callMinimax method which runs the minimax function, then output all points and scores potential places
         // Then place the move in the best position by calling placeAMove method (so updates Board array) and then print the board out
         int choice = b.scan.nextInt();
         if (choice == 1) {
@@ -51,7 +51,7 @@ TicTacToe {
 
 
             /// AI'S TURN
-            // This consists of AI picking a place by calling callMinimax method, then output all points and scores potential places by looping through
+            // This consists of AI picking a place by calling callMinimax method which runs the minimax function, then output all points and scores potential places by looping through
             // Then place the move in the best position by calling placeAMove method (so updates Board array) and then print the board out
             AI.callMinimax(0, 1, b);
             for (PointsAndScores pas : AI.rootsChildrenScores) {

@@ -50,13 +50,15 @@ class Board {
                                     // Each board point will take one of 3 values - 0 for no placement, 1 for AI placement & 2 for User placement. Placement being if a player has placed their piece in a board place
                                     // Please see to displayMethod() method for how this assignment of values is converted to a user friendly view with naughts and crosses for output
 
-    public Board() {
+    public Board() {  //TODO note an empty class?
     }
 
     /// Method to see if either AI or User has won  OR  if there are no longer any more points to place.  Used to understand the end state of the game and if the program has reached it.
+    //  Return: true if AI or User has won  OR  if there are no longer any more points available to place. Else false
     public boolean isGameOver() { return (hasXWon() || hasOWon() || getAvailablePoints().isEmpty()); }
 
-    /// Method to check if the X player (AI) has won by completing any of the lines across the board
+    /// Method to check if the X player (AI) has won by completing any of the lines across the board; may it be diagonal, horizontal or vertical
+    /// Returns a Boolean : True if AI player has won by completing a full line in any direction. Else False
     public boolean hasXWon() {
         //If conditional to check the two diagonals of the board, to see if AI player has won
         if ((board[0][0] == board[1][1] && board[0][0] == board[2][2] && board[0][0] == 1) || (board[0][2] == board[1][1] && board[0][2] == board[2][0] && board[0][2] == 1)) {
@@ -72,6 +74,7 @@ class Board {
     }
 
     /// Method to check if the O player (User) has won across the board. The same procedure of checking as the hasXWon() method but now checking for array values of two to see if the user has won. For commenting sake, I will also outline the systems workings here
+    /// Returns a Boolean : True if user player has won by completing a full line in any direction. Else False.
     public boolean hasOWon() {
         // Statement to check the two diagonals of the board, to see if User player has won
         if ((board[0][0] == board[1][1] && board[0][0] == board[2][2] && board[0][0] == 2) || (board[0][2] == board[1][1] && board[0][2] == board[2][0] && board[0][2] == 2)) {
@@ -86,7 +89,8 @@ class Board {
         return false; // Otherwise the method returns false as none of the lines (diagonal, row or column) are complete with 2 values for O (User) to have won
     }
 
-    /// Method which creates an array of all points which are available for a move to placed at
+    /// Method which creates an array of all points which are available for a move to placed at. If a place has a condition of Zero (0) the point is added to this list.  Used to update the availablePoints list after point placement by player
+    /// Returns a List<Point>:  The updated availablePoints List
     public List<Point> getAvailablePoints() {
         availablePoints = new ArrayList<>();  // Create an array list, which is used to store all points on the board which are available to place on.
         for (int i = 0; i < 3; ++i) {
@@ -100,12 +104,15 @@ class Board {
     }
 
     /// Method which returns what the state of a particular point of the board is.  Will return 1,2,0 dependant on what positions are placed
+    /// Returns an int: a value showing the state of the board point at x,y. 1 for an X placement for AI, 2 for an ) placement for User or 0 for a blank point (one that has not been placed on)
     public int getState(Point point){ return board[point.x][point.y]; }
 
-    /// Method which updates the multidimensional board array with the players move (a value of 1 or 2 ) in point position x,y
+    /// Method which updates the multidimensional board array in position [x][y] in the array with the players move (a value of 1 or 2 )
+    /// No Return as void: Updates the board list itself, often called before other methods as it is updating the board
     public void placeAMove(Point point, int player) { board[point.x][point.y] = player; }
 
     /// Method which draws the current board to the console by iterating through the board array, with current User and AI moves shown
+    /// No return as void: Simply prints the board to console, imagine it as a fancy toString() method for the board array
     public void displayBoard() {
         System.out.println();
 
