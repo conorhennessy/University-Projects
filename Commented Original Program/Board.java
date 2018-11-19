@@ -64,7 +64,7 @@ class Board {
         if ((board[0][0] == board[1][1] && board[0][0] == board[2][2] && board[0][0] == 1) || (board[0][2] == board[1][1] && board[0][2] == board[2][0] && board[0][2] == 1)) {
             return true;  // If conditional to check the diagonals. If the all the values in the diagonal lines in the array are equal to 1, AI has won so returns true
         }
-        for (int i = 0; i < 3; ++i) {  // Loop to check rows and columns. To see if AI has won in the rows or columns
+        for (int i = 0; i < 3; ++i) {  // Loop to check columns OR rows. To see if AI has won in the rows or columns
             if (((board[i][0] == board[i][1] && board[i][0] == board[i][2] && board[i][0] == 1)
                     || (board[0][i] == board[1][i] && board[0][i] == board[2][i] && board[0][i] == 1))) {
                 return true;  // If the all the values in row or column i are equal to 1, AI has won so returns true
@@ -80,7 +80,7 @@ class Board {
         if ((board[0][0] == board[1][1] && board[0][0] == board[2][2] && board[0][0] == 2) || (board[0][2] == board[1][1] && board[0][2] == board[2][0] && board[0][2] == 2)) {
              return true; // If conditional to check the diagonals. If the all the values in the diagonal lines in the array are equal to 2, User has won so returns true
         }
-        for (int i = 0; i < 3; ++i) { // Loop to check rows and columns. To see if User has won in the rows or columns
+        for (int i = 0; i < 3; ++i) { // Loop to check columns OR rows. To see if User has won in the rows or columns
             if ((board[i][0] == board[i][1] && board[i][0] == board[i][2] && board[i][0] == 2)
                     || (board[0][i] == board[1][i] && board[0][i] == board[2][i] && board[0][i] == 2)) {
                 return true; // If the all the values in row or column i are equal to 2, User has won so returns true

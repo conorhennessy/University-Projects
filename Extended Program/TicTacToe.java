@@ -15,7 +15,7 @@ public class TicTacToe {
         System.out.println("Who makes first move? (1)Computer (2)User: ");
         int choice = b.scan.nextInt();
         if(choice == 1){
-            AI.callMinimax(0, 1, b);
+            AI.callMinimax(0, 1, b, 5);
 	    for (PointsAndScores pas : AI.rootsChildrenScores) {
 	        System.out.println("Point: " + pas.point + " Score: " + pas.score);
 	    }
@@ -24,7 +24,7 @@ public class TicTacToe {
         }
         
         while (!b.isGameOver()) {
-            System.out.println("Your move: line (1, 2, or 3) colunm (1, 2, or 3)");
+            System.out.println("Your move: line (1, 2, 3, 4 or 5) column (1, 2, 3, 4 or 5)");
             Point userMove = new Point(b.scan.nextInt()-1, b.scan.nextInt()-1);
 	    while (b.getState(userMove)!=0) {
 	    	System.out.println("Invalid move. Make your move again: ");
@@ -38,7 +38,7 @@ public class TicTacToe {
                 break;
             } 
             
-            AI.callMinimax(0, 1, b);
+            AI.callMinimax(0, 1, b, 5);
             for (PointsAndScores pas : AI.rootsChildrenScores) {
                 System.out.println("Point: " + pas.point + " Score: " + pas.score);
             }
@@ -46,9 +46,9 @@ public class TicTacToe {
             b.displayBoard();
         }
         if (b.hasXWon()) {
-            System.out.println("Unfortunately, you lost!");
+            System.out.println("Unfortunately, you lost!     :D - \"Hehehe\" said the AI.");
         } else if (b.hasOWon()) {
-            System.out.println("You win!");
+            System.out.println("You win!  :( ");
         } else {
             System.out.println("It's a draw!");
         }
