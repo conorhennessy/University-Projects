@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d1d8b52b-261b-409a-9c02-2d8e144957f8" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change beforePath="$PROJECT_DIR$/Commented Original Program/AIplayer.java" afterPath="$PROJECT_DIR$/Commented Original Program/AIplayer.java" />
-    </list>
+    <list default="true" id="d1d8b52b-261b-409a-9c02-2d8e144957f8" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -31,8 +28,8 @@
       <file leaf-file-name="AIplayer.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Commented Original Program/AIplayer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="21">
-              <caret line="58" column="0" lean-forward="true" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+            <state relative-caret-position="221">
+              <caret line="82" column="51" lean-forward="true" selection-start-line="82" selection-start-column="51" selection-end-line="82" selection-end-column="51" />
               <folding />
             </state>
           </provider>
@@ -285,12 +282,12 @@
       <workItem from="1542396124692" duration="4402000" />
       <workItem from="1542468706240" duration="2430000" />
       <workItem from="1542556191637" duration="11622000" />
-      <workItem from="1542580875240" duration="4982000" />
+      <workItem from="1542580875240" duration="5067000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35483000" />
+    <option name="totallyTimeSpent" value="35568000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -511,8 +508,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Commented Original Program/AIplayer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="58" column="0" lean-forward="true" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+        <state relative-caret-position="221">
+          <caret line="82" column="51" lean-forward="true" selection-start-line="82" selection-start-column="51" selection-end-line="82" selection-end-column="51" />
           <folding />
         </state>
       </provider>
