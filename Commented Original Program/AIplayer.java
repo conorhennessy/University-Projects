@@ -62,20 +62,24 @@ class AIplayer {  //  Star of the class declaration stating the name of the obje
     ///                  an int = denoting who's turn it is currently placing. 1 if it's the AI turn OR 2 if it's the Users current turn
     ///                  a Board obj. = the whole board object is taken by the method and so it has access to the available points list and the board array itself
     /// No Return as void: simply creates an array list for the root's children scores and then calls the minimax function, which does return the max or min of a particular move depending on who's go it is
-    public void callMinimax(int depth, int turn, Board b){  // Method declared as a public access called call minimax which takes a number of arguments (outlined above) in order TODO what is this acc doing?
+    public void callMinimax(int depth, int turn, Board b){  // Method declared as a public access called call minimax which takes a number of arguments (outlined above) of depth, turn and the board object
         rootsChildrenScores = new ArrayList<>();  //Initiating an Array List which will be used to store the scores TODO what is this storing :(
-        minimax(depth, turn, b);  // Call the minimax method in order to calculate and find the
+        minimax(depth, turn, b);  // Call the minimax method in order to calculate and find the  TODO
     }
-    
-    public int minimax(int depth, int turn, Board b) {
-        if (b.hasXWon()) return 1;
-        if (b.hasOWon()) return -1;
-        List<Point> pointsAvailable = b.getAvailablePoints();
-        if (pointsAvailable.isEmpty()) return 0; 
 
-        List<Integer> scores = new ArrayList<>(); 
+    /// A method to run the minimax search algorithm TODO
+    /// Arguments taken: an integer for the depth = TODO actually explain what this depth var is doing
+    ///                  an int = denoting who's turn it is currently placing. 1 if it's the AI turn OR 2 if it's the Users current turn
+    ///                  a Board obj. = the whole board object is taken by the method and so it has access to the available points list and the board array itself
+    public int minimax(int depth, int turn, Board b) {  // Method declared as a public method called minimax which takes a number of arguments (outlined above here) in o
+        if (b.hasXWon()) return 1;  // Conditional if the AI player return 1 as the AI has won  TODO
+        if (b.hasOWon()) return -1;  // Conditional if where if the User player has won, return -1  TODO
+        List<Point> pointsAvailable = b.getAvailablePoints();  // Call the getAvailablepoints() method in order to find all the points which a move can still be placed on. The result of this method is mapped to the pointsAvailable Lists which takes Point objects
+        if (pointsAvailable.isEmpty()) return 0;   // Finally if there are no points available the pointsAvailable list is empty and so return 0; as TODO
 
-        for (int i = 0; i < pointsAvailable.size(); ++i) {
+        List<Integer> scores = new ArrayList<>();  // Initiating an ArrayList used to hold the scores TODO
+
+        for (int i = 0; i < pointsAvailable.size(); ++i) {  // Simple for loop. Initialising with an int value of 0 for i which will increment up by one each time it loops. This for loop will stop running when i reaches the size of the pointsAvsilable List
             Point point = pointsAvailable.get(i);  
 
             if (turn == 1) { 
