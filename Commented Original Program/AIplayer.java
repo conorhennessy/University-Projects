@@ -10,8 +10,8 @@ class AIplayer {  //  Star of the class declaration stating the name of the obje
     public AIplayer() { //TODO note an empty class?
     }
 
-    /// Method to find the best value move in TODO all this method
-    /// Returns a list:
+    /// Method to find the best value move in all the scores stored in the rootsChildrenScores list. Which is a list of all the root node scores calculated in the minimax method
+    /// Returns a Point from the list at position i
     public Point returnBestMove() {
         int MAX = -100000;
         int best = -1;
@@ -64,37 +64,38 @@ class AIplayer {  //  Star of the class declaration stating the name of the obje
     /// No Return as void: simply creates an array list for the root's children scores and then calls the minimax function, which does return the max or min of a particular move depending on who's go it is
     public void callMinimax(int depth, int turn, Board b){  // Method declared as a public access called call minimax which takes a number of arguments (outlined above) of depth, turn and the board object
         rootsChildrenScores = new ArrayList<>();  //Initiating an Array List which will be used to store the scores TODO what is this storing :(
-        minimax(depth, turn, b);  // Call the minimax method in order to calculate and find the  TODO
+        minimax(depth, turn, b);  // Call the minimax method in order to start the iterative  search method  to evaluate many nodes.
     }
 
-    /// A method to run the minimax search algorithm TODO
+    /// A method to run the minimax search algorithm
     /// Arguments taken: an integer for the depth = TODO actually explain what this depth var is doing
     ///                  an int = denoting who's turn it is currently placing. 1 if it's the AI turn OR 2 if it's the Users current turn
     ///                  a Board obj. = the whole board object is taken by the method and so it has access to the available points list and the board array itself
     public int minimax(int depth, int turn, Board b) {  // Method declared as a public method called minimax which takes a number of arguments (outlined above here) in o
-        if (b.hasXWon()) return 1;  // Conditional if the AI player return 1 as the AI has won  TODO
-        if (b.hasOWon()) return -1;  // Conditional if where if the User player has won, return -1  TODO
+        if (b.hasXWon()) return 1;  // Conditional checking if the AI player has won, by calling the hasXWon method which checks if any of the lines are completely filled with Xs. Returns 1 as the AI has won, and so it is the most vavorable value, so high 1
+        if (b.hasOWon()) return -1;  // Conditional if where if the User player has won, by calling the hasOWon method which checks if any of the lines are completely filled with OS. Returns -1 as the User would win with this move, which is the least favorable and so it returns a negative 1
         List<Point> pointsAvailable = b.getAvailablePoints();  // Call the getAvailablepoints() method in order to find all the points which a move can still be placed on. The result of this method is mapped to the pointsAvailable Lists which takes Point objects
-        if (pointsAvailable.isEmpty()) return 0;   // Finally if there are no points available the pointsAvailable list is empty and so return 0; as TODO
+        if (pointsAvailable.isEmpty()) return 0;   // Finally if there are no points available the pointsAvailable list is empty and so return 0; as there are no available moves.  This value of zero is not good or bad, it shows that this state (or move) isnt of interest as it would lead to a draw.
 
-        List<Integer> scores = new ArrayList<>();  // Initiating an ArrayList used to hold the scores TODO
+        List<Integer> scores = new ArrayList<>();  // Initiating an ArrayList used to hold the scores
 
-        for (int i = 0; i < pointsAvailable.size(); ++i) {  // Simple for loop. Initialising with an int value of 0 for i which will increment up by one each time it loops. This for loop will stop running when i reaches the size of the pointsAvsilable List
-            Point point = pointsAvailable.get(i);  
+        for (int i = 0; i < pointsAvailable.size(); ++i) {  // Simple for loop. Looping throgh all the empt spaces in the board.  Initialising with an int value of 0 for i which will increment up by one each time it loops. This for loop will stop running when i reaches the size of the pointsAvsilable List
+            Point point = pointsAvailable.get(i);  // Initiating a point variable of type Point to hold a single point. By getting the point at index i of the pointsAvailable List.  This is used as the position to consider placing a move at
 
-            if (turn == 1) { 
-                b.placeAMove(point, 1); 
-                int currentScore = minimax(depth + 1, 2, b);  
-                scores.add(currentScore); 
-                if (depth == 0) 
-                    rootsChildrenScores.add(new PointsAndScores(currentScore, point));
+            if (turn == 1) {  // If it is the AI's turn, so continue the mini max search method testing what the options are for the AI turn
+                b.placeAMove(point, 1);  // Now place a piece temporary move on this point of the board. As player 1 (AI) a X will be placed at the x & y of the point supplied
+                int currentScore = minimax(depth + 1, 2, b);  // Here evaluate what the score of the board is with selecting this position to make a move.  This is done by calling the minimax method again as this is a recursive function to loop  through until one of the return criteria is met.   Where a value will be returned evaluating the move
+                scores.add(currentScore);   // TODO
+                if (depth == 0)  // With recursion of the minimax function , it will reach a point where the depth is 0 and so recursion is finished for this root node. where the depth is originaly passed from callMinimax
+                    rootsChildrenScores.add(new PointsAndScores(currentScore, point));  // So the current score for the point is added to the roots scores list.
                 
-            } else if (turn == 2) {
-                b.placeAMove(point, 2); 
-                scores.add(minimax(depth + 1, 1, b));  
+            } else if (turn == 2) {  // Else if it is the Users current turn, so with the mini max search method we want to see what is available as an option for the player
+                b.placeAMove(point, 2);  // Places a temporary move for the 'user' at point position
+                scores.add(minimax(depth + 1, 1, b));  // Here evaluate what the score of the board is with selecting this position to make a move.  This is done by calling the minimax method again as this is a recursive function to loop  through until one of the return criteria is met.   Where a value will be returned evaluating the move
             }
-            b.placeAMove(point, 0); 
+
+            b.placeAMove(point, 0);  // After all the point that has been selected for testing is 'reset' by placing the blank " . " move in the position
         }
-        return turn == 1 ? returnMax(scores) : returnMin(scores);
+        return turn == 1 ? returnMax(scores) : returnMin(scores);  // Following the principle of the minimax search method if it is the AIs go return this boards max score here from the current node. Found by calling the returnMax() method.  Else the min score is returned
     }    
 }

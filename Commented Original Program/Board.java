@@ -76,7 +76,7 @@ class Board {
     /// Method to check if the O player (User) has won across the board. The same procedure of checking as the hasXWon() method but now checking for array values of two to see if the user has won. For commenting sake, I will also outline the systems workings here
     /// Returns a Boolean : True if user player has won by completing a full line in any direction. Else False.
     public boolean hasOWon() {
-        // Statement to check the two diagonals of the board, to see if User player has won
+        // The following checks the two diagonals of the board, to see if User player has won
         if ((board[0][0] == board[1][1] && board[0][0] == board[2][2] && board[0][0] == 2) || (board[0][2] == board[1][1] && board[0][2] == board[2][0] && board[0][2] == 2)) {
              return true; // If conditional to check the diagonals. If the all the values in the diagonal lines in the array are equal to 2, User has won so returns true
         }

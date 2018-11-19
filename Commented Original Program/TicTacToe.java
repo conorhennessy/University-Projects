@@ -57,7 +57,7 @@ TicTacToe {
             for (PointsAndScores pas : AI.rootsChildrenScores) {
                 System.out.println("Point: " + pas.point + " Score: " + pas.score);
             }
-            // Place the AI's move in the best position by calling placeAMove method (so updates Board array) and then print the board out again
+            // Place the AI's move in the best position by calling placeAMove method (so updates Board array) which takes the argument which uses the returnBestMove method and then print the board out again
             b.placeAMove(AI.returnBestMove(), 1);
             b.displayBoard();
         }
