@@ -1,4 +1,4 @@
-//You are supposed to add your comments
+// Extended version of program - Submitted by 1703055
 
 import java.util.*;
 
@@ -39,9 +39,9 @@ public class TicTacToe {
             } 
             
             AI.callMinimax(0, 1, b, 5);  // Here the depth is also limited to a depth level of 5
-            /* for (PointsAndScores pas : AI.rootsChildrenScores) {
+            for (PointsAndScores pas : AI.rootsChildrenScores) {
                 System.out.println("Point: " + pas.point + " Score: " + pas.score);
-            } */  // Commented out do that the search function runs quicker as without these outputs
+            }   // Commented out do that the search function runs quicker as without these outputs
             b.placeAMove(AI.returnBestMove(), 1); 
             b.displayBoard();
         }

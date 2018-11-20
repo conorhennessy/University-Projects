@@ -67,7 +67,7 @@ class AIplayer {  //  Star of the class declaration stating the name of the obje
         minimax(depth, turn, b);  // Call the minimax method in order to start the iterative  search method  to evaluate many nodes.
     }
 
-    /// A method to run the minimax search algorithm
+    /// A method to run the minimax search algorithm, an algorithm which creates a game tree to evaluate all the nodes at each depths based on the end game outcomes.
     /// Arguments taken: an integer for the depth = initially this starts as 0 and with each recursion of the function it increments up
     ///                  an int = denoting who's turn it is currently placing. 1 if it's the AI turn OR 2 if it's the Users current turn
     ///                  a Board obj. = the whole board object is taken by the method and so it has access to the available points list and the board array itself
@@ -96,6 +96,6 @@ class AIplayer {  //  Star of the class declaration stating the name of the obje
 
             b.placeAMove(point, 0);  // After all the point that has been selected for testing is 'reset' by placing the blank " . " move in the position
         }
-        return turn == 1 ? returnMax(scores) : returnMin(scores);  // Following the principle of the minimax search method if it is the AIs go return this boards max score here from the current node. Found by calling the returnMax() method.  Else the min score is returned
+        return turn == 1 ? returnMax(scores) : returnMin(scores);  // Following the principle of the minimax search method if it is the AIs go return this boards max score here from the current depth level to be passed on. Found by calling the returnMax() method.  Else the min score is returned
     }    
 }
