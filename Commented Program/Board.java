@@ -50,7 +50,7 @@ class Board {
                                     // Each board point will take one of 3 values - 0 for no placement, 1 for AI placement & 2 for User placement. Placement being if a player has placed their piece in a board place
                                     // Please see to displayMethod() method for how this assignment of values is converted to a user friendly view with naughts and crosses for output
 
-    public Board() {  //TODO note an empty class?
+    public Board() {  // An empty class with no constructor, no constructor is necessary it just has lots of methods
     }
 
     /// Method to see if either AI or User has won  OR  if there are no longer any more points to place.  Used to understand the end state of the game and if the program has reached it.

@@ -29,7 +29,7 @@ class PointsAndScores {
 class Board { 
     List<Point> availablePoints;
     Scanner scan = new Scanner(System.in);
-    int[][] board = new int[5][5];
+    int[][] board = new int[5][5];  // here extended the array to be 5 by 5
 
     public Board() {
     }
@@ -38,11 +38,12 @@ class Board {
         return (hasXWon() || hasOWon() || getAvailablePoints().isEmpty());
     }
 
+
     public boolean hasXWon() {
         if ((board[0][0] == board[1][1] && board[0][0] == board[2][2] && board[0][0] == board[3][3] &&  board[0][0] == board[4][4] && board[0][0] == 1) || (board[0][4] == board[1][3] && board[0][4] == board[2][2] && board[0][4] == board[3][1] && board[0][4] == board[4][0] && board[4][0] == 1)) {
             return true;
         }
-        for (int i = 0; i < 3; ++i) {
+        for (int i = 0; i < 5; ++i) {
             if ((board[i][0] == board[i][1] && board[i][0] == board[i][2] && board[i][0] == board[i][3] && board[i][0] == board[i][4] && board[i][0] == 1)
                     || (board[0][i] == board[1][i] && board[0][i] == board[2][i] && board[0][i] == board[3][i] && board[0][i] == board[4][i] && board[0][i] == 1)) {
                 return true;
@@ -55,7 +56,7 @@ class Board {
         if ((board[0][0] == board[1][1] && board[0][0] == board[2][2] && board[0][0] == board[3][3] &&  board[0][0] == board[4][4] && board[0][0] == 2) || (board[0][4] == board[1][3] && board[0][4] == board[2][2] && board[0][4] == board[3][1] && board[0][4] == board[4][0] && board[4][0] == 2)) {
              return true;
         }
-        for (int i = 0; i < 3; ++i) {
+        for (int i = 0; i < 5; ++i) {
             if ((board[i][0] == board[i][1] && board[i][0] == board[i][2] && board[i][0] == board[i][3] && board[i][0] == board[i][4] && board[i][0] == 2)
                     || (board[0][i] == board[1][i] && board[0][i] == board[2][i] && board[0][i] == board[3][i] && board[0][i] == board[4][i] && board[0][i] == 2)) {
                 return true;

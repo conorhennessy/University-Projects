@@ -15,7 +15,7 @@ public class TicTacToe {
         System.out.println("Who makes first move? (1)Computer (2)User: ");
         int choice = b.scan.nextInt();
         if(choice == 1){
-            AI.callMinimax(0, 1, b, 5);
+            AI.callMinimax(0, 1, b, 4);
 	    for (PointsAndScores pas : AI.rootsChildrenScores) {
 	        System.out.println("Point: " + pas.point + " Score: " + pas.score);
 	    }
@@ -38,17 +38,17 @@ public class TicTacToe {
                 break;
             } 
             
-            AI.callMinimax(0, 1, b, 5);
-            for (PointsAndScores pas : AI.rootsChildrenScores) {
+            AI.callMinimax(0, 1, b, 5);  // Here the depth is also limited to a depth level of 5
+            /* for (PointsAndScores pas : AI.rootsChildrenScores) {
                 System.out.println("Point: " + pas.point + " Score: " + pas.score);
-            }
+            } */
             b.placeAMove(AI.returnBestMove(), 1); 
             b.displayBoard();
         }
         if (b.hasXWon()) {
-            System.out.println("Unfortunately, you lost!     :D - \"Hehehe\" said the AI.");
+            System.out.println("Unfortunately, you lost!   :D");
         } else if (b.hasOWon()) {
-            System.out.println("You win!  :( ");
+            System.out.println("You win!   :(");
         } else {
             System.out.println("It's a draw!");
         }

@@ -6,14 +6,14 @@ public class
 TicTacToe {
 
     public static void main(String[] args) {
-        AIplayer AI = new AIplayer();  //TODO talk about the initiation of these vars once you know about the AI code more
+        AIplayer AI = new AIplayer();  //Creation of the AIplayer object. Vital in order to use these methods.
         Board b = new Board();
         Point p = new Point(0, 0);
         Random rand = new Random();
 
         b.displayBoard();  //   Calls the method which draws the current board to the console
 
-        System.out.println("Who makes first move? (1)Computer (2)User: ");
+        System.out.println("Who makes first move? (1)Computer or (2)User: ");
         // User input is taken and if user selects computer first, AI takes a turn
         // This consists of AI picks a place by calling callMinimax method which runs the minimax function, then output all points and scores potential places
         // Then place the move in the best position by calling placeAMove method (so updates Board array) and then print the board out
@@ -21,7 +21,7 @@ TicTacToe {
         if (choice == 1) {
             AI.callMinimax(0, 1, b);
             for (PointsAndScores pas : AI.rootsChildrenScores) {
-                System.out.println("Point: " + pas.point + " Score: " + pas.score);
+                System.out.println("Point: " + pas.point + " Score: " + pas.score);  // For mainly debugging purposes the points individual scores are outputted
             }
 
             b.placeAMove(AI.returnBestMove(), 1);
