@@ -1,4 +1,4 @@
-//You are supposed to add your comments
+// Extended version of program - Submitted by 1703055
 
 import java.util.*;
 
@@ -79,7 +79,7 @@ class AIplayer {
                 if (b.board[j][i] == 1) {   //Does row also contain an X?  If so we should be interested in this row and so has a positive impact on the heuristic in the end
                     ++rowNumberOfX;
                 }
-                if (b.board[j][i] == 2) {  //Does row also contain an O?  If so we should tend away from this row and so has a positive negative on the heuristic in the end
+                if (b.board[j][i] == 2) {   //Does row also contain an O?  If so we should tend away from this row and so has a positive negative on the heuristic in the end
                     ++rowNumberOfO;
                 }
 
@@ -98,16 +98,13 @@ class AIplayer {
 
                 else {  //Calculate a heuristic value for this i row and column
                     //Add to the heuristic value by using the following formula which is based on a score of the number of crosses in all the cols being good and all the
-                    heuristicValue += rowNumberOfX - rowNumberOfO;
-                    heuristicValue += colNumberOfO - colNumberOfO;
+                    heuristicValue += Math.pow(10, rowNumberOfX)- Math.pow(10, rowNumberOfO);
+                    heuristicValue += Math.pow(10, colNumberOfX)- Math.pow(10, colNumberOfO);
                 }
 
             }
 
-            // If i row or i col has 3 naughts and a single cross now, the AI should be really interested in this move
-            if ( (rowNumberOfO == 3  && rowNumberOfX == 1) || (colNumberOfO == 3 && colNumberOfX == 1) ) {
-                heuristicValue = 50;
-            }
+
 
             // Then check the two diagonals in the board, how are the doing with the criteria? Influence the heuristic as necessary
             if (b.board[i][i] == 1){
@@ -117,10 +114,15 @@ class AIplayer {
                 heuristicValue += diaNumberOfX;
             }
 
+            // If i row or i col has 3 naughts and a single cross now, the AI should be really interested in this move as it wants to block this directional move
+            if ( (rowNumberOfO == 3  && rowNumberOfX == 1) || (colNumberOfO == 3 && colNumberOfX == 1) ) {
+                heuristicValue = 1500;
+            }
+
         }
 
         if (b.hasXWon()){
-            heuristicValue = 1000;
+            heuristicValue = 10000;  // Heuristics overall evaluates non end game positions.  However is a win condition arises, make a massive heuristic value!
         }
 
         return heuristicValue;
