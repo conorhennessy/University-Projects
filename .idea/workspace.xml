@@ -2,13 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d21a1333-d843-41d9-8619-3e11b816abfc" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab 5/Lab 5 Submission/Lab 5 Code/Exercise2.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lab 5/Lab 5 Submission/Lab 5 Code/Exercise2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab 5/Lab 5 Submission/Lab 5 Code/Exercise3.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lab 5/Lab 5 Submission/Lab 5 Code/Exercise3.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab 6/Lab 6 Submission/Lab 6 Code/Lab6.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab 6/Lab 6 Submission/Lab 6 Code/mark.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Lab 5/Lab 5 Submission/Lab 5 report.docx" beforeDir="false" afterPath="$PROJECT_DIR$/Lab 5/Lab 5 Submission/Lab 5 report.docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab 5/Lab 5 Submission/~$b 5 report.docx" beforeDir="false" afterPath="$PROJECT_DIR$/Lab 5/Lab 5 Submission/~$b 5 report.docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab 5/Lab 5 Submission/~WRL0005.tmp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ce203-labs-5-to-8/Exercise2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ce203-labs-5-to-8/Exercise2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab 6/Lab 6 Submission/Lab 6 Code/Readme.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ce203-labs-5-to-8.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ce203-labs-5-to-8.iml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,8 +21,8 @@
       <file leaf-file-name="Statistics.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Lab 5/Lab 5 Submission/Lab 5 Code/Statistics.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="381">
-              <caret line="72" column="8" selection-start-line="72" selection-start-column="8" selection-end-line="72" selection-end-column="8" />
+            <state relative-caret-position="119">
+              <caret line="7" column="15" selection-start-line="7" selection-end-line="8" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -44,13 +42,26 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Exercise3.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Exercise3.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Lab 5/Lab 5 Submission/Lab 5 Code/Exercise3.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="530">
-              <caret line="55" column="109" selection-start-line="55" selection-start-column="109" selection-end-line="55" selection-end-column="109" />
+            <state relative-caret-position="292">
+              <caret line="41" column="5" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Lab6.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Lab 6/Lab 6 Submission/Lab 6 Code/Lab6.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="60" column="12" selection-start-line="60" selection-start-column="12" selection-end-line="60" selection-end-column="12" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#109#125#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -74,6 +85,7 @@
         <option value="$PROJECT_DIR$/Lab 5/Lab 5 Submission/Lab 5 Code/Statistics.java" />
         <option value="$PROJECT_DIR$/Lab 5/Lab 5 Submission/Lab 5 Code/Exercise2.java" />
         <option value="$PROJECT_DIR$/Lab 5/Lab 5 Submission/Lab 5 Code/Exercise3.java" />
+        <option value="$PROJECT_DIR$/Lab 6/Lab 6 Submission/Lab 6 Code/Lab6.java" />
       </list>
     </option>
   </component>
@@ -495,6 +507,24 @@
               <item name="Lab 5 Submission" type="462c0819:PsiDirectoryNode" />
               <item name="Lab 5 Code" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="ce203-labs-5-to-8" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ce203-labs-5-to-8-conorhennessy" type="462c0819:PsiDirectoryNode" />
+              <item name="Lab 6" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ce203-labs-5-to-8" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ce203-labs-5-to-8-conorhennessy" type="462c0819:PsiDirectoryNode" />
+              <item name="Lab 6" type="462c0819:PsiDirectoryNode" />
+              <item name="Lab 6 Submission" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ce203-labs-5-to-8" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ce203-labs-5-to-8-conorhennessy" type="462c0819:PsiDirectoryNode" />
+              <item name="Lab 6" type="462c0819:PsiDirectoryNode" />
+              <item name="Lab 6 Submission" type="462c0819:PsiDirectoryNode" />
+              <item name="Lab 6 Code" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -523,7 +553,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Exercise3">
+  <component name="RunManager" selected="Application.Lab6">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
     </configuration>
@@ -534,6 +564,11 @@
     </configuration>
     <configuration name="Exercise3" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Exercise3" />
+      <module name="ce203-labs-5-to-8" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    </configuration>
+    <configuration name="Lab6" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Lab6" />
       <module name="ce203-labs-5-to-8" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     </configuration>
@@ -600,9 +635,11 @@
       <item itemvalue="Application.Statistics" />
       <item itemvalue="Application.Exercise2" />
       <item itemvalue="Application.Exercise3" />
+      <item itemvalue="Application.Lab6" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Lab6" />
         <item itemvalue="Application.Exercise3" />
         <item itemvalue="Application.Exercise2" />
         <item itemvalue="Application.Statistics" />
@@ -623,12 +660,12 @@
       <workItem from="1543002180247" duration="981000" />
       <workItem from="1543003240113" duration="8669000" />
       <workItem from="1543066013927" duration="3295000" />
-      <workItem from="1543069519821" duration="682000" />
+      <workItem from="1543069519821" duration="5952000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15242000" />
+    <option name="totallyTimeSpent" value="20512000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="699" y="7" width="1217" height="1040" extended-state="0" />
@@ -759,16 +796,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Lab 5/Lab 5 Submission/Lab 5 Code/Statistics.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="72" column="8" selection-start-line="72" selection-start-column="8" selection-end-line="72" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Lab 5/Lab 5 Submission/Lab 5 Code/Exercise2.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
@@ -781,10 +808,38 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Lab 5/Lab 5 Submission/Lab 5 Code/Exercise3.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="530">
-          <caret line="55" column="109" selection-start-line="55" selection-start-column="109" selection-end-line="55" selection-end-column="109" />
+        <state relative-caret-position="292">
+          <caret line="41" column="5" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Lab 5/Lab 5 Submission/Lab 5 Code/Statistics.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="15" selection-start-line="7" selection-end-line="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Lab 6/Lab 6 Submission/Lab 6 Code/mark.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret lean-forward="true" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Lab 6/Lab 6 Submission/Lab 6 Code/Lab6.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="60" column="12" selection-start-line="60" selection-start-column="12" selection-end-line="60" selection-end-column="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#109#125#0" expanded="true" />
           </folding>
         </state>
       </provider>
