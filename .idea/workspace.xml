@@ -2,12 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d21a1333-d843-41d9-8619-3e11b816abfc" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/Lab 5/Lab 5 Submission/Lab 5 Code/Exercise3.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Lab 5/Lab 5 Submission/Lab 5 Code/Exercise2.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lab 5/Lab 5 Submission/Lab 5 Code/Exercise2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab 5/Lab 5 Submission/Lab 5 Code/Readme.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab 5/Lab 5 Submission/Lab 5 report template.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ce203-labs-5-to-8/Readme.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab 5/Lab 5 Submission/Lab 5 Code/Exercise3.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lab 5/Lab 5 Submission/Lab 5 Code/Exercise3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab 5/Lab 5 Submission/Lab 5 report.docx" beforeDir="false" afterPath="$PROJECT_DIR$/Lab 5/Lab 5 Submission/Lab 5 report.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab 5/Lab 5 Submission/~$b 5 report.docx" beforeDir="false" afterPath="$PROJECT_DIR$/Lab 5/Lab 5 Submission/~$b 5 report.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab 5/Lab 5 Submission/~WRL0005.tmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ce203-labs-5-to-8/Exercise2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ce203-labs-5-to-8/Exercise2.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,8 +23,8 @@
       <file leaf-file-name="Statistics.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Lab 5/Lab 5 Submission/Lab 5 Code/Statistics.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="981">
-              <caret line="71" column="41" selection-start-line="71" selection-start-column="41" selection-end-line="71" selection-end-column="41" />
+            <state relative-caret-position="381">
+              <caret line="72" column="8" selection-start-line="72" selection-start-column="8" selection-end-line="72" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -31,11 +32,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Exercise2.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Exercise2.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Lab 5/Lab 5 Submission/Lab 5 Code/Exercise2.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="92">
-              <caret line="6" column="68" selection-start-line="6" selection-start-column="68" selection-end-line="6" selection-end-column="68" />
+            <state relative-caret-position="480">
+              <caret line="34" selection-start-line="34" selection-end-line="39" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -43,11 +44,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Exercise3.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Exercise3.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Lab 5/Lab 5 Submission/Lab 5 Code/Exercise3.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="8" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
+            <state relative-caret-position="530">
+              <caret line="55" column="109" selection-start-line="55" selection-start-column="109" selection-end-line="55" selection-end-column="109" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -83,8 +87,9 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="960" />
-    <option name="width" value="960" />
+    <option name="x" value="699" />
+    <option name="y" value="7" />
+    <option name="width" value="1217" />
     <option name="height" value="1040" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -494,8 +499,8 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="AndroidView" />
+      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -518,12 +523,17 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Exercise2">
+  <component name="RunManager" selected="Application.Exercise3">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
     </configuration>
     <configuration name="Exercise2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Exercise2" />
+      <module name="ce203-labs-5-to-8" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    </configuration>
+    <configuration name="Exercise3" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Exercise3" />
       <module name="ce203-labs-5-to-8" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     </configuration>
@@ -589,9 +599,11 @@
     <list>
       <item itemvalue="Application.Statistics" />
       <item itemvalue="Application.Exercise2" />
+      <item itemvalue="Application.Exercise3" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Exercise3" />
         <item itemvalue="Application.Exercise2" />
         <item itemvalue="Application.Statistics" />
       </list>
@@ -610,38 +622,40 @@
       <workItem from="1542894407042" duration="1615000" />
       <workItem from="1543002180247" duration="981000" />
       <workItem from="1543003240113" duration="8669000" />
+      <workItem from="1543066013927" duration="3295000" />
+      <workItem from="1543069519821" duration="682000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11265000" />
+    <option name="totallyTimeSpent" value="15242000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="960" y="0" width="960" height="1040" extended-state="0" />
+    <frame x="699" y="7" width="1217" height="1040" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" weight="0.3292683" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.3292683" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.18957871" />
       <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.18957871" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24222222" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19619706" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
       <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3991131" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -656,7 +670,75 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints-dialog>
+        <breakpoints-dialog />
+      </breakpoints-dialog>
+      <option name="time" value="1" />
+    </breakpoint-manager>
+  </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Lab 5/Lab 5 Submission/Lab 5 Code/Statistics.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1207">
+          <caret line="72" column="8" selection-start-line="72" selection-start-column="8" selection-end-line="72" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Lab 5/Lab 5 Submission/Lab 5 Code/Exercise2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="26" column="22" lean-forward="true" selection-start-line="26" selection-end-line="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Lab 5/Lab 5 Submission/Lab 5 Code/Exercise3.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="14" column="19" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Lab 5/Lab 5 Submission/Lab 5 Code/Statistics.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1190">
+          <caret line="71" column="41" selection-start-line="71" selection-start-column="41" selection-end-line="71" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Lab 5/Lab 5 Submission/Lab 5 Code/Exercise3.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="8" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Lab 5/Lab 5 Submission/Lab 5 Code/Exercise2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="6" column="68" selection-start-line="6" selection-start-column="68" selection-end-line="6" selection-end-column="68" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Lab 5/Lab 5 Submission/Lab 5 Code/Statistics.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -677,13 +759,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Lab 5/Lab 5 Submission/Lab 5 Code/Readme.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/Lab 5/Lab 5 Submission/Lab 5 Code/Statistics.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="981">
-          <caret line="71" column="41" selection-start-line="71" selection-start-column="41" selection-end-line="71" selection-end-column="41" />
+        <state relative-caret-position="381">
+          <caret line="72" column="8" selection-start-line="72" selection-start-column="8" selection-end-line="72" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Lab 5/Lab 5 Submission/Lab 5 Code/Exercise2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="34" selection-start-line="34" selection-end-line="39" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -692,15 +781,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Lab 5/Lab 5 Submission/Lab 5 Code/Exercise3.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="8" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Lab 5/Lab 5 Submission/Lab 5 Code/Exercise2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="6" column="68" selection-start-line="6" selection-start-column="68" selection-end-line="6" selection-end-column="68" />
+        <state relative-caret-position="530">
+          <caret line="55" column="109" selection-start-line="55" selection-start-column="109" selection-end-line="55" selection-end-column="109" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
