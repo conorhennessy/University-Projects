@@ -14,39 +14,33 @@ public class Lab6 {
 
     //Method which takes an argument of type Map<String,Integer> and uses an iterator for the map's values collection to calculate the total of the marks
     // Then return this divided by the lists size
-    static Integer average(Map<String, Integer> marksMap){
+    static Integer average(Map<String, Integer> marksMap) throws InvalidNumberException{
         Integer sumOfMarks = 0;
-        try {
 
             for (HashMap.Entry<String, Integer> person : marksMap.entrySet()) {
+                if (person.getValue() < 0) throw new InvalidNumberException();
                 sumOfMarks += person.getValue();
             }
 
             return sumOfMarks / marksMap.size();
-        }
-        catch (Exception e){
-            //TODO
-        }
     }
 
-    static Map.Entry<String, Integer> highestMark(Map<String, Integer> marksMap) {
+    static Map.Entry<String, Integer> highestMark(Map<String, Integer> marksMap) throws InvalidNumberException {
         Map.Entry<String, Integer> highestMark = null;
-        try {
+
             for (HashMap.Entry<String, Integer> person : marksMap.entrySet()) {
+                if (person.getValue() < 0) throw new InvalidNumberException();
                 if (person.getValue() > highestMark.getValue()) {
                     highestMark = person;
                 }
             }
             return highestMark;
-        }
-        catch (Exception e){
-            //TODO
-        }
     }
 
+    static class InvalidNumberException extends Exception{
+    }
 
-
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         BufferedReader buf = new BufferedReader(new InputStreamReader(System.in));
         boolean more = true;
         while (more) {
@@ -64,29 +58,38 @@ public class Lab6 {
             try {
                 mark = Integer.parseInt(buf.readLine().trim());
                 if (mark < 0){
-                    throw new InvalidNumberException();  //TODO
+                    throw new InvalidNumberException();
                 }
             }
             catch (InvalidNumberException e) {
-                System.out.println("invalid input - using 0");
+                System.out.println("Invalid input given, the mark can not be negative...  Would you like to try again?");
             }
 
 
             System.out.print("More? ");
             try {
-                if (buf.readLine().charAt(0)!='y')
-                more = false;
+                if (buf.readLine().charAt(0) != 'y') {
+
+                    more = false;
+                    // Call the new method instead of printing map directly
+                    results(marks);
+                    // call of new average() method to find the average mark and print the result
+                    try {
+                        System.out.println("Average mark overall: " + average(marks));
+                    } catch (InvalidNumberException e) {
+                        System.out.println("Invalid input, one of the inputs was negative...");
+                    }
+                    // Call of new highestMark() method to find the entry with the highest mark in the map
+                    try {
+                        System.out.println("Highest mark: " + highestMark(marks));
+                    } catch (InvalidNumberException e) {
+                        System.out.println("Invalid input, one of the inputs was negative...");
+                    }
+                }
             }
             catch (Exception e) {
             }
-
         }
-        // Call the new method instead of printing map directly
-        results(marks);
-        // call of new average() method to find the average mark and print the result
-        System.out.println("Average mark overall: " + average(marks));
-        // Call of new highestMark() method to find the entry with the highest mark in the map
-        System.out.println("Highest mark: " + highestMark(marks));
     }
 }
 
