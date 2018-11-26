@@ -24,6 +24,7 @@ public class GameView extends JComponent {
                 g.setColor(Color.BLUE);
                 g.fill3DRect(i * size, j * size, size, size, true);
             }
+        }
     }
 
     public Dimension getPreferredSize() {
