@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 public class DrawCalc extends JFrame {
     TextField text;
 
-    JPanel cPanel;  //This panel is initialised here so that I can access adn add a label in my button action method
+    JPanel cPanel;  //This panel is initialised here so that I can access and add a label in my button action method
 
     Square defaultSq = new Square(50, 50, 0);
     Circle defaultCircle = new Circle(50, 50, 0);
