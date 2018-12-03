@@ -2,21 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="44501e77-476e-4d84-84d3-b6a5a54fa004" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/Snake/GamePanelHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Snake/GamePanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Snake/GameFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/Snake/GameFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Snake/GameView.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Snake/GamePanelHandler.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Snake/Snake.java" beforeDir="false" afterPath="$PROJECT_DIR$/Snake/Snake.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Snake/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Snake/main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CE203-Ass2/GameFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CE203-Ass2/GameFrame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CE203-Ass2/GameView.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CE203-Ass2/PointCircle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CE203-Ass2/PointCircle.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CE203-Ass2/PointTriangle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CE203-Ass2/PointTriangle.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CE203-Ass2/Shape.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CE203-Ass2/Shape.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CE203-Ass2/Snake.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CE203-Ass2/Snake.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CE203-Ass2/Square.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CE203-Ass2/Square.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CE203-Ass2/head.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CE203-Ass2/head.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CE203-Ass2/GamePanelHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CE203-Ass2/head.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CE203-Ass2/main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CE203-Ass2/main.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -27,39 +21,49 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DockManager">
+    <window id="1">
+      <content type="file-editors">
+        <state>
+          <leaf>
+            <file leaf-file-name="Timer.java" pinned="false" current-in-tab="true">
+              <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/javax/swing/Timer.java">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="390">
+                    <caret line="68" column="6" selection-start-line="64" selection-start-column="3" selection-end-line="68" selection-end-column="6" />
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Snake/main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="54" selection-start-line="11" selection-start-column="54" selection-end-line="11" selection-end-column="54" />
+            <state relative-caret-position="207">
+              <caret line="14" column="8" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#863#1100#0" expanded="true" />
+                <element signature="e#1099#1100#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GamePanelHandler.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Snake/GamePanelHandler.java">
+      <file leaf-file-name="GamePanel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Snake/GamePanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="36" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
+            <state relative-caret-position="71">
+              <caret line="5" column="33" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#189#190#0" expanded="true" />
-                <element signature="e#222#223#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GameFrame.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Snake/GameFrame.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="34" column="26" lean-forward="true" selection-start-line="34" selection-start-column="26" selection-end-line="34" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -67,12 +71,24 @@
       <file leaf-file-name="Snake.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Snake/Snake.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="53" lean-forward="true" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="53" />
+            <state relative-caret-position="170">
+              <caret line="11" column="18" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="18" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#203#204#0" expanded="true" />
-                <element signature="e#243#244#0" expanded="true" />
+                <element signature="e#303#304#0" expanded="true" />
+                <element signature="e#339#340#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GameFrame.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Snake/GameFrame.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="442">
+              <caret line="40" column="8" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="8" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -81,7 +97,7 @@
       <file leaf-file-name="Shape.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Snake/Shape.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
+            <state relative-caret-position="340">
               <caret line="20" selection-start-line="20" selection-end-line="21" selection-end-column="25" />
             </state>
           </provider>
@@ -100,6 +116,7 @@
     <findStrings>
       <find>frame</find>
       <find>pan</find>
+      <find>label</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -119,10 +136,12 @@
         <option value="$PROJECT_DIR$/Snake/GameView.java" />
         <option value="$PROJECT_DIR$/Snake/GamePannelHandler.java" />
         <option value="$PROJECT_DIR$/Snake/Shape.java" />
-        <option value="$PROJECT_DIR$/Snake/Snake.java" />
-        <option value="$PROJECT_DIR$/Snake/main.java" />
         <option value="$PROJECT_DIR$/Snake/GamePanelHandler.java" />
+        <option value="$PROJECT_DIR$/Snake/GameHandler.java" />
+        <option value="$PROJECT_DIR$/Snake/GamePanel.java" />
+        <option value="$PROJECT_DIR$/Snake/Snake.java" />
         <option value="$PROJECT_DIR$/Snake/GameFrame.java" />
+        <option value="$PROJECT_DIR$/Snake/main.java" />
       </list>
     </option>
   </component>
@@ -135,9 +154,11 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="width" value="960" />
-    <option name="height" value="1040" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="200" />
+    <option name="y" value="266" />
+    <option name="width" value="1215" />
+    <option name="height" value="911" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -179,12 +200,6 @@
               <item name="CE203-Ass2" type="462c0819:PsiDirectoryNode" />
               <item name="Snake" type="462c0819:PsiDirectoryNode" />
               <item name="Shape.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
-            </path>
-            <path>
-              <item name="CE203-Ass2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CE203-Ass2" type="462c0819:PsiDirectoryNode" />
-              <item name="Snake" type="462c0819:PsiDirectoryNode" />
-              <item name="Snake.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
             </path>
           </expand>
           <select />
@@ -311,33 +326,43 @@
       <workItem from="1543168783618" duration="2103000" />
       <workItem from="1543178003993" duration="8743000" />
       <workItem from="1543190408657" duration="3832000" />
-      <workItem from="1543673011118" duration="4356000" />
+      <workItem from="1543673011118" duration="24350000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20436000" />
+    <option name="totallyTimeSpent" value="40430000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="960" height="1040" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.32815966" />
+      <window_info active="true" anchor="bottom" id="TODO" order="6" visible="true" weight="0.24074075" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.3278867" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50053304" side_tool="true" weight="0.19389978" />
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.19733925" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49946696" weight="0.19281046" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.34888887" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.118336886" />
       <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3292683" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
@@ -349,7 +374,6 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -375,18 +399,18 @@
           <caret line="15" column="1" lean-forward="true" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#863#1100#0" expanded="true" />
+            <element signature="e#1099#1100#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Snake/GamePanelHandler.java">
+    <entry file="file://$PROJECT_DIR$/Snake/GamePanel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
           <caret line="26" column="9" selection-start-line="26" selection-start-column="9" selection-end-line="26" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#189#190#0" expanded="true" />
-            <element signature="e#222#223#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -397,18 +421,18 @@
           <caret line="8" column="37" lean-forward="true" selection-start-line="8" selection-start-column="37" selection-end-line="8" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#863#1100#0" expanded="true" />
+            <element signature="e#1099#1100#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Snake/GamePanelHandler.java">
+    <entry file="file://$PROJECT_DIR$/Snake/GamePanel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#189#190#0" expanded="true" />
-            <element signature="e#222#223#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -615,51 +639,68 @@
     <entry file="file://$PROJECT_DIR$/Snake/Game/GameFrame.java" />
     <entry file="file://$PROJECT_DIR$/Snake/Game/main.java" />
     <entry file="file://$PROJECT_DIR$/Snake/Game/GameView.java" />
+    <entry file="file://$PROJECT_DIR$/Snake/GameHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" selection-end-line="39" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Snake/Shape.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
+        <state relative-caret-position="340">
           <caret line="20" selection-start-line="20" selection-end-line="21" selection-end-column="25" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Snake/main.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/javax/swing/Timer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="54" selection-start-line="11" selection-start-column="54" selection-end-line="11" selection-end-column="54" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="390">
+          <caret line="68" column="6" selection-start-line="64" selection-start-column="3" selection-end-line="68" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Snake/GamePanelHandler.java">
+    <entry file="file://$PROJECT_DIR$/Snake/GamePanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="36" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
+        <state relative-caret-position="71">
+          <caret line="5" column="33" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#189#190#0" expanded="true" />
-            <element signature="e#222#223#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Snake/Snake.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="53" lean-forward="true" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="53" />
+        <state relative-caret-position="170">
+          <caret line="11" column="18" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="18" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#203#204#0" expanded="true" />
-            <element signature="e#243#244#0" expanded="true" />
+            <element signature="e#303#304#0" expanded="true" />
+            <element signature="e#339#340#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Snake/GameFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="34" column="26" lean-forward="true" selection-start-line="34" selection-start-column="26" selection-end-line="34" selection-end-column="26" />
+        <state relative-caret-position="442">
+          <caret line="40" column="8" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Snake/main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="14" column="8" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#863#1100#0" expanded="true" />
+            <element signature="e#1099#1100#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -1,17 +1,21 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 
-public class GameFrame extends JFrame {
+public class GameFrame extends JFrame implements KeyListener {
     public Component comp;
+    Snake snake;
 
-    public GameFrame(Component comp, String title) {
+    public GameFrame(Component comp, String title, Snake snake) {
         super(title);
         this.comp = comp;
+        this.snake = snake;
 
         getContentPane().add(BorderLayout.CENTER, comp);
         pack();
-        
+
         this.setVisible(true);
         this.setResizable(false);
         setSize(850, 600);
@@ -31,10 +35,41 @@ public class GameFrame extends JFrame {
         int x = (currentScreenSize.width - getWidth()) / 2;
         int y = (currentScreenSize.height - getHeight()) / 2;
 
-        //Now set the frame's location
-        setLocation(x, y);  //TODO possible fix of the flicer that appears
+        //Now set the frame's start location
+        setLocation(x, y);
 
 
+        //Add and state the button handler stuff
+        setFocusable(true);
+        setFocusTraversalKeysEnabled(false);
+        addKeyListener(this);
     }
 
+    @Override
+    public void keyTyped(KeyEvent e) {
+        //Handling the actions of the arrow keys
+    }
+
+
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        //Handling the actions of the arrow keys
+        int keyCode = e.getKeyCode();
+        switch (keyCode){
+            case 37: snake.moveSnake(1); //left
+                break;
+            case 38: snake.moveSnake(2); //up
+                break;
+            case 39: snake.moveSnake(3); //right
+                break;
+            case 40: snake.moveSnake(4); //down
+                break;
+        }
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+        //Handling the actions of the arrow keys
+    }
 }
