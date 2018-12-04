@@ -9,7 +9,7 @@ public class Lab7
     {
         Class.forName("com.mysql.jdbc.Driver");
         System.out.println("Driver loaded");
-        connection = DriverManager.getConnection("jdbc:mysql://localhost/orderdb", "root", null);
+        connection = DriverManager.getConnection("jdbc:mysql://localhost/orderdb?useSSL=false", "root", null);
         // past experience has shown that using the one-argument version of getConnection doesn't work for some students
     }
     catch (ClassNotFoundException e)
@@ -53,7 +53,11 @@ public class Lab7
         //Exercise 2
         try{
             ResultSet rs = statement.executeQuery("SELECT custID, name, email FROM customers");
-            System.out.println(rs.toString());
+            System.out.println("\nFirst query: \"SELECT custID, name, email FROM customers\"");
+            while (rs.next()){
+                System.out.println(rs.getObject(1) + " " + rs.getObject(2) + " " + rs.getObject(3));
+            }
+
         }
         catch (SQLException e){
             e.printStackTrace();
@@ -62,8 +66,11 @@ public class Lab7
 
         //Exercise 3 - slide 59 from lectures utilised
         try {
-            ResultSet rs2 = statement.executeQuery("SELECT orderid, suctid, goods, price FROM orders WHERE 10.00<price<40.00");
-            System.out.println(rs2.toString());
+            ResultSet rs2 = statement.executeQuery("SELECT orderid, custid, goods, price FROM orders WHERE 10.00<price<40.00");
+            System.out.println("\nSecond query: \"SELECT orderid, custid, goods, price FROM orders WHERE 10.00<price<40.00\"");
+            while (rs2.next()){
+                System.out.println(rs2.getObject(1) + " " + rs2.getObject(2) + " " + rs2.getObject(3) + " " + rs2.getObject(4));
+            }
         } catch (SQLException e) {
             e.printStackTrace();
             System.out.println("Unable to query DB with second query; to show all of the orders and their attributes for orders priced in the range of £10 to £40.");
