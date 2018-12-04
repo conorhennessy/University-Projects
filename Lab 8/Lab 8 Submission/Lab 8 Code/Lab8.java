@@ -1,4 +1,7 @@
+import java.io.File;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Lab8{
     public static void main(String[] args) {
@@ -28,7 +31,25 @@ public class Lab8{
         System.exit(1);
     }
 
-    queryDatabase(statement);
+    //System.out.println("Exercise 1");
+    //queryDatabase(statement);
+
+    System.out.println("\nExercise 2");
+    File file = new File("Lab 8/Lab 8 Submission/orders_2.txt");
+    List<String> ordersList = fileInsert.insertFile(statement, file);
+    System.out.println(ordersList);
+
+    for (int i = 0; i < ordersList.size(); i++){   // call of the additional method created to insert the file into DB
+        try{
+            int insertOrder = statement.executeUpdate("INSERT INTO orders VALUES " + ordersList.get(i) + "");
+            System.out.println(ordersList.get(i));
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("Unable to add to orders_2 to DB");
+        }
+    }
+
 
     try {
         statement.close();
@@ -39,6 +60,7 @@ public class Lab8{
         System.out.println("problems closing connection");
         System.exit(1);
     }
+
 }
 
     static void queryDatabase(Statement statement) {
