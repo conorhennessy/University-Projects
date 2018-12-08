@@ -31,7 +31,7 @@ public class main {
             public void actionPerformed(ActionEvent e) {
                 if (game_running){
                     snake.moveSnake(snake.currentDir, tv);
-                    System.out.println(snake.snakePosArray);  //to show where the blobs should be
+                    //System.out.println(snake.snakePosArray);  //to show where the blobs should be
                     tv.repaint();  //instead call repaint method in snake class?
                 }
             }

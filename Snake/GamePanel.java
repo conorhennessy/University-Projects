@@ -24,9 +24,9 @@ public class GamePanel extends JPanel {
         // draw the head square on the board
         g.setColor(snake.snakeColour);
 
-        for (Point p : snake.snakePosArray) {
-            System.out.println("Drawing snake @ x:"+ p.x +" & y:" + p.y);
-            g.fillRect(p.x, p.y, snake.partSize, snake.partSize);
+        for (Square p : snake.snakePosArray) {
+            System.out.println("Drawing snake @ x:"+ p.posX +" & y:" + p.posY);
+            g.fillRect(p.posX, p.posY, snake.partSize, snake.partSize);
         }
 
         setBackground(background);

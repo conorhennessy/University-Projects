@@ -2,24 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="44501e77-476e-4d84-84d3-b6a5a54fa004" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Snake/GameFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/Snake/GameFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Snake/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Snake/GamePanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Snake/Snake.java" beforeDir="false" afterPath="$PROJECT_DIR$/Snake/Snake.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Snake/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Snake/main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CE203-Ass2/GameFrame.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CE203-Ass2/GamePanel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CE203-Ass2/PointCircle.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CE203-Ass2/PointTriangle.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CE203-Ass2/Shape.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CE203-Ass2/Snake.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CE203-Ass2/Square.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CE203-Ass2/main$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CE203-Ass2/main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample for students/Game/GameView.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample for students/Game/GameViewTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample for students/utilities/JEasyFrame.java" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -34,11 +19,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Snake/main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="148">
-              <caret line="11" column="10" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
+            <state relative-caret-position="496">
+              <caret line="33" column="22" selection-start-line="33" selection-start-column="22" selection-end-line="33" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -49,8 +34,8 @@
       <file leaf-file-name="GamePanel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Snake/GamePanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="31" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
+            <state relative-caret-position="238">
+              <caret line="14" column="27" lean-forward="true" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -58,15 +43,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Snake.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Snake.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Snake/Snake.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="61" selection-start-line="61" selection-end-line="61" />
+            <state relative-caret-position="229">
+              <caret line="52" column="39" selection-start-line="52" selection-start-column="39" selection-end-line="52" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#642#643#0" expanded="true" />
-                <element signature="e#678#679#0" expanded="true" />
+                <element signature="e#616#617#0" expanded="true" />
+                <element signature="e#652#653#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -76,7 +61,7 @@
         <entry file="file://$PROJECT_DIR$/Snake/GameFrame.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="391">
-              <caret line="23" selection-start-line="23" selection-end-line="24" selection-end-column="34" />
+              <caret line="23" selection-end-line="77" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -87,8 +72,40 @@
       <file leaf-file-name="Shape.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Snake/Shape.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" selection-start-line="20" selection-end-line="21" selection-end-column="25" />
+            <state relative-caret-position="221">
+              <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="JAVA/Square" pinned="false" current-in-tab="false">
+        <entry file="uml://JAVA/Square">
+          <provider selected="true" editor-type-id="UmlEditorProvider">
+            <state>
+              <ID>JAVA</ID>
+              <OriginalElement>Square</OriginalElement>
+              <nodes>
+                <node x="29.5" y="0.0">Shape</node>
+                <node x="0.0" y="190.0">Square</node>
+              </nodes>
+              <notes />
+              <edges>
+                <edge source="Square" target="Shape">
+                  <point x="0.0" y="-59.5" />
+                  <point x="0.0" y="70.0" />
+                </edge>
+              </edges>
+              <settings layout="Hierarchic Group" zoom="1.0" x="-313.0" y="-131.0" />
+              <SelectedNodes>
+                <node>Square</node>
+              </SelectedNodes>
+              <Categories>
+                <Category>Fields</Category>
+                <Category>Constructors</Category>
+                <Category>Methods</Category>
+              </Categories>
+              <SCOPE>All</SCOPE>
+              <VISIBILITY>private</VISIBILITY>
             </state>
           </provider>
         </entry>
@@ -130,9 +147,9 @@
         <option value="$PROJECT_DIR$/Snake/GamePanelHandler.java" />
         <option value="$PROJECT_DIR$/Snake/GameHandler.java" />
         <option value="$PROJECT_DIR$/Snake/GameFrame.java" />
-        <option value="$PROJECT_DIR$/Snake/Snake.java" />
         <option value="$PROJECT_DIR$/Snake/GamePanel.java" />
         <option value="$PROJECT_DIR$/Snake/main.java" />
+        <option value="$PROJECT_DIR$/Snake/Snake.java" />
       </list>
     </option>
   </component>
@@ -146,6 +163,7 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="960" />
     <option name="width" value="960" />
     <option name="height" value="1040" />
   </component>
@@ -169,6 +187,12 @@
               <item name="CE203-Ass2" type="b2602c69:ProjectViewProjectNode" />
               <item name="CE203-Ass2" type="462c0819:PsiDirectoryNode" />
               <item name="Snake" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CE203-Ass2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CE203-Ass2" type="462c0819:PsiDirectoryNode" />
+              <item name="Snake" type="462c0819:PsiDirectoryNode" />
+              <item name="Shape.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
             </path>
           </expand>
           <select />
@@ -300,7 +324,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="55356000" />
+    <option name="totallyTimeSpent" value="57417000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -312,12 +336,12 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="960" height="1040" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.24390244" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.3267974" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.32594234" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
@@ -325,52 +349,75 @@
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49946696" visible="true" weight="0.18292683" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49946696" visible="true" weight="0.17973857" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6906377" visible="true" weight="0.28333333" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6906377" visible="true" weight="0.06982943" />
       <window_info anchor="right" id="Database" order="3" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3292683" />
-      <window_info id="Structure" order="1" sideWeight="0.3093623" side_tool="true" visible="true" weight="0.28333333" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.33481154" />
+      <window_info id="Structure" order="1" sideWeight="0.3093623" side_tool="true" weight="0.28333333" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
       <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info id="Favorites" order="2" sideWeight="0.50179857" side_tool="true" weight="0.081023455" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.23202614" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info id="Designer" order="2" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Capture Analysis" order="3" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.23202614" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info id="Structure" order="1" sideWeight="0.3093623" side_tool="true" visible="true" weight="0.28333333" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.24390244" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49946696" visible="true" weight="0.18292683" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Capture Tool" order="2" />
+      <window_info id="UI Designer" order="2" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3292683" />
+      <window_info anchor="right" id="Theme Preview" order="3" />
+      <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50053304" side_tool="true" weight="0.19389978" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info id="Favorites" order="2" sideWeight="0.50179857" side_tool="true" weight="0.081023455" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.3267974" />
+      <window_info anchor="right" id="Maven Projects" order="3" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6906377" visible="true" weight="0.28333333" />
     </layout>
     <layout-to-restore>
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="Version Control" order="10" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3292683" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info id="Designer" order="3" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Capture Analysis" order="7" />
-      <window_info id="Capture Tool" order="2" />
+      <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info anchor="right" id="Theme Preview" order="8" />
+      <window_info anchor="bottom" id="Messages" order="9" weight="0.32702702" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.11953727" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.24054053" />
+      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49946696" visible="true" weight="0.1918919" />
       <window_info id="Image Layers" order="5" />
-      <window_info id="Designer" order="3" />
+      <window_info id="Capture Tool" order="2" />
       <window_info id="UI Designer" order="4" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3292683" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39459458" />
-      <window_info anchor="right" id="Database" order="5" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
       <window_info anchor="bottom" id="Terminal" order="11" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50053304" side_tool="true" weight="0.19389978" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Messages" order="9" weight="0.32702702" />
+      <window_info anchor="right" id="Database" order="5" />
       <window_info anchor="right" id="Maven Projects" order="4" />
       <window_info id="Favorites" order="6" side_tool="true" />
     </layout-to-restore>
@@ -395,6 +442,110 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/javax/swing/Timer.java" />
+    <entry file="file://$PROJECT_DIR$/Snake/GameFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" selection-start-line="23" selection-end-line="24" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/Shape">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>Shape</OriginalElement>
+          <nodes>
+            <node x="-90.0" y="-98.0">Shape</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="-315.0" y="-170.5" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Fields</Category>
+            <Category>Constructors</Category>
+            <Category>Methods</Category>
+            <Category>Properties</Category>
+            <Category>Inner Classes</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/Square">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>Square</OriginalElement>
+          <nodes>
+            <node x="29.5" y="0.0">Shape</node>
+            <node x="0.0" y="190.0">Square</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="Square" target="Shape">
+              <point x="0.0" y="-59.5" />
+              <point x="0.0" y="70.0" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="1.0" x="-313.0" y="-131.0" />
+          <SelectedNodes>
+            <node>Square</node>
+          </SelectedNodes>
+          <Categories>
+            <Category>Fields</Category>
+            <Category>Constructors</Category>
+            <Category>Methods</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Snake/main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="326">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Snake/GamePanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Snake/Shape.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Snake/Snake.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="35" column="62" lean-forward="true" selection-start-line="35" selection-start-column="62" selection-end-line="35" selection-end-column="62" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#616#617#0" expanded="true" />
+            <element signature="e#652#653#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Snake/main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
@@ -438,8 +589,8 @@
           <caret line="39" column="50" selection-start-line="39" selection-start-column="50" selection-end-line="39" selection-end-column="50" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#642#643#0" expanded="true" />
-            <element signature="e#678#679#0" expanded="true" />
+            <element signature="e#616#617#0" expanded="true" />
+            <element signature="e#652#653#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -487,8 +638,8 @@
           <caret line="39" column="50" selection-start-line="39" selection-start-column="50" selection-end-line="39" selection-end-column="50" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#642#643#0" expanded="true" />
-            <element signature="e#678#679#0" expanded="true" />
+            <element signature="e#616#617#0" expanded="true" />
+            <element signature="e#652#653#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -518,8 +669,8 @@
           <caret line="11" column="18" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="18" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#642#643#0" expanded="true" />
-            <element signature="e#678#679#0" expanded="true" />
+            <element signature="e#616#617#0" expanded="true" />
+            <element signature="e#652#653#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -587,48 +738,12 @@
     <entry file="file://$PROJECT_DIR$/Snake/Game/GameView.java" />
     <entry file="file://$PROJECT_DIR$/Snake/Game/GameFrame.java" />
     <entry file="file://$PROJECT_DIR$/Snake/Game/main.java" />
-    <entry file="file://$PROJECT_DIR$/sample for students/Game/GameViewTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="15" selection-start-column="15" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sample for students/Game/GameView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sample for students/utilities/JEasyFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="7" lean-forward="true" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sample for students/utilities/JEasyFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="7" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sample for students/Game/GameViewTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="12" lean-forward="true" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sample for students/Game/GameView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="14" selection-start-column="8" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/sample for students/Game/GameViewTest.java" />
+    <entry file="file://$PROJECT_DIR$/sample for students/Game/GameView.java" />
+    <entry file="file://$PROJECT_DIR$/sample for students/utilities/JEasyFrame.java" />
+    <entry file="file://$PROJECT_DIR$/sample for students/utilities/JEasyFrame.java" />
+    <entry file="file://$PROJECT_DIR$/sample for students/Game/GameViewTest.java" />
+    <entry file="file://$PROJECT_DIR$/sample for students/Game/GameView.java" />
     <entry file="uml://JAVA/Game.GameFrame">
       <provider selected="true" editor-type-id="UmlEditorProvider">
         <state>
@@ -773,7 +888,6 @@
             <Category>Constructors</Category>
             <Category>Methods</Category>
             <Category>Properties</Category>
-            <Category />
           </Categories>
           <SCOPE>All</SCOPE>
           <VISIBILITY>private</VISIBILITY>
@@ -785,17 +899,37 @@
     <entry file="file://$PROJECT_DIR$/Snake/Game/GameView.java" />
     <entry file="file://$PROJECT_DIR$/Snake/GameHandler.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/javax/swing/Timer.java" />
+    <entry file="file://$PROJECT_DIR$/Snake/main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="496">
+          <caret line="33" column="22" selection-start-line="33" selection-start-column="22" selection-end-line="33" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Snake/Shape.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" selection-start-line="20" selection-end-line="21" selection-end-column="25" />
+        <state relative-caret-position="221">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Snake/GamePanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="27" lean-forward="true" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Snake/GameFrame.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
-          <caret line="23" selection-start-line="23" selection-end-line="24" selection-end-column="34" />
+          <caret line="23" selection-end-line="77" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -804,32 +938,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Snake/Snake.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="61" selection-start-line="61" selection-end-line="61" />
+        <state relative-caret-position="229">
+          <caret line="52" column="39" selection-start-line="52" selection-start-column="39" selection-end-line="52" selection-end-column="39" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#642#643#0" expanded="true" />
-            <element signature="e#678#679#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Snake/GamePanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="31" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Snake/main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="11" column="10" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
-          <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#616#617#0" expanded="true" />
+            <element signature="e#652#653#0" expanded="true" />
           </folding>
         </state>
       </provider>
