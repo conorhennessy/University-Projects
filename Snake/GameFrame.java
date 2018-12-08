@@ -11,7 +11,7 @@ public class GameFrame extends JFrame implements KeyListener {
 
     public GameFrame(Component comp, String title, Snake snake) {
         super(title);
-        this.comp = comp;
+        this.comp = comp;  // The component passed is the TV panel
         this.snake = snake;
 
 
@@ -59,13 +59,13 @@ public class GameFrame extends JFrame implements KeyListener {
         //Handling the actions of the arrow keys
         int keyCode = e.getKeyCode();
         switch (keyCode){
-            case 37: snake.moveSnake(1); //left
+            case 37: snake.moveSnake(1, comp); //left
                 break;
-            case 38: snake.moveSnake(2); //up
+            case 38: snake.moveSnake(2, comp); //up
                 break;
-            case 39: snake.moveSnake(3); //right
+            case 39: snake.moveSnake(3, comp); //right
                 break;
-            case 40: snake.moveSnake(4); //down
+            case 40: snake.moveSnake(4 ,comp); //down
                 break;
         }
     }

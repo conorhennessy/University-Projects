@@ -8,6 +8,7 @@ public class GamePanel extends JPanel {
     JLabel score;
     public static int currentScore = 0;
     public static boolean gameState = true;
+    Color background = Color.decode("#3E3C45");
 
 
     public GamePanel(Snake snake, JLabel score){
@@ -19,14 +20,16 @@ public class GamePanel extends JPanel {
     }
 
     public void paintComponent(Graphics g) {
+        super.paintComponent(g);
         // draw the head square on the board
         g.setColor(snake.snakeColour);
 
-        System.out.println(snake.snakePosArray);
         for (Point p : snake.snakePosArray) {
-            System.out.println("x:"+ p.x +" & y:" + p.y);
+            System.out.println("Drawing snake @ x:"+ p.x +" & y:" + p.y);
             g.fillRect(p.x, p.y, snake.partSize, snake.partSize);
         }
+
+        setBackground(background);
     }
 
     //TODO next, Update score TODO

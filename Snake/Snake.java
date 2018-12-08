@@ -1,5 +1,3 @@
-import javafx.util.Pair;
-
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +28,8 @@ public class Snake extends Shape{
     }
 
     boolean boundaryHit = false;
-    public int moveSnake(int direction){
+    public int moveSnake(int direction, Component comp){
+
         //Check if the snake is about to move out of the frame
         // If so correct the x or y values as appropriate
         System.out.println();
@@ -58,26 +57,30 @@ public class Snake extends Shape{
         }
         else boundaryHit = false;
 
+
+
         switch (direction) {
             case 1: //left
                 System.out.println("Snake now heading left");  // these souts are for debugging
-                snakePosArray.set(0, new Point(snakePosArray.get(0).x - partSize, snakePosArray.get(0).y)); //TODO tidy this
+                snakePosArray.set(0, new Point(snakePosArray.get(0).x - partSize, snakePosArray.get(0).y));
                 break;
             case 2: //up
                 System.out.println("Snake now heading up");
-                snakePosArray.set(0, new Point(snakePosArray.get(0).x, snakePosArray.get(0).y - partSize)); //TODO tidy this
+                snakePosArray.set(0, new Point(snakePosArray.get(0).x, snakePosArray.get(0).y - partSize));
                 break;
             case 3: //right
                 System.out.println("Snake now heading right");
-                snakePosArray.set(0, new Point(snakePosArray.get(0).x + partSize, snakePosArray.get(0).y)); //TODO tidy this
+                snakePosArray.set(0, new Point(snakePosArray.get(0).x + partSize, snakePosArray.get(0).y));
                 break;
             case 4: //down
                 System.out.println("Snake now heading down");
-                snakePosArray.set(0, new Point(snakePosArray.get(0).x, snakePosArray.get(0).y + partSize)); //TODO tidy this
+                snakePosArray.set(0, new Point(snakePosArray.get(0).x, snakePosArray.get(0).y + partSize));
                 break;
             case 0: //initial state don't move. Also arises when game is paused.
                 break;
         }
+
+        comp.repaint();  //as the snake is moved, repaint
 
         currentDir = direction;
         return direction;

@@ -26,13 +26,13 @@ public class main {
         int time_interval = 750;
         Boolean game_running = GamePanel.gameState;
 
-        // TODO Move currently active block at fixed intervals. Well get timer working
         Timer timer = new Timer(time_interval, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (game_running){
-                    snake.moveSnake(snake.currentDir);
-                    tv.repaint();
+                    snake.moveSnake(snake.currentDir, tv);
+                    System.out.println(snake.snakePosArray);  //to show where the blobs should be
+                    tv.repaint();  //instead call repaint method in snake class?
                 }
             }
         });
