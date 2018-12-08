@@ -7,11 +7,13 @@ import java.awt.event.KeyListener;
 public class GameFrame extends JFrame implements KeyListener {
     public Component comp;
     Snake snake;
+    static Dimension currentScreenSize;
 
     public GameFrame(Component comp, String title, Snake snake) {
         super(title);
         this.comp = comp;
         this.snake = snake;
+
 
         getContentPane().add(BorderLayout.CENTER, comp);
         pack();
@@ -29,7 +31,7 @@ public class GameFrame extends JFrame implements KeyListener {
         //To get frame to launch in center - Archive of book I used: https://web.archive.org/web/20080921040824/http://blog.codebeach.com/2008/02/center-dialog-box-frame-or-window-in.html
         //First get screen size
         Toolkit toolkit = Toolkit.getDefaultToolkit();
-        Dimension currentScreenSize = toolkit.getScreenSize();
+        GameFrame.currentScreenSize = toolkit.getScreenSize();
 
         //Figure out the location frame should now be
         int x = (currentScreenSize.width - getWidth()) / 2;
@@ -45,11 +47,11 @@ public class GameFrame extends JFrame implements KeyListener {
         addKeyListener(this);
     }
 
+
     @Override
     public void keyTyped(KeyEvent e) {
         //Handling the actions of the arrow keys
     }
-
 
 
     @Override

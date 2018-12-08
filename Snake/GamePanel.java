@@ -9,8 +9,6 @@ public class GamePanel extends JPanel {
     public static int currentScore = 0;
     public static boolean gameState = true;
 
-    //Timer t = new Timer(10, this);
-
 
     public GamePanel(Snake snake, JLabel score){
         this.snake = snake;
@@ -24,7 +22,9 @@ public class GamePanel extends JPanel {
         // draw the head square on the board
         g.setColor(snake.snakeColour);
 
+        System.out.println(snake.snakePosArray);
         for (Point p : snake.snakePosArray) {
+            System.out.println("x:"+ p.x +" & y:" + p.y);
             g.fillRect(p.x, p.y, snake.partSize, snake.partSize);
         }
     }

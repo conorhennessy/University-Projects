@@ -1,7 +1,8 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.TimerTask;
-
 
 public class main {
     public static void main(String[] args) {
@@ -22,22 +23,20 @@ public class main {
         gameFrame.add(tv, BorderLayout.CENTER);
 
 
-
-        int time_interval = 3;
+        int time_interval = 750;
         Boolean game_running = GamePanel.gameState;
 
         // TODO Move currently active block at fixed intervals. Well get timer working
-        TimerTask task = new TimerTask() {
+        Timer timer = new Timer(time_interval, new ActionListener() {
             @Override
-            public void run() {
+            public void actionPerformed(ActionEvent e) {
                 if (game_running){
                     snake.moveSnake(snake.currentDir);
                     tv.repaint();
                 }
             }
-        };
-        //Timer timer = new Timer(0, );
-        //timer.scheduleAtFixedRate(task, 0, time_interval);
+        });
+        timer.start();
 
     }
 }
