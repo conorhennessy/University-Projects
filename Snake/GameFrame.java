@@ -2,9 +2,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 
-public class GameFrame extends JFrame implements KeyListener {
+public class GameFrame extends JFrame implements KeyListener, MouseListener {
     public Component comp;
     Snake snake;
     static Dimension currentScreenSize;
@@ -45,15 +47,13 @@ public class GameFrame extends JFrame implements KeyListener {
         setFocusable(true);
         setFocusTraversalKeysEnabled(false);
         addKeyListener(this);
+        addMouseListener(this);
     }
 
 
-    @Override
-    public void keyTyped(KeyEvent e) {
-        //Handling the actions of the arrow keys
-    }
 
-
+    //Key action handlers
+    //Appropriate actions for when any of the arrow keys or escape is pressed.
     @Override
     public void keyPressed(KeyEvent e) {
         //Handling the actions of the arrow keys
@@ -67,11 +67,45 @@ public class GameFrame extends JFrame implements KeyListener {
                 break;
             case 40: snake.currentDir = 4; //down
                 break;
+            case 27: GamePanel.gamePause = true;  //game now paused
         }
     }
 
+    //The following are methods for the KeyListener that must be implemented.  However they are redundant
     @Override
     public void keyReleased(KeyEvent e) {
         //Handling the actions of the arrow keys
+    }
+    @Override
+    public void keyTyped(KeyEvent e) {
+        //Handling the actions of the arrow keys
+    }
+
+
+
+    //Mouse action handlers
+    //When mouse is interacted with, leave start of game state
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        GamePanel.gameStart = false; //leave start state as mouse has been interacted with
+        GamePanel.gamePause = false; //also leave pause state as this may arise
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+        GamePanel.gameStart = false; //leave start state as mouse has been interacted with
+        GamePanel.gamePause = false; //also leave pause state as this may arise
+
+    }
+
+    //The following are methods for the mouseListener that must be implemented.  However they are redundant
+    @Override
+    public void mouseEntered(MouseEvent e) {
+    }
+    @Override
+    public void mouseReleased(MouseEvent e) {
+    }
+    @Override
+    public void mouseExited(MouseEvent e) {
     }
 }

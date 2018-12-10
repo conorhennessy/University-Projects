@@ -17,7 +17,8 @@ public class Scores {
     public static void saveScore(GamePanel panel){
         Object[] options = {"Save", "Cancel"};
         String scoreDia = (String)JEnhancedOptionPane.showNewInputDialog("        Game over    :( \n\nDo you want to save your score?\nScore: " + GamePanel.currentScore + "\nName: ", options);
-        //if (scoreDia == JOptionPane.YES_OPTION) { TODO
+        if (scoreDia.equals(JEnhancedOptionPane.OK_OPTION)) { //TODO
+            System.out.println("SAVING");
             try {
                 PrintWriter writer = new PrintWriter("scores.txt", "UTF-8");
                 writer.println(scoreDia + "   " + GamePanel.currentScore);
@@ -26,8 +27,10 @@ public class Scores {
             } catch (UnsupportedEncodingException e1) {
                 e1.printStackTrace();
             }
-        //}
-        //if cancel button TODO
+        }
+        //else if (scoreDia == JOptionPane.CANCEL_OPTION){
+
+            //}
     }
 }
 

@@ -24,12 +24,21 @@ public class main {
         gameFrame.add(tv, BorderLayout.CENTER);
 
 
-        int time_interval = 300;
+        int time_interval = 200;
 
         Timer timer = new Timer(time_interval, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (!GamePanel.gameOver){
+                // if game start
+                if (GamePanel.gameStart){
+                    GamePanel.updateCenterText("start");
+                }
+                //if game paused
+                else if (GamePanel.gamePause){
+                    GamePanel.updateCenterText("paused");
+                }
+                else if (!GamePanel.gameOver && !(GamePanel.gameStart || GamePanel.gamePause)){
+                    GamePanel.updateCenterText("play");
                     snake.checkSnakeCollision();
                     snake.checkAppleCollision(apple);
                     snake.moveSnake();
@@ -38,6 +47,7 @@ public class main {
                     tv.repaint();
                 }
                 else {
+                    GamePanel.updateCenterText("over");
                     System.out.println("GAME OVER");
                     Scores.saveScore(tv);
                     //timer.stop();
