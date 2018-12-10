@@ -20,6 +20,8 @@ public class GameFrame extends JFrame implements KeyListener, MouseListener {
         getContentPane().add(BorderLayout.CENTER, comp);
         pack();
 
+
+        // formatting and setup of the GameFrame
         this.setVisible(true);
         this.setResizable(false);
         setSize(845, 610);
@@ -35,7 +37,7 @@ public class GameFrame extends JFrame implements KeyListener, MouseListener {
         Toolkit toolkit = Toolkit.getDefaultToolkit();
         GameFrame.currentScreenSize = toolkit.getScreenSize();
 
-        //Figure out the location frame should now be
+        //Figure out the location for where frame should now be
         int x = (currentScreenSize.width - getWidth()) / 2;
         int y = (currentScreenSize.height - getHeight()) / 2;
 
@@ -43,7 +45,7 @@ public class GameFrame extends JFrame implements KeyListener, MouseListener {
         setLocation(x, y);
 
 
-        //Add and state the button handler stuff
+        //Add and state the keyboard & mouse listeners
         setFocusable(true);
         setFocusTraversalKeysEnabled(false);
         addKeyListener(this);
@@ -59,15 +61,28 @@ public class GameFrame extends JFrame implements KeyListener, MouseListener {
         //Handling the actions of the arrow keys
         int keyCode = e.getKeyCode();
         switch (keyCode){
-            case 37: snake.currentDir = 1; //left
+            case 37:  //left
+                if (snake.currentDir == 3) break;
+                snake.currentDir = 1; //left
                 break;
-            case 38: snake.currentDir = 2; //up
+            case 38:  //up
+                if (snake.currentDir == 4) break;
+                snake.currentDir = 2; //up
                 break;
-            case 39: snake.currentDir = 3; //right
+            case 39:  //right
+                if (snake.currentDir == 1) break;
+                snake.currentDir = 3; //right
                 break;
-            case 40: snake.currentDir = 4; //down
+            case 40: //down
+                if (snake.currentDir == 2) break;
+                snake.currentDir = 4; //down
                 break;
-            case 27: GamePanel.gamePause = true;  //game now paused
+            case 27: //game now paused
+                GamePanel.gamePause = true;
+                break;
+            case 81:  //quit game
+                GamePanel.gameOver = true;
+                break;
         }
     }
 
@@ -89,13 +104,16 @@ public class GameFrame extends JFrame implements KeyListener, MouseListener {
     public void mouseClicked(MouseEvent e) {
         GamePanel.gameStart = false; //leave start state as mouse has been interacted with
         GamePanel.gamePause = false; //also leave pause state as this may arise
+        GamePanel.gameOver = false;
+        snake.currentDir = 3;
     }
 
     @Override
     public void mousePressed(MouseEvent e) {
         GamePanel.gameStart = false; //leave start state as mouse has been interacted with
         GamePanel.gamePause = false; //also leave pause state as this may arise
-
+        GamePanel.gameOver = false;
+        snake.currentDir = 3;
     }
 
     //The following are methods for the mouseListener that must be implemented.  However they are redundant

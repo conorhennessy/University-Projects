@@ -2,9 +2,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
 
 public class main {
     public static void main(String[] args) {
@@ -39,10 +36,10 @@ public class main {
                 }
                 else if (!GamePanel.gameOver && !(GamePanel.gameStart || GamePanel.gamePause)){
                     GamePanel.updateCenterText("play");
-                    snake.checkSnakeCollision();
                     snake.checkAppleCollision(apple);
                     snake.moveSnake();
-                    snake.moveHead(snake.currentDir);
+                    snake.moveHead();
+                    snake.checkSnakeCollision();
                     GamePanel.updateScore();
                     tv.repaint();
                 }
@@ -50,6 +47,9 @@ public class main {
                     GamePanel.updateCenterText("over");
                     System.out.println("GAME OVER");
                     Scores.saveScore(tv);
+                    snake.head.move(420, 300);
+                    snake.snakePosArray.clear();
+                    GamePanel.currentScore = 0;
                     //timer.stop();
                 }
             }

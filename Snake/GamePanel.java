@@ -9,7 +9,9 @@ public class GamePanel extends JPanel {
 
     public static JLabel scoreLabel;
     public static JLabel centerText;
-    public static int currentScore = 0;
+    public static JLabel centerTitle;
+
+    public static int currentScore = 5;
 
     public static boolean gameStart = true;
     public static boolean gamePause = false;
@@ -22,7 +24,7 @@ public class GamePanel extends JPanel {
         this.apple = apple;
 
         //Setup of panel
-        setLayout(new GridBagLayout());
+        setLayout(new BorderLayout());
 
 
         //Creation of a score label which will go into the frame
@@ -30,14 +32,21 @@ public class GamePanel extends JPanel {
         //Set formatting: colour, location & size of label
         scoreLabel.setForeground(Color.white);
         scoreLabel.setFont(new Font("Courier New", Font.BOLD, 15));
-        scoreLabel.setBounds(900, 50, 100, 100); //TODO EXTRA goto get this formatting working
-        add(scoreLabel);
+        scoreLabel.setHorizontalAlignment(JLabel.CENTER);
+        add(scoreLabel, BorderLayout.NORTH);
+
+        centerTitle = new JLabel("");
+        centerTitle.setHorizontalAlignment(JLabel.CENTER);
+        centerTitle.setFont(new Font("Courier New", Font.ITALIC, 100));
+        centerTitle.setVisible(false);
+        add(centerTitle, BorderLayout.CENTER);
 
         centerText = new JLabel("");
         centerText.setForeground(Color.decode("#c1e1e7"));
-        centerText.setFont(new Font("Courier New", Font.ITALIC, 25));
+        centerText.setHorizontalAlignment(JLabel.CENTER);
+        centerText.setFont(new Font("Courier New", Font.ITALIC, 20));
         centerText.setVisible(false);
-        add(centerText);
+        add(centerText, BorderLayout.SOUTH);
     }
 
     public static void updateScore() {
@@ -47,20 +56,29 @@ public class GamePanel extends JPanel {
     public static void updateCenterText(String state){
         switch (state) {
             case "start":
-                centerText.setText("<html>SNAKE<br/></br>Use the arrow keys to move & Esc to pause<br/>Click anywhere to start!</html>");
+                centerTitle.setForeground(Color.decode("#7ea4b3"));
+                centerTitle.setText("SNAKE");
+                centerText.setText("<html></br>Use the arrow keys to move & Esc to pause.<br/>Click anywhere to start!</html>");
+                centerTitle.setVisible(true);
                 centerText.setVisible(true);
                 break;
             case "paused":
-                centerText.setText("<html>PAUSED<br/>Click anywhere to resume...</html>");
+                centerTitle.setForeground(Color.decode("#7ea4b3"));
+                centerTitle.setText("PAUSED");
+                centerText.setText("Click anywhere to resume...");
+                centerTitle.setVisible(true);
                 centerText.setVisible(true);
                 break;
             case "over":
-                centerText.setText("Game Over :(");
-                centerText.setForeground(Color.decode("#f0908a"));
-                centerText.setVisible(true);
+                centerTitle.setText("Game Over ...");
+                centerTitle.setForeground(Color.decode("#f0908a"));
+                centerText.setText(Scores.getTopTen());
+                centerTitle.setVisible(true);
+                centerText.setVisible(false);
                 break;
             case "play": //if playing clear center Text
-                centerText.setText("");
+                centerTitle.setVisible(false);
+                centerText.setVisible(false);
                 break;
         }
     }
@@ -68,15 +86,19 @@ public class GamePanel extends JPanel {
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        // draw the head square on the board
         g.setColor(snake.snakeColour);
 
+        // Draw the head square on the board
         g.fillRect(snake.head.posX, snake.head.posY, snake.partSize, snake.partSize);
+        System.out.println("Drawing snake head @ x:"+ snake.head.posX +" & y:" + snake.head.posY);
+
+        // Drawing of all remaining snake parts
         for (Square p : snake.snakePosArray) {
-            System.out.println("Drawing snake part @ x:"+ p.posX +" & y:" + p.posY);
+            System.out.println("Drawing snake body part @ x:"+ p.posX +" & y:" + p.posY);
             g.fillRect(p.posX, p.posY, snake.partSize, snake.partSize);
         }
 
+        // Drawing of all apple parts
         System.out.println("Drawing apple @ x:"+ apple.posX +" & y:" + apple.posY);
         g.fillOval(apple.posX, apple.posY, apple.radius, apple.radius);
 

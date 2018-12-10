@@ -1,40 +1,84 @@
 import javax.swing.*;
 import java.awt.*;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Scores {
     int currentScore;
+    ArrayList<String> scoresArray = new ArrayList<String>();
 
-    public Scores(){
+    public Scores() {
         this.currentScore = GamePanel.currentScore;
 
     }
 
 
+    public static void saveScore(GamePanel panel) {
+        File scoresFile = new File("scores.txt");
+        Scanner scanner = null;
 
-    public static void saveScore(GamePanel panel){
+
+
         Object[] options = {"Save", "Cancel"};
-        String scoreDia = (String)JEnhancedOptionPane.showNewInputDialog("        Game over    :( \n\nDo you want to save your score?\nScore: " + GamePanel.currentScore + "\nName: ", options);
-        if (scoreDia.equals(JEnhancedOptionPane.OK_OPTION)) { //TODO
+        String scoreDia = null;
+        scoreDia = (String) JEnhancedOptionPane.showNewInputDialog("Would you like to save your score?\nScore: " + GamePanel.currentScore + "\nName: ", options);
+
+        if (scoreDia.length() > 0) { //TODO
             System.out.println("SAVING");
-            try {
-                PrintWriter writer = new PrintWriter("scores.txt", "UTF-8");
-                writer.println(scoreDia + "   " + GamePanel.currentScore);
+            try {  //try reading the file
+                scanner = new Scanner(scoresFile);
+            } catch (FileNotFoundException e) {
+                try {
+                    scoresFile.createNewFile();
+                } catch (IOException e1) {
+                    System.out.println("Permissions denied to create new file");
+                }
+            }
+
+
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
+                scoresArray.add(line);
+            }
+            scoresArray.add(scoreDia + "   " + GamePanel.currentScore);
+
+            try {  //try writing to file
+                BufferedWriter writer = new BufferedWriter(new FileWriter(scoresFile));
+                for (String score : scoresArray) {
+                    writer.write(score);
+                    writer.newLine();
+                }
+                writer.close();
+                JOptionPane.showMessageDialog(panel, "Score saved successfully.");
             } catch (FileNotFoundException e1) {
                 e1.printStackTrace();
-            } catch (UnsupportedEncodingException e1) {
-                e1.printStackTrace();
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-        }
-        //else if (scoreDia == JOptionPane.CANCEL_OPTION){
+            //All writing now complete so go back to game
+            GamePanel.gameOver = false;
+            GamePanel.gameStart = true;
+        } else { //TODO Handle cancel or dialog box close
+            //User pressed cancel or closed dialog box so go back to game
+            JOptionPane.showMessageDialog(panel, "Score not saved.");
+            GamePanel.gameOver = false;
+            GamePanel.gameStart = true;
 
-            //}
+        }
+}
+
+    public String getTopTen() {
+        
+        return "bla";
     }
 }
 
-class JEnhancedOptionPane extends JOptionPane {
+class JEnhancedOptionPane extends JOptionPane implements ActionListener {
     public static String showNewInputDialog(final Object message, final Object[] options)
             throws HeadlessException {
         final JOptionPane pane = new JOptionPane(message, QUESTION_MESSAGE,
@@ -50,6 +94,11 @@ class JEnhancedOptionPane extends JOptionPane {
         dialog.dispose();
         final Object value = pane.getInputValue();
         return (value == UNINITIALIZED_VALUE) ? null : (String) value;
+
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
     }
 }
 
