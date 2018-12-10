@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class Scores {
     int currentScore;
-    ArrayList<String> scoresArray = new ArrayList<String>();
+    static ArrayList<String> scoresArray = new ArrayList<String>();
 
     public Scores() {
         this.currentScore = GamePanel.currentScore;
@@ -72,8 +72,8 @@ public class Scores {
         }
 }
 
-    public String getTopTen() {
-        
+    public static String getTopTen() {
+
         return "bla";
     }
 }

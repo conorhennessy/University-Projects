@@ -7,15 +7,15 @@ public class GamePanel extends JPanel {
     Snake snake;
     PointCircle apple;
 
-    public static JLabel scoreLabel;
-    public static JLabel centerText;
-    public static JLabel centerTitle;
+    static JLabel scoreLabel;
+    static JLabel centerText;
+    static JLabel centerTitle;
 
-    public static int currentScore = 5;
+    static int currentScore = 0;
 
-    public static boolean gameStart = true;
-    public static boolean gamePause = false;
-    public static boolean gameOver = false;
+    static boolean gameStart = true;
+    static boolean gamePause = false;
+    static boolean gameOver = false;
 
     Color background = Color.decode("#3E3C45");
 

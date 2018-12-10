@@ -7,7 +7,7 @@ import java.awt.event.MouseListener;
 
 
 public class GameFrame extends JFrame implements KeyListener, MouseListener {
-    public Component comp;
+    Component comp;
     Snake snake;
     static Dimension currentScreenSize;
 
