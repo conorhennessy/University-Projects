@@ -2,19 +2,20 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.TimerTask;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 
 public class main {
     public static void main(String[] args) {
 
-        //Creation of a panel which will go into the frame
-        JLabel scoreLabel = new JLabel("Score: " + GamePanel.currentScore);
-
+        //Init of snake and all the relevant atts
         Snake snake = new Snake();
 
-        //Set location & size of label
-        //scoreLabel.setBounds(900, 50, 100, 100); //TODO EXTRA goto get this formatting working
-        GamePanel tv = new GamePanel(snake, scoreLabel);
+        //init of apple, the point which the snake will eat
+        PointCircle apple = new PointCircle();
+
+        GamePanel tv = new GamePanel(snake, apple);
 
 
         //Creation of a frame to hold all of the game
@@ -23,16 +24,23 @@ public class main {
         gameFrame.add(tv, BorderLayout.CENTER);
 
 
-        int time_interval = 750;
-        Boolean game_running = GamePanel.gameState;
+        int time_interval = 300;
 
         Timer timer = new Timer(time_interval, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (game_running){
-                    snake.moveSnake(snake.currentDir, tv);
-                    //System.out.println(snake.snakePosArray);  //to show where the blobs should be
-                    tv.repaint();  //instead call repaint method in snake class?
+                if (!GamePanel.gameOver){
+                    snake.checkSnakeCollision();
+                    snake.checkAppleCollision(apple);
+                    snake.moveSnake();
+                    snake.moveHead(snake.currentDir);
+                    GamePanel.updateScore();
+                    tv.repaint();
+                }
+                else {
+                    System.out.println("GAME OVER");
+                    Scores.saveScore(tv);
+                    //timer.stop();
                 }
             }
         });

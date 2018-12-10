@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public abstract class Shape {
     Integer posX;
     Integer posY;
@@ -9,7 +11,6 @@ public abstract class Shape {
 
     public abstract void setSize(int x);
 
-    public abstract void rotateShape(int rotation);
 }
 
 
@@ -28,20 +29,23 @@ class Square extends Shape {  // Squares will make up the snake
         sideLength = x;
     }
 
-    @Override
-    public void rotateShape(int rotation) {
-        //rotate shape somehow
-    }
 }
 
 
 class PointCircle extends Shape{  //Circles will be one of the points that player needs to pick up, worth 1 point
     Integer radius;
+    Random generator = new Random();
 
-    public PointCircle(Integer posX, Integer posY, Integer radius) {
-        this.posX = posX;
-        this.posY = posY;
-        this.radius = radius;
+    public PointCircle() {
+        //range bound divided by 20 and then random value multiplied by 20 to ensure that the random x / y is a multiple of 20 so snake can catch it
+        this.posX = generator.nextInt(850 / 20 ) * 20;
+        this.posY = generator.nextInt(560 / 20 ) * 20;
+        this.radius = 18;
+    }
+
+    public void newLocation(){
+        posX = generator.nextInt(850 / 20 ) * 20;
+        posY = generator.nextInt(560 / 20 ) * 20;
     }
 
     @Override
@@ -49,10 +53,6 @@ class PointCircle extends Shape{  //Circles will be one of the points that playe
         radius = x;
     }
 
-    @Override
-    public void rotateShape(int rotation) {
-
-    }
 }
 
 
@@ -70,7 +70,6 @@ class PointTriangle extends Shape{ // Triangles will be another shape the snake 
         sideLength = x;
     }
 
-    @Override
     public void rotateShape(int rotation) {
 
     }

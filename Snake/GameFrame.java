@@ -20,7 +20,7 @@ public class GameFrame extends JFrame implements KeyListener {
 
         this.setVisible(true);
         this.setResizable(false);
-        setSize(850, 600);
+        setSize(845, 610);
         Color background = Color.decode("#3E3C45");
         setBackground(background);
         ImageIcon icon = new ImageIcon(getClass().getResource("icon.png"));
@@ -59,13 +59,13 @@ public class GameFrame extends JFrame implements KeyListener {
         //Handling the actions of the arrow keys
         int keyCode = e.getKeyCode();
         switch (keyCode){
-            case 37: snake.moveSnake(1, comp); //left
+            case 37: snake.currentDir = 1; //left
                 break;
-            case 38: snake.moveSnake(2, comp); //up
+            case 38: snake.currentDir = 2; //up
                 break;
-            case 39: snake.moveSnake(3, comp); //right
+            case 39: snake.currentDir = 3; //right
                 break;
-            case 40: snake.moveSnake(4 ,comp); //down
+            case 40: snake.currentDir = 4; //down
                 break;
         }
     }

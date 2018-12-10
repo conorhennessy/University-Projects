@@ -3,33 +3,64 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Snake{
-    protected Color snakeColour = Color.decode("#c9c9c9");
-    protected int partSize = 20;
+    Color snakeColour = Color.decode("#c9c9c9");
+    int partSize = 20;
+    int currentDir;
     Integer startX;
     Integer startY;
-    int currentDir;
     Square head;
+    Component comp;
 
     List<Square> snakePosArray = new ArrayList<>();
 
     public Snake(){
         //Create the initial snake position
-        this.startX = 415;
-        this.startY = 290;
+        this.startX = 420;
+        this.startY = 300;
 
         this.currentDir = 0;
 
-        // Head of snake is always at pos 0 in Array
-        snakePosArray.add(new Square(startX, startY, partSize));
-        head = snakePosArray.get(0);
+        // Head of snake created
+        head = new Square(startX, startY, partSize);
     }
 
-    public List<Square> getSnakePosArray() {
-        return snakePosArray;
+
+    public void moveSnake() {
+        //Shuffle all snake parts along. As the next part just inherits the part at index i-1
+        if (snakePosArray.size() > 0) {
+            for (int i = snakePosArray.size() - 1; i >= 1; i--) {
+                System.out.println("Shuffelllll");
+                //snakePosArray.set(i, snakePosArray.get(i - 1));
+                snakePosArray.get(i).posX = snakePosArray.get(i-1).posX;
+                snakePosArray.get(i).posY = snakePosArray.get(i-1).posY;
+
+            }
+            snakePosArray.get(0).posY=head.posY;
+            snakePosArray.get(0).posX=head.posX;
+        }
     }
 
     boolean boundaryHit = false;
-    public int moveSnake(int direction, Component comp){
+    public int moveHead(int direction){
+        //Move head based on direction intended
+        switch (direction) {
+            case 1: //left
+                System.out.println("Snake heading left");  // these souts are for debugging
+                head.move(head.posX - partSize, head.posY);
+                break;
+            case 2: //up
+                System.out.println("Snake heading up");
+                head.move(head.posX, head.posY - partSize);
+                break;
+            case 3: //right
+                System.out.println("Snake heading right");
+                head.move(head.posX + partSize, head.posY);
+                break;
+            case 4: //down
+                System.out.println("Snake heading down");
+                head.move(head.posX, head.posY + partSize);
+                break;
+        }
 
         //Check if the snake is about to move out of the frame
         // If so correct the x or y values as appropriate
@@ -37,73 +68,65 @@ public class Snake{
         if (!boundaryHit) {
             if (head.posX < 0) {
                 System.out.println("HIT left");
-                //snakePosArray.set(0, new Square(820 + partSize, snakePosArray.get(0).posY, partSize));
-                head.move(820 + partSize, head.posY);
+                head.move(840 , head.posY);
                 boundaryHit = true;
             }
             if (head.posX > 840) {
                 System.out.println("HIT right");
-                //snakePosArray.set(0, new Square(0 - partSize, snakePosArray.get(0).posY, partSize));
-                head.move(0 - partSize, head.posY);
+                head.move(0, head.posY);
                 boundaryHit = true;
             }
             if (head.posY < 0) {
                 System.out.println("HIT top");
-                //snakePosArray.set(0, new Square(snakePosArray.get(0).posX, 520 + partSize, partSize));
-                head.move(head.posX, 520 + partSize);
+                head.move(head.posX, 560);
                 boundaryHit = true;
             }
-            if (head.posY > 540) {
+            if (head.posY > 560) {
                 System.out.println("HIT bottom");
-                //snakePosArray.set(0, new Square(snakePosArray.get(0).posX, 0 - partSize, partSize));
-                head.move(head.posX, 0 - partSize);
+                head.move(head.posX, 0);
                 boundaryHit = true;
             }
         }
         else boundaryHit = false;
 
 
-
-        switch (direction) {
-            case 1: //left
-                System.out.println("Snake now heading left");  // these souts are for debugging
-                //snakePosArray.set(0, new Square(snakePosArray.get(0).posX - partSize, snakePosArray.get(0).posY, partSize));
-                head.move(head.posX - partSize, head.posY);
-                break;
-            case 2: //up
-                System.out.println("Snake now heading up");
-                //snakePosArray.set(0, new Square(snakePosArray.get(0).posX, snakePosArray.get(0).posY - partSize, partSize));
-                head.move(head.posX, head.posY - partSize);
-                break;
-            case 3: //right
-                System.out.println("Snake now heading right");
-                //snakePosArray.set(0, new Square(snakePosArray.get(0).posX + partSize, snakePosArray.get(0).posY, partSize));
-                head.move(head.posX + partSize, head.posY);
-                break;
-            case 4: //down
-                System.out.println("Snake now heading down");
-                //snakePosArray.set(0, new Square(snakePosArray.get(0).posX, snakePosArray.get(0).posY + partSize, partSize));
-                head.move(head.posX, head.posY + partSize);
-                break;
-            case 0: //initial state don't move. Also arises when game is paused.
-                break;
-        }
-
-        comp.repaint();  //as the snake is moved, repaint
-
         currentDir = direction;
         return direction;
     }
 
-    public static void addSnakePart(){
-        //add extra blob to end
-        //coordinateArray[numberOfElements] = coordinate;
-        //numberOfElements ++;
-    }
-}
 
-//class head extends Snake{
-  //  public head(List<Integer> snakePos, Color snakeColour) {
-        //this.direction = direction;
-    //}
-//}
+    public void addSnakePart(){
+        // Add extra blob to end by adding a square which is at the current head position
+        // Then move the old head by calling move snake?
+        Square newPart;
+        if (snakePosArray.size() == 0){
+            newPart = new Square(head.posX, head.posY, partSize);
+        }
+        else {
+            newPart = new Square(snakePosArray.get(snakePosArray.size()-1).posX, snakePosArray.get(snakePosArray.size()-1).posY, partSize);
+        }
+        snakePosArray.add(newPart);
+    }
+
+    public boolean checkAppleCollision(PointCircle apple) {
+        if (head.posX.equals(apple.posX) && head.posY.equals(apple.posY)){
+            System.out.println("NOM NOM NOM Snek eat apple");
+            GamePanel.currentScore++;
+            apple.newLocation();
+            addSnakePart();
+            return true;
+        }
+        else return false;
+    }
+
+    public boolean checkSnakeCollision() {
+        for (int i = 1; i < snakePosArray.size(); i++) {
+            if (head.posX.equals(snakePosArray.get(i).posX) && head.posY.equals(snakePosArray.get(i).posY)){
+                System.out.println("YOU DEAD");
+                GamePanel.gameOver = true;
+            }
+        }
+        return GamePanel.gameOver;
+    }
+
+}
