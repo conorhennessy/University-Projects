@@ -64,10 +64,10 @@ public class Snake{
         if (!boundaryHit) {
             if (head.posX < 0) {
                 System.out.println("HIT left");
-                head.move(840 , head.posY);
+                head.move(820 , head.posY);
                 boundaryHit = true;
             }
-            if (head.posX > 840) {
+            if (head.posX > 820) {
                 System.out.println("HIT right");
                 head.move(0, head.posY);
                 boundaryHit = true;
