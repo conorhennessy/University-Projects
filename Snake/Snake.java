@@ -5,8 +5,8 @@ import java.util.List;
 public class Snake{
     Color snakeColour = Color.decode("#c9c9c9");
     int partSize = 20;
-    int currentDir = 3;
-    int tickDelay = 250;
+    int currentDir = 3;  //inital movement direction of the snake is to the right. So state 3 for the move method to take on first go.
+    int tickDelay;
     Integer startX;
     Integer startY;
     Square head;

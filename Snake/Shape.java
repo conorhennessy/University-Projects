@@ -1,6 +1,4 @@
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 public abstract class Shape {
@@ -13,9 +11,7 @@ public abstract class Shape {
     }
 
     public abstract void setSize(int x);
-
 }
-
 
 
 class Square extends Shape {  // Squares will make up the snake
@@ -59,7 +55,7 @@ class PointCircle extends Shape{  //Circles will be one of the points that playe
 }
 
 
-class PointTriangle extends Shape{ // Triangles will be another shape the snake player will go for, more rare and worth 3 points  TODO
+class PointTriangle extends Shape{ // Triangles will be another shape the snake player will go for, more rare and worth 3 points
     Integer sideLength;
 
     int Xpositions[];
@@ -111,10 +107,7 @@ class PointTriangle extends Shape{ // Triangles will be another shape the snake 
     }
 
 
-
     @Override
-    public void setSize(int x) {
-        sideLength = x;
-    }
+    public void setSize(int x) { sideLength = x; }
 
 }

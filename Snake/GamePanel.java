@@ -14,12 +14,13 @@ public class GamePanel extends JPanel {
 
     static int currentScore = 0;
 
+    //boolean values to keep track of the current game state in order for the game panel to show the right UI
     static boolean gameStart = true;
     static boolean gamePause = false;
     static boolean gameOver = false;
     static boolean holdOver = false;
 
-    Color background = Color.decode("#3E3C45");
+    Color background = Color.decode("#3E3C45");  //hex code of the background colour
 
     public GamePanel(Snake snake, PointCircle apple, PointTriangle triangle){
         this.snake = snake;
@@ -57,27 +58,23 @@ public class GamePanel extends JPanel {
     }
 
     public static void updateCenterText(String state){
+        centerTitle.setVisible(true);
+        centerText.setVisible(true);
         switch (state) {
             case "start":
                 centerTitle.setForeground(Color.decode("#7ea4b3"));
                 centerTitle.setText("SNAKE");
-                centerText.setText("<html>Use the arrow keys to move & Esc to pause.<br/>Click anywhere to start!</html>");
-                centerTitle.setVisible(true);
-                centerText.setVisible(true);
+                centerText.setText("<html>Use the arrow keys to move & Esc to pause.<br/>Circles are worth 1 point  &  Bonus triangles are worth 3 points!<br/>Click anywhere to start!</html>");
                 break;
-            case "paused":
+            case "paused": //show pause UI with
                 centerTitle.setForeground(Color.decode("#7ea4b3"));
                 centerTitle.setText("PAUSED");
                 centerText.setText("Click anywhere to resume...");
-                centerTitle.setVisible(true);
-                centerText.setVisible(true);
                 break;
-            case "over":
+            case "over": //Show the appropriate UI for game over state
                 centerTitle.setText("Game Over ...");
                 centerTitle.setForeground(Color.decode("#f0908a"));
-                centerText.setText("");
-                centerTitle.setVisible(true);
-                centerText.setVisible(true);
+                centerText.setText("<html><br/>Click anywhere to try again!<br/><br/><br/><br/>"+ Scores.getTopTen());
                 break;
             case "play": //if playing clear center Text
                 centerTitle.setVisible(false);
@@ -90,7 +87,7 @@ public class GamePanel extends JPanel {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-        // Drawing of all random triangle parts
+        // Drawing of all random triangle parts - bonus points
         if (triangle.exists) {
             System.out.println("Drawing triangle @ x:" + triangle.posX + " & y:" + triangle.posY);
             g.setColor(triangle.randColour);

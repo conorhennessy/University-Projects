@@ -14,19 +14,21 @@ public class Scores {
 
     }
 
+    //Method to read scores file and store all values in scoresArray
     public static void getScores() {
         File scoresFile = new File("scores.txt");
         Scanner scanner = null;
 
         //Reading of the file
         System.out.println("Reading File!");
-        try {  //try reading the file
+        try {
             scanner = new Scanner(scoresFile);
         } catch (FileNotFoundException e) {
             try {
+                System.out.println("File not found!  Creating new file");
                 scoresFile.createNewFile();
             } catch (IOException e1) {
-                System.out.println("Permissions denied to create new file");
+                System.out.println("Permissions denied to create new file!");
             }
         }
 
@@ -37,6 +39,7 @@ public class Scores {
         }
     }
 
+    //Method to save the score to the file
     public static void saveScore(GamePanel panel) {
         scoresArray.clear();
         getScores();
@@ -47,7 +50,7 @@ public class Scores {
         File scoresFile = new File("scores.txt");
 
         // Write new score to the file
-        if (!(scoreDia != null)){
+        if (scoreDia == null){
             //User pressed cancel or closed dialog box so go back to game
             JOptionPane.showMessageDialog(panel, "Score not saved.");
             GamePanel.holdOver = true;
@@ -64,18 +67,25 @@ public class Scores {
                 writer.close();
                 JOptionPane.showMessageDialog(panel, "Score saved successfully.");
             } catch (FileNotFoundException e1) {
-                e1.printStackTrace();
+                System.out.println("File not found!  Creating new file");
+                try {
+                    scoresFile.createNewFile();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
             } catch (IOException e) {
-                e.printStackTrace();
+                System.out.println("Permissions denied to create new file!");
             }
-            //All writing now complete so hold game state
+            //All writing now complete so to hold game state
             GamePanel.holdOver = true;
         }
     }
 
-    public static void getTopTen() {
+    //Method for finding the top ten scores in the file and setting the center text to show this leader board
+    //Works by looping through the scoresArray and remapping it as a names&scores objects in order for sorting it to occur
+    public static String getTopTen() {
         scoresArray.clear();
         getScores();
         ArrayList<nameAndScore> namesAndScores = new ArrayList<>();
@@ -90,20 +100,20 @@ public class Scores {
 
         Collections.sort(namesAndScores);
 
-        String topTen = "<html><br/>Click anywhere to try again!<br/><br/><br/><br/>Top 10 scores...<br/>";
-        int bound = namesAndScores.size() >= 10 ? 10 : namesAndScores.size();
+        String topTen = "Top 10 scores...<br/>";
 
-        for (int i = 0; i < bound; i++){
+        int bounds = namesAndScores.size() >= 10 ? 10 : namesAndScores.size();  //if the scores file has less than 10 peoples scores the bound for the following for loop is the number of items in the array instead. Otherwise the bound is 10
+
+        for (int i = 0; i < bounds; i++){
             topTen += namesAndScores.get(i).toString();
         }
         topTen +="</html>";
-        System.out.println(topTen);
 
-        GamePanel.centerText.setText(topTen);
+        return topTen;
     }
 }
 
-
+//Extended option pane in order to customise the dialog option buttons and inputs
 class JEnhancedOptionPane extends JOptionPane implements ActionListener {
     public static String showNewInputDialog(final Object message, final Object[] options)
             throws HeadlessException {
@@ -120,7 +130,6 @@ class JEnhancedOptionPane extends JOptionPane implements ActionListener {
         dialog.dispose();
         final Object value = pane.getInputValue();
         return (value == UNINITIALIZED_VALUE) ? null : (String) value;
-
     }
 
     @Override
