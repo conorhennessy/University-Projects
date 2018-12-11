@@ -58,7 +58,7 @@ public class GamePanel extends JPanel {
             case "start":
                 centerTitle.setForeground(Color.decode("#7ea4b3"));
                 centerTitle.setText("SNAKE");
-                centerText.setText("<html></br>Use the arrow keys to move & Esc to pause.<br/>Click anywhere to start!</html>");
+                centerText.setText("<html>Use the arrow keys to move & Esc to pause.<br/>Click anywhere to start!</html>");
                 centerTitle.setVisible(true);
                 centerText.setVisible(true);
                 break;
@@ -72,9 +72,9 @@ public class GamePanel extends JPanel {
             case "over":
                 centerTitle.setText("Game Over ...");
                 centerTitle.setForeground(Color.decode("#f0908a"));
-                centerText.setText(Scores.getTopTen());
+                centerText.setText("");
                 centerTitle.setVisible(true);
-                centerText.setVisible(false);
+                centerText.setVisible(true);
                 break;
             case "play": //if playing clear center Text
                 centerTitle.setVisible(false);

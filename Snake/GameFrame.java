@@ -89,11 +89,9 @@ public class GameFrame extends JFrame implements KeyListener, MouseListener {
     //The following are methods for the KeyListener that must be implemented.  However they are redundant
     @Override
     public void keyReleased(KeyEvent e) {
-        //Handling the actions of the arrow keys
     }
     @Override
     public void keyTyped(KeyEvent e) {
-        //Handling the actions of the arrow keys
     }
 
 
@@ -102,21 +100,19 @@ public class GameFrame extends JFrame implements KeyListener, MouseListener {
     //When mouse is interacted with, leave start of game state
     @Override
     public void mouseClicked(MouseEvent e) {
+        if (snake.currentDir == 0){
+            snake.currentDir = 3;
+        }
         GamePanel.gameStart = false; //leave start state as mouse has been interacted with
         GamePanel.gamePause = false; //also leave pause state as this may arise
         GamePanel.gameOver = false;
-        snake.currentDir = 3;
     }
 
-    @Override
-    public void mousePressed(MouseEvent e) {
-        GamePanel.gameStart = false; //leave start state as mouse has been interacted with
-        GamePanel.gamePause = false; //also leave pause state as this may arise
-        GamePanel.gameOver = false;
-        snake.currentDir = 3;
-    }
 
     //The following are methods for the mouseListener that must be implemented.  However they are redundant
+    @Override
+    public void mousePressed(MouseEvent e) {
+    }
     @Override
     public void mouseEntered(MouseEvent e) {
     }

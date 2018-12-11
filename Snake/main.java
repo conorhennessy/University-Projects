@@ -47,6 +47,7 @@ public class main {
                     GamePanel.updateCenterText("over");
                     System.out.println("GAME OVER");
                     Scores.saveScore(tv);
+                    Scores.getTopTen();
                     snake.head.move(420, 300);
                     snake.snakePosArray.clear();
                     GamePanel.currentScore = 0;

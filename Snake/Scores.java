@@ -3,12 +3,12 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
 
 public class Scores {
     int currentScore;
     static ArrayList<String> scoresArray = new ArrayList<String>();
+    static ArrayList<String> sortedScoresArray = new ArrayList<String>();
 
     public Scores() {
         this.currentScore = GamePanel.currentScore;
@@ -19,7 +19,6 @@ public class Scores {
     public static void saveScore(GamePanel panel) {
         File scoresFile = new File("scores.txt");
         Scanner scanner = null;
-
 
 
         Object[] options = {"Save", "Cancel"};
@@ -43,7 +42,7 @@ public class Scores {
                 String line = scanner.nextLine();
                 scoresArray.add(line);
             }
-            scoresArray.add(scoreDia + "   " + GamePanel.currentScore);
+            scoresArray.add(scoreDia + " " + GamePanel.currentScore);
 
             try {  //try writing to file
                 BufferedWriter writer = new BufferedWriter(new FileWriter(scoresFile));
@@ -72,11 +71,33 @@ public class Scores {
         }
 }
 
-    public static String getTopTen() {
+    public static void getTopTen() {
+        ArrayList<nameAndScore> namesAndScores = new ArrayList<>();
+        for (String line : scoresArray){
+            try {
+                namesAndScores.add(new nameAndScore(line.split(" ")[0], Integer.parseInt(line.split(" ")[1])));
+            }
+            catch (NumberFormatException e){
+                //Nothing required here
+            }
+        }
+        Collections.sort(namesAndScores);
 
-        return "bla";
+        System.out.println(namesAndScores);
+        String topTen = "<html>";
+        for (int i = 0; i < 10; i++){
+            topTen += namesAndScores.get(i).toString();
+        }
+        //for (nameAndScore ns : namesAndScores){
+            //topTen += ns.toString();
+        //}
+        topTen +="</html>";
+        System.out.println(topTen);
+
+        GamePanel.centerText.setText(topTen);
     }
 }
+
 
 class JEnhancedOptionPane extends JOptionPane implements ActionListener {
     public static String showNewInputDialog(final Object message, final Object[] options)
