@@ -9,7 +9,14 @@ public class nameAndScore implements Comparable<nameAndScore> {
 
     @Override
     public int compareTo(nameAndScore nameAndScore) {
-        return name.compareTo(String.valueOf(nameAndScore.score));
+        if (nameAndScore.score > this.score){
+            return -1;
+        }
+        if (nameAndScore.score < this.score){
+            return 1;
+        }
+        else
+            return 0;
     }
 
     @Override

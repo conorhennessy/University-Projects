@@ -21,7 +21,7 @@ public class main {
         gameFrame.add(tv, BorderLayout.CENTER);
 
 
-        int time_interval = 200;
+        int time_interval = 150;
 
         Timer timer = new Timer(time_interval, new ActionListener() {
             @Override
@@ -43,11 +43,17 @@ public class main {
                     GamePanel.updateScore();
                     tv.repaint();
                 }
+                else if (GamePanel.holdOver){
+                    //TODO add additional state that will just show the scoreboard kinda like pause
+                    GamePanel.updateCenterText("over");
+                    System.out.println("GAME OVER");
+                    Scores.getTopTen();
+                }
                 else {
                     GamePanel.updateCenterText("over");
                     System.out.println("GAME OVER");
-                    Scores.saveScore(tv);
                     Scores.getTopTen();
+                    Scores.saveScore(tv);
                     snake.head.move(420, 300);
                     snake.snakePosArray.clear();
                     GamePanel.currentScore = 0;

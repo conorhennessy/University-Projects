@@ -16,6 +16,7 @@ public class GamePanel extends JPanel {
     static boolean gameStart = true;
     static boolean gamePause = false;
     static boolean gameOver = false;
+    static boolean holdOver = false;
 
     Color background = Color.decode("#3E3C45");
 

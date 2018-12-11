@@ -8,42 +8,55 @@ import java.util.*;
 public class Scores {
     int currentScore;
     static ArrayList<String> scoresArray = new ArrayList<String>();
-    static ArrayList<String> sortedScoresArray = new ArrayList<String>();
 
     public Scores() {
         this.currentScore = GamePanel.currentScore;
 
     }
 
-
-    public static void saveScore(GamePanel panel) {
+    public static void getScores() {
         File scoresFile = new File("scores.txt");
         Scanner scanner = null;
 
+        //Reading of the file
+        System.out.println("Reading File!");
+        try {  //try reading the file
+            scanner = new Scanner(scoresFile);
+        } catch (FileNotFoundException e) {
+            try {
+                scoresFile.createNewFile();
+            } catch (IOException e1) {
+                System.out.println("Permissions denied to create new file");
+            }
+        }
 
-        Object[] options = {"Save", "Cancel"};
-        String scoreDia = null;
+
+        while (scanner.hasNextLine()) {
+            String line = scanner.nextLine();
+            scoresArray.add(line);
+        }
+    }
+
+    public static void saveScore(GamePanel panel) {
+        scoresArray.clear();
+        getScores();
+        Object[] options = {"Save"};
+        String scoreDia;
         scoreDia = (String) JEnhancedOptionPane.showNewInputDialog("Would you like to save your score?\nScore: " + GamePanel.currentScore + "\nName: ", options);
 
-        if (scoreDia.length() > 0) { //TODO
-            System.out.println("SAVING");
-            try {  //try reading the file
-                scanner = new Scanner(scoresFile);
-            } catch (FileNotFoundException e) {
-                try {
-                    scoresFile.createNewFile();
-                } catch (IOException e1) {
-                    System.out.println("Permissions denied to create new file");
-                }
-            }
+        File scoresFile = new File("scores.txt");
 
-
-            while (scanner.hasNextLine()) {
-                String line = scanner.nextLine();
-                scoresArray.add(line);
-            }
+        // Write new score to the file
+        if (!(scoreDia != null)){ //TODO Handle cancel or dialog box close
+            //User pressed cancel or closed dialog box so go back to game
+            JOptionPane.showMessageDialog(panel, "Score not saved.");
+            //TODO change this so that it now holds in game over screen to show scoreboard
+            GamePanel.holdOver = true;
+            //GamePanel.gameStart = true;
+        }
+        else if (scoreDia.length() > 0) {
+            System.out.println("Save to file!");
             scoresArray.add(scoreDia + " " + GamePanel.currentScore);
-
             try {  //try writing to file
                 BufferedWriter writer = new BufferedWriter(new FileWriter(scoresFile));
                 for (String score : scoresArray) {
@@ -60,18 +73,15 @@ public class Scores {
                 e.printStackTrace();
             }
             //All writing now complete so go back to game
-            GamePanel.gameOver = false;
-            GamePanel.gameStart = true;
-        } else { //TODO Handle cancel or dialog box close
-            //User pressed cancel or closed dialog box so go back to game
-            JOptionPane.showMessageDialog(panel, "Score not saved.");
-            GamePanel.gameOver = false;
-            GamePanel.gameStart = true;
-
+            //TODO change this so that it now holds in game over screen to show scoreboard
+            GamePanel.holdOver = true;
+            //GamePanel.gameStart = true;
         }
-}
+    }
 
     public static void getTopTen() {
+        scoresArray.clear();
+        getScores();
         ArrayList<nameAndScore> namesAndScores = new ArrayList<>();
         for (String line : scoresArray){
             try {
@@ -81,16 +91,15 @@ public class Scores {
                 //Nothing required here
             }
         }
-        Collections.sort(namesAndScores);
 
-        System.out.println(namesAndScores);
-        String topTen = "<html>";
-        for (int i = 0; i < 10; i++){
+        Collections.sort(namesAndScores); //TODO goto get this sorting working
+
+        String topTen = "<html><br/>Click anywhere to try again!<br/><br/><br/><br/>Top 10 scores...<br/>";
+        int bound = namesAndScores.size() >= 10 ? 10 : namesAndScores.size();
+
+        for (int i = 0; i < bound; i++){
             topTen += namesAndScores.get(i).toString();
         }
-        //for (nameAndScore ns : namesAndScores){
-            //topTen += ns.toString();
-        //}
         topTen +="</html>";
         System.out.println(topTen);
 
