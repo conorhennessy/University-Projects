@@ -9,10 +9,11 @@ public class main {
         //Init of snake and all the relevant atts
         Snake snake = new Snake();
 
-        //init of apple, the point which the snake will eat
+        //init of apple and triangles, the points which the snake can eat
         PointCircle apple = new PointCircle();
+        PointTriangle triangle = new PointTriangle();
 
-        GamePanel tv = new GamePanel(snake, apple);
+        GamePanel tv = new GamePanel(snake, apple, triangle);
 
 
         //Creation of a frame to hold all of the game
@@ -21,11 +22,12 @@ public class main {
         gameFrame.add(tv, BorderLayout.CENTER);
 
 
-        int time_interval = 150;
+        Timer timer = new Timer(snake.tickDelay, new ActionListener() {
+            public int tickCount = 0;
 
-        Timer timer = new Timer(time_interval, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                tickCount += 1;
                 // if game start
                 if (GamePanel.gameStart){
                     GamePanel.updateCenterText("start");
@@ -34,9 +36,18 @@ public class main {
                 else if (GamePanel.gamePause){
                     GamePanel.updateCenterText("paused");
                 }
-                else if (!GamePanel.gameOver && !(GamePanel.gameStart || GamePanel.gamePause)){
+                else if (!GamePanel.gameOver && !(GamePanel.gameStart || GamePanel.gamePause)) {
                     GamePanel.updateCenterText("play");
                     snake.checkAppleCollision(apple);
+                    if (triangle.exists){
+                        snake.checkTriangleCollision(triangle);
+                        //triangle.newLocation();
+                    }
+                    if (!triangle.exists && tickCount > 5) {  // so every 5 ticks there is a chance of triangle reappearing
+                        tickCount = 0;
+                        triangle.newLocation();
+                    }
+                    triangle.setRandColour();
                     snake.moveSnake();
                     snake.moveHead();
                     snake.checkSnakeCollision();
@@ -44,20 +55,19 @@ public class main {
                     tv.repaint();
                 }
                 else if (GamePanel.holdOver){
-                    //TODO add additional state that will just show the scoreboard kinda like pause
                     GamePanel.updateCenterText("over");
-                    System.out.println("GAME OVER");
                     Scores.getTopTen();
-                }
-                else {
-                    GamePanel.updateCenterText("over");
-                    System.out.println("GAME OVER");
-                    Scores.getTopTen();
-                    Scores.saveScore(tv);
                     snake.head.move(420, 300);
                     snake.snakePosArray.clear();
                     GamePanel.currentScore = 0;
-                    //timer.stop();
+                }
+                else {
+                    GamePanel.updateCenterText("over");
+                    Scores.getTopTen();
+                    snake.head.move(420, 300);
+                    Scores.saveScore(tv);
+                    snake.snakePosArray.clear();
+                    GamePanel.currentScore = 0;
                 }
             }
         });

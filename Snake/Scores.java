@@ -47,12 +47,10 @@ public class Scores {
         File scoresFile = new File("scores.txt");
 
         // Write new score to the file
-        if (!(scoreDia != null)){ //TODO Handle cancel or dialog box close
+        if (!(scoreDia != null)){
             //User pressed cancel or closed dialog box so go back to game
             JOptionPane.showMessageDialog(panel, "Score not saved.");
-            //TODO change this so that it now holds in game over screen to show scoreboard
             GamePanel.holdOver = true;
-            //GamePanel.gameStart = true;
         }
         else if (scoreDia.length() > 0) {
             System.out.println("Save to file!");
@@ -72,10 +70,8 @@ public class Scores {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            //All writing now complete so go back to game
-            //TODO change this so that it now holds in game over screen to show scoreboard
+            //All writing now complete so hold game state
             GamePanel.holdOver = true;
-            //GamePanel.gameStart = true;
         }
     }
 
@@ -92,7 +88,7 @@ public class Scores {
             }
         }
 
-        Collections.sort(namesAndScores); //TODO goto get this sorting working
+        Collections.sort(namesAndScores);
 
         String topTen = "<html><br/>Click anywhere to try again!<br/><br/><br/><br/>Top 10 scores...<br/>";
         int bound = namesAndScores.size() >= 10 ? 10 : namesAndScores.size();

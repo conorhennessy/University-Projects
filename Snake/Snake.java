@@ -6,6 +6,7 @@ public class Snake{
     Color snakeColour = Color.decode("#c9c9c9");
     int partSize = 20;
     int currentDir = 3;
+    int tickDelay = 250;
     Integer startX;
     Integer startY;
     Square head;
@@ -19,8 +20,9 @@ public class Snake{
         this.startY = 300;
 
         this.currentDir = 0;
+        this.tickDelay = 250;
 
-        // Create the inital snake. A snake with a head and 2 body parts
+        // Create the initial snake. A snake with a head and 2 body parts
         head = new Square(startX, startY, partSize);
     }
 
@@ -103,10 +105,24 @@ public class Snake{
 
     public boolean checkAppleCollision(PointCircle apple) {
         if (head.posX.equals(apple.posX) && head.posY.equals(apple.posY)){
-            System.out.println("NOM NOM NOM! Sneak ate apple!");
+            System.out.println("NOM NOM NOM! Sneak ate apple! Worth 1 points");
             GamePanel.currentScore++;
             apple.newLocation();
             addSnakePart();
+            return true;
+        }
+        else return false;
+    }
+
+    public boolean checkTriangleCollision(PointTriangle triangle) {
+        if (head.posX.equals(triangle.posX) && head.posY.equals(triangle.posY)){
+            System.out.println("NOM NOM NOM! Sneak ate triangle!  Worth 3 points");
+            GamePanel.currentScore += 3;
+            triangle.newLocation();
+            addSnakePart();
+            addSnakePart();
+            addSnakePart();
+            triangle.exists = false;
             return true;
         }
         else return false;
