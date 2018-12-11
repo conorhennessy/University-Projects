@@ -100,13 +100,13 @@ public class GameFrame extends JFrame implements KeyListener, MouseListener {
     //When mouse is interacted with, leave start of game state
     @Override
     public void mouseClicked(MouseEvent e) {
-        System.out.println("CLCICCKCKCKCKCKDSFKDFDKSFLDKFDKFDKFDK");
         if (snake.currentDir == 0){
             snake.currentDir = 3;
         }
         GamePanel.gameStart = false; //leave start state as mouse has been interacted with
         GamePanel.gamePause = false; //also leave pause state as this may arise
         GamePanel.gameOver = false;
+        GamePanel.holdOver = false;
     }
 
 
