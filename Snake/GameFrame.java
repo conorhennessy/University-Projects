@@ -78,7 +78,8 @@ public class GameFrame extends JFrame implements KeyListener, MouseListener {
                 snake.currentDir = 4; //down
                 break;
             case 27: //game now paused
-                GamePanel.gamePause = true;
+                if (GamePanel.gamePause) GamePanel.gamePause = false;
+                else GamePanel.gamePause = true;
                 break;
             case 81:  //quit game
                 GamePanel.gameOver = true;
