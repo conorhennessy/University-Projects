@@ -9,10 +9,10 @@ public class nameAndScore implements Comparable<nameAndScore> {
 
     @Override
     public int compareTo(nameAndScore nameAndScore) {
-        if (nameAndScore.score > this.score){
+        if (nameAndScore.score < this.score){
             return -1;
         }
-        if (nameAndScore.score < this.score){
+        if (nameAndScore.score > this.score){
             return 1;
         }
         else
