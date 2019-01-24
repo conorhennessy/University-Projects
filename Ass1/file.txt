@@ -1,0 +1,2 @@
+A sample file
+which has two lines in it.
