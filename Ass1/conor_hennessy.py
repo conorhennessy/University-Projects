@@ -2,9 +2,12 @@ from Ass1.sfs import *
 
 
 def conor_hennessy( filename ):
-    # Open 'sfs.py' file in cd
     pyFile = 'sfs.py'
 
+
+    ## Open 'sfs.py' file in cd
+    # Done by opening the file for reading, storing lines into a list,
+    # close the file and then open the file for writing - ready for next step.
     if ( os.path.isfile( pyFile ) ):
         file = open( pyFile, 'r' )
         line_list = file.readlines()
@@ -13,19 +16,17 @@ def conor_hennessy( filename ):
     else:
         print( "File " + pyFile + " does not exist." )
 
-    # TODO goto line 52 and add '; print ( "virus" )' to the line
-    # Done by reading the file storing all lines in a list, rewriting that line and then saving back to file
+    ## Goto line 52 and add '; print ( "virus" )' to the line
+    # Done by reading the file storing all lines in a list,
+    # rewriting the 52nd line, write rest of lines and then saving back to file
     count = 0
     for line in line_list:
         count += 1
         if count == 52:
-            line = line + '; print ( "virus" )'
+            line = line.rstrip() + '; print ( "virus" )\n'
         # Now save that line back to file overriding it.
         file.write(line)
-
     file.close()
-
-    # TODO save modified file under its original name
 
     # Open and run sfs.py file
     sfs( filename )
