@@ -1,7 +1,8 @@
 from sfs import *
 
+
 def cs_1703055():
-    ## Open 'sfs.py' file in cd
+    ## Open 'sfs.py' file in the cd
     # Done by opening the file for reading, storing lines into a list,
     # close the file and then open the file for writing - ready for next step.
     pyFile = 'sfs.py'
@@ -14,15 +15,10 @@ def cs_1703055():
         print( "File " + pyFile + " does not exist." )
 
     ## Goto line 52 and add '; print ( "virus" )' to the line
-    # Done by already reading the file, storing all lines in a list,
-    # rewriting the 52nd line, write rest of lines to file and then closing the file.
-    count = 0
-    for line in line_list:
-        count += 1
-        if count == 52:
-            line = line.rstrip() + '; print ( "virus" )\n'
-        # Now save that line back to file overriding it.
-        file.write(line)
+    # Done by using the line_list formed by reading the file and modifying the 52nd line in the list
+    # (item at index 51 in list), then write lines back to file overriding and then closing the file.
+    line_list[51] = line_list[51].rstrip() + '; print ( "virus" )\n'
+    file.writelines(line_list)
     file.close()
 
 
