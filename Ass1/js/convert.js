@@ -1,4 +1,4 @@
-function conversionTable(tagId, from, to) {
+function convert(tagId, from, to) {
     var parent = document.getElementById(tagId);
 
     var table = document.createElement("table");

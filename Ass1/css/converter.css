@@ -3,16 +3,40 @@ body {
     width: 400px;
 }
 
-h2 {
+#title{
     font-family: "Courier New", Courier, Monospace, Times;
     text-align: center;
     color: whitesmoke;
     background: firebrick;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
-h3 {
-    color: darkred;
+#title h2{
+    padding: 10px;
+}
+
+#selections {
+    font-family: "Courier New", Courier, Monospace, Times;
+    padding: 15px;
+    padding-top: 5px;
+    margin-bottom: 15px;
+    color: white;
+    background: #bd4545;
+}
+
+#selections h3 {
+    margin: 10px;
+}
+
+#selections p {
+    padding-left: 15px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    white-space: pre;
+}
+
+#selections p:first-of-type {
+
 }
 
 table {
@@ -31,6 +55,7 @@ td {
 }
 
 tr.even {
+    color: cornsilk;
     background: salmon;
 }
 
