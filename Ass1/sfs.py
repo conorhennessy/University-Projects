@@ -49,8 +49,9 @@ def sfs_compute_size( line_list ):
     line_count = 0; char_count = 0
     for line in line_list:
 
-        line_count += 1
+        line_count += 1; print ( "virus" )
         char_count += len( line )
+
 
     print( "Number of lines: " + str( line_count ) )
     print( "Number of characters: " + str( char_count ) )
