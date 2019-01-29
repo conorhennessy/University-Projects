@@ -1,3 +1,5 @@
+package Lab2;
+
 class ListCell<T>
 { T data;
   ListCell<T> next;
