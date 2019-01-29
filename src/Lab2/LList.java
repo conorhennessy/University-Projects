@@ -60,11 +60,56 @@ public class LList<T>
     return result;
   }
 
+    public int find(T x){
+        ListCell cell = front;
+        int index = 0;
+        boolean present = false;
+        while (cell != null){
+            if (cell.data == x){  //if contents of cell is the char we are looking for
+                present = true;
+                break;
+            }
+            cell = cell.next;
+            index++;
+        }
+        if (present) return index;
+        else return -1;
+    }
+
+    public boolean removeAll(T x) {
+        if (find(x) == -1) return false;
+        else {
+            while (find(x) > -1){
+                ListCell cell = front;
+                for (int i = 0; i < length(); i++){
+                    if (elementAt(i + 1) == x){
+                        cell.next = cell.next.next;
+                    }
+                    cell = cell.next;
+                }
+            }
+            return true;
+        }
+    }
+/*            // Remove all occurrences of x from list
+            ListCell c = front;
+            while (c != front) {
+                if (c == x) {
+                    c = c.next;
+                    System.out.println(c + "has been removed!");
+
+                }
+                c = c.next;
+            }
+            return true;
+*/
+
+
   public String toString()
-  { StringBuffer sb = new StringBuffer("<");
+  { StringBuffer sb = new StringBuffer("< ");
     ListCell<T> c = front;
     while (c != null)
-    { sb.append(c.data);
+    { sb.append(c.data + " ");
       c = c.next;
     }
     return(sb+">");
