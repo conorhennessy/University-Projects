@@ -1,6 +1,6 @@
 function conversion(tagId, conversionType) {
-    var rangeFrom = document.getElementById("rangeLower").value;
-    var rangeTo = document.getElementById("rangeUpper").value;
+    var rangeFrom = parseInt(document.getElementById("rangeLower").value);
+    var rangeTo = parseInt(document.getElementById("rangeUpper").value);
 
     var parent = document.getElementById(tagId);
 
@@ -13,7 +13,6 @@ function conversion(tagId, conversionType) {
     table.id = "conversionTable";
     parent.appendChild(table);
 
-    
     switch (conversionType) {
         case "CtoF":
             var head1Title = "Celsius (\xBAC)";
@@ -38,6 +37,11 @@ function conversion(tagId, conversionType) {
     hRow.appendChild(head2);
     table.appendChild(tHead);
 
+    //if second value supplied is null the range should be defaulted to 10
+    if (isNaN(rangeTo)) {
+        rangeTo = rangeFrom + 9;
+    }
+    document.getElementById("rangeUpper").defaultValue = rangeTo.toString();
 
 
     var tBody = document.createElement("tbody");
