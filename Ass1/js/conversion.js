@@ -4,7 +4,13 @@ function conversion(tagId, conversionType) {
 
     var parent = document.getElementById(tagId);
 
+    //If table already exists remove it to allow for creating a new one.
+    if (document.contains(document.getElementById("conversionTable"))) {
+        document.getElementById("conversionTable").remove();
+    }
+
     var table = document.createElement("table");
+    table.id = "conversionTable";
     parent.appendChild(table);
 
     
