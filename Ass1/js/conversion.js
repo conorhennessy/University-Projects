@@ -1,8 +1,23 @@
-function conversion(tagId, conversionType) {
-    var rangeFrom = parseInt(document.getElementById("rangeLower").value);
-    var rangeTo = parseInt(document.getElementById("rangeUpper").value);
+var rangeFrom = parseInt(document.getElementById("rangeLower").value);
+var rangeTo = parseInt(document.getElementById("rangeUpper").value);
 
-    var parent = document.getElementById(tagId);
+function validate(tagID, conversionType) {
+    //Validation of inputs
+    var reg = /^\d+$/;
+    if (reg.test(rangeFrom) || reg.test(rangeTo)){
+        conversion(tagID, conversionType);
+    }
+    //if second value supplied is null the range should be defaulted to 10
+    else if (reg.test(rangeFrom) && isNaN(rangeTo)) {
+        rangeTo = rangeFrom + 9;
+        document.getElementById("rangeUpper").defaultValue = rangeTo.toString();
+        conversion(tagID, conversionType);
+    }
+    else window.alert("The values given must be integers! Please try again!");
+}
+
+function conversion(tagID, conversionType) {
+    var parent = document.getElementById(tagID);
 
     //If table already exists remove it to allow for creating a new one.
     if (document.contains(document.getElementById("conversionTable"))) {
@@ -39,11 +54,6 @@ function conversion(tagId, conversionType) {
     hRow.appendChild(head2);
     table.appendChild(tHead);
 
-    //if second value supplied is null the range should be defaulted to 10
-    if (isNaN(rangeTo)) {
-        rangeTo = rangeFrom + 9;
-    }
-    document.getElementById("rangeUpper").defaultValue = rangeTo.toString();
 
 
     var tBody = document.createElement("tbody");

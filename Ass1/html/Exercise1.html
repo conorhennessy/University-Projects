@@ -13,13 +13,13 @@
     </div>
 
     <div id="selections">
-        <h3>Specify a temperature range to conversion...</h3>
-        <p>Lower <input type="number" id="rangeLower"></br></p>
-        <p>Upper <input type="number" id="rangeUpper"></p>
-        <h3>Select conversion...</h3>
+        <h3>Specify a temperature range to convert...</h3>
+        <p>To   <input type="text" id="rangeLower"></br></p>
+        <p>From <input type="text" id="rangeUpper"></p>
+        <h3>Select conversion type...</h3>
         <p>
-            <button type="button" value="CtoF" onclick="conversion('conversion', 'CtoF')">Celsius to Fahrenheit</button>
-            <button type="button" value="FtoC" onclick="conversion('conversion', 'FtoC')">Fahrenheit to Celsius</button>
+            <button type="button" value="CtoF" onclick="validate('conversion', 'CtoF')">Celsius to Fahrenheit</button>
+            <button type="button" value="FtoC" onclick="validate('conversion', 'FtoC')">Fahrenheit to Celsius</button>
         </p>
 
     </div>
