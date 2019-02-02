@@ -13,14 +13,16 @@ function conversion(tagId, conversionType) {
     table.id = "conversionTable";
     parent.appendChild(table);
 
+    var head1Title;
+    var head2Title;
     switch (conversionType) {
         case "CtoF":
-            var head1Title = "Celsius (\xBAC)";
-            var head2Title = "Fahrenheit (\xBAF)";
+            head1Title = "Celsius (\xBAC)";
+            head2Title = "Fahrenheit (\xBAF)";
             break;
         case "FtoC":
-            var head1Title = "Fahrenheit (\xBAF)";
-            var head2Title = "Celsius (\xBAC)";
+            head1Title = "Fahrenheit (\xBAF)";
+            head2Title = "Celsius (\xBAC)";
             break;
     }
 
@@ -46,7 +48,7 @@ function conversion(tagId, conversionType) {
 
     var tBody = document.createElement("tbody");
 
-    for (var i = rangeFrom; i <= rangeTo; i++){
+    for (var i = rangeFrom; (rangeFrom > rangeTo) ? i >= rangeTo : i <= rangeTo; (rangeFrom > rangeTo) ? i-- : i++){
         var row = document.createElement("tr");
         var c1Data = document.createElement("td");
         var c2Data = document.createElement("td");
