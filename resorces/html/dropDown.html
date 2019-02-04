@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <link rel="stylesheet" type="text/css" href="../css/converter.css"/>
+    <title>Drop-down menu Test</title>
+
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+        function setCol(col) {
+            var par = $("#para");
+            par.css("style", col);
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <h3>Drop-down menu Test</h3>
+
+    <p id="para" style="color:red">Select a colour for this text</p>
+
+    <p>The colour of this paragraph will not change</p>
+
+    <select>
+        <option value = "red"> Red </option>
+        <option value = "green"> Green </option>
+        <option value = "blue"> Blue </option>
+    </select>
+
+</body>
+
+</html>
