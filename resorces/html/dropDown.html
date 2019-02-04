@@ -3,14 +3,18 @@
 
 <head>
 
-    <link rel="stylesheet" type="text/css" href="../css/converter.css"/>
     <title>Drop-down menu Test</title>
 
     <script src="../js/jquery-3.3.1.min.js"></script>
     <script type="text/javascript">
-        function setCol(col) {
+        function setStyle() {
             var par = $("#para");
-            par.css("style", col);
+
+            var col = $("#col").val();
+            var align = $("#align").val();
+
+            par.css("color", col);
+            par.css("text-align", align);
         }
     </script>
 
@@ -24,11 +28,20 @@
 
     <p>The colour of this paragraph will not change</p>
 
-    <select>
+    <form>
+    <select id="col">
         <option value = "red"> Red </option>
         <option value = "green"> Green </option>
         <option value = "blue"> Blue </option>
     </select>
+    <select id="align">
+        <option value = "left"> Left </option>
+        <option value = "center"> Center </option>
+        <option value = "right"> Right </option>
+    </select>
+    <input type="submit" value="Submit" onclick="setStyle();return false" />
+    </form>
+
 
 </body>
 

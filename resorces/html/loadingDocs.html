@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script type="text/javascript">
+        var w;
+
+    function openFile(url) {
+    w = window.open();
+    w.location = url;
+    }
+
+    function changeStyle(style) {
+    w.document.getElementById("myList").setAttribute("class", style);
+    }
+    </script>
+
+</head>
+
+<body>
+
+    <a href="javascript:openFile('Lists.html')">Open Lists.html in Popup</a>
+    <br/>
+    <a href="javascript:changeStyle('')">Default</a>
+    <br/>
+    <a href="javascript:changeStyle('navcontainer')">Inline</a>
+
+</body>
+
+</html>
