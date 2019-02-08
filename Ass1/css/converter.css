@@ -35,8 +35,29 @@ body {
     white-space: pre;
 }
 
-#selections p:first-of-type {
+#selections button {
+    width: 180px;
+    padding: 14px 3px;
+    margin: 3px;
+    background-color: white;
+    border: 2px solid salmon;
 
+    color: firebrick;
+    font-size: 16px;
+    text-align: center;
+
+    cursor: pointer;
+}
+
+#selections button:hover {
+    background-color: salmon;
+    color: white;
+}
+
+
+/* Buttons div style*/
+#buttons{
+    padding-left: 60px;
 }
 
 table {
