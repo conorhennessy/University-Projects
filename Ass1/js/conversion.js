@@ -4,41 +4,29 @@ function validate(tagID, conversionType) {
 
     //Validation of inputs
     var reg = RegExp(/^\d+$/);
-    console.log(typeof rangeFrom);
-    console.log(typeof rangeTo);
 
-    //Check if either of the values inputted are not ints
     if (reg.test(rangeFrom) == false || reg.test(rangeTo) == false) {
-        window.alert("The values given must be integers! Please try again!");
+        if (reg.test(rangeFrom) == false) {
+            window.alert("The range from value must be an integer! Please try again!");
+        }
+        else if (reg.test(rangeTo) == false ) {
+            console.log("BEEEEEEEP");
+            console.log(reg.test(rangeFrom));
+            console.log(typeof rangeTo);
+            if (reg.test(rangeFrom) && rangeTo.length == 0) {
+                rangeTo = parseInt(rangeFrom) + 9;
+                document.getElementById("rangeUpper").defaultValue = rangeTo.toString();
+                conversion(tagID, conversionType);
+            }
+            else {
+                window.alert("The range to value must be an integer! Please try again!");
+            }
+        }
     }
     else {
-        // Check if first value is fine (an int) but second is blank
-        if (reg.test(rangeFrom) && rangeTo.length == 0) {
-            rangeTo = rangeFrom + 9;
-            document.getElementById("rangeUpper").defaultValue = rangeTo.toString();
-            conversion(tagID, conversionType);
-        }
-        else {
-            conversion(tagID, conversionType);
-        }
-        //TODO add something to deal with if second input is invalid yet first was valid
+        conversion(tagID, conversionType);
     }
 }
-
-
-/*    if (reg.test(rangeFrom) == true && reg.test(rangeTo) == true){
-        conversion(tagID, conversionType);
-    }
-    //if second value supplied is null the range should be defaulted to 10
-    else if (reg.test(rangeFrom) && isNaN(rangeTo))
-    {
-        console.log(isNaN(rangeTo));
-        rangeTo = rangeFrom + 9;
-        document.getElementById("rangeUpper").defaultValue = rangeTo.toString();
-        conversion(tagID, conversionType);
-    }
-    else {
-    }*/
 
 
 function conversion(tagID, conversionType) {
