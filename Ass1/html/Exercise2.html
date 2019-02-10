@@ -17,18 +17,19 @@
 </div>
 
 <div id="selections">
+
     <h3>Please specify a HTML page to open...</h3>
     <p>[The page must be on the same file</br>system as this page!]</br> </p>
     <p>Site:<input type="text" id="url"></br></p>
     <div id="buttons">
+        <button type="button" value="open" onclick="openFile(document.getElementById('url').value)">Open</button>
         <button type="button" value="count" onclick="wordCount()">Count</button>
     </div>
 
 </div>
 
 <div id="wordCount">
-    <ul id="list"> </ul>
-    <pre id="count"> &nbsp; </pre><br/>
+
 </div>
 
 </body>
