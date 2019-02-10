@@ -10,9 +10,6 @@ function validate(tagID, conversionType) {
             window.alert("The range from value must be an integer! Please try again!");
         }
         else if (reg.test(rangeTo) == false ) {
-            console.log("BEEEEEEEP");
-            console.log(reg.test(rangeFrom));
-            console.log(typeof rangeTo);
             if (reg.test(rangeFrom) && rangeTo.length == 0) {
                 rangeTo = parseInt(rangeFrom) + 9;
                 document.getElementById("rangeUpper").defaultValue = rangeTo.toString();
