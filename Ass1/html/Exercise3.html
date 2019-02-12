@@ -23,35 +23,35 @@
 
 <table>
     <tr>
-        <td><button onclick="number(1)">1</button></td>
-        <td><button onclick="number(2)">2</button></td>
-        <td><button onclick="number(3)">3</button></td>
+        <td><button class="num" onclick="number(1)">1</button></td>
+        <td><button class="num" onclick="number(2)">2</button></td>
+        <td><button class="num" onclick="number(3)">3</button></td>
     </tr>
     <tr>
-        <td><button onclick="number(4)">4</button></td>
-        <td><button onclick="number(5)">5</button></td>
-        <td><button onclick="number(6)">6</button></td>
+        <td><button class="num" onclick="number(4)">4</button></td>
+        <td><button class="num" onclick="number(5)">5</button></td>
+        <td><button class="num" onclick="number(6)">6</button></td>
     </tr>
     <tr>
-        <td><button onclick="number(7)">7</button></td>
-        <td><button onclick="number(8)">8</button></td>
-        <td><button onclick="number(9)">9</button></td>
+        <td><button class="num" onclick="number(7)">7</button></td>
+        <td><button class="num" onclick="number(8)">8</button></td>
+        <td><button class="num" onclick="number(9)">9</button></td>
     </tr>
     <tr>
-        <td><button>.</button></td>
-        <td><button onclick="number(0)">0</button></td>
-        <td><button onclick="clear()">C</button></td>
+        <td><button class="opr" onclick="decimal()">.</button></td>
+        <td><button class="num" onclick="number(0)">0</button></td>
+        <td><button class="opr" onclick="operator('/')">/</button></td>
     </tr>
     <tr>
-        <td><button>+</button></td>
-        <td><button>-</button></td>
-        <td><button>*</button></td>
+        <td><button class="opr" onclick="operator('+')">+</button></td>
+        <td><button class="opr" onclick="operator('-')">-</button></td>
+        <td><button class="opr" onclick="operator('*')">*</button></td>
     </tr>
 </table>
 <table class="indent">
     <tr>
-        <td><button>/</button></td>
-        <td><button>=</button></td>
+        <td><button onclick="clearCalc()">C</button></td>
+        <td><button class="equal" onclick="equal()">=</button></td>
     </tr>
 </table>
 
