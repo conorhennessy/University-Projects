@@ -2,59 +2,60 @@
 <html lang="en">
 
 <head>
+    <title>Calculator</title>
     <link rel="stylesheet" type="text/css" href="../css/assignment.css"/>
-    <title>My Calculator</title>
-    <script language="JavaScript" src="../js/calc.js" type="text/javascript">
+    <link rel="stylesheet" type="text/css" href="../css/calc.css"/>
+    <script src="../js/calc.js" type="text/javascript">
     </script>
 
-    <style type = "text/css">
-        body {font-size: large}
-        .box {text-align:center; width:70; background: #EEFFFF; border: solid;
-            border-color: navy; padding: 1em; border-width: 1px;
-            font-family:"Courier New"; font-size:80%}
-        .indent { margin-left:1em }
-        button { width:8em; font-weight:bold }
-    </style>
 </head>
 
 <body>
+<p><a href="Exercise1.html">Exercise 1</a>  -  <a href="Exercise2.html">Exercise 2</a>  -  <a href="Exercise3.html">Exercise 3</a></p>
 
-<p class="box" id="output">0</p>
+<div class="title">
+    <h2>Calculator</h2>
 
-<table>
-    <tr>
-        <td><button class="num" onclick="number(1)">1</button></td>
-        <td><button class="num" onclick="number(2)">2</button></td>
-        <td><button class="num" onclick="number(3)">3</button></td>
-    </tr>
-    <tr>
-        <td><button class="num" onclick="number(4)">4</button></td>
-        <td><button class="num" onclick="number(5)">5</button></td>
-        <td><button class="num" onclick="number(6)">6</button></td>
-    </tr>
-    <tr>
-        <td><button class="num" onclick="number(7)">7</button></td>
-        <td><button class="num" onclick="number(8)">8</button></td>
-        <td><button class="num" onclick="number(9)">9</button></td>
-    </tr>
-    <tr>
-        <td><button class="opr" onclick="decimal()">.</button></td>
-        <td><button class="num" onclick="number(0)">0</button></td>
-        <td><button class="opr" onclick="operator('/')">/</button></td>
-    </tr>
-    <tr>
-        <td><button class="opr" onclick="operator('+')">+</button></td>
-        <td><button class="opr" onclick="operator('-')">-</button></td>
-        <td><button class="opr" onclick="operator('*')">*</button></td>
-    </tr>
-</table>
-<table class="indent">
-    <tr>
-        <td><button onclick="clearCalc()">C</button></td>
-        <td><button class="equal" onclick="equal()">=</button></td>
-    </tr>
-</table>
+</div>
+
+<div class="calc">
+    <p class="box" id="output">0</p>
+
+    <table>
+        <tr>
+            <td><button class="num" onclick="number(1)">1</button></td>
+            <td><button class="num" onclick="number(2)">2</button></td>
+            <td><button class="num" onclick="number(3)">3</button></td>
+        </tr>
+        <tr>
+            <td><button class="num" onclick="number(4)">4</button></td>
+            <td><button class="num" onclick="number(5)">5</button></td>
+            <td><button class="num" onclick="number(6)">6</button></td>
+        </tr>
+        <tr>
+            <td><button class="num" onclick="number(7)">7</button></td>
+            <td><button class="num" onclick="number(8)">8</button></td>
+            <td><button class="num" onclick="number(9)">9</button></td>
+        </tr>
+        <tr>
+            <td><button class="opr" onclick="operator('+')">+</button></td>
+            <td><button class="num" onclick="number(0)">0</button></td>
+            <td><button class="opr" onclick="operator('*')">*</button></td>
+        </tr>
+        <tr>
+            <td><button class="opr" onclick="operator('-')">-</button></td>
+            <td><button class="opr" onclick="decimal()">.</button></td>
+            <td><button class="opr" onclick="operator('/')">/</button></td>
+        </tr>
+    </table>
+    <table class="indent">
+        <tr>
+            <td><button class="cancel" onclick="clearCalc()">C</button></td>
+            <td><button class="equal" onclick="equal()">=</button></td>
+        </tr>
+    </table>
+
+</div>
 
 </body>
-
 </html>

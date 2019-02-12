@@ -1,0 +1,63 @@
+body {
+    text-align: center;
+}
+
+.calc {
+    padding: 5px 15px 15px;
+    margin-bottom: 15px;
+    background: #bd4545;
+    text-align: center;
+}
+
+.box {
+    text-align:center;
+    width:70; /* This is 70 chars*/
+    background: #EEFFFF;
+    padding: 1em;
+    border: 1px solid navy;
+    font-family: "Courier New", serif;
+    font-size:120%;
+}
+
+
+
+.calc button {
+    width: 100px;
+    padding: 14px 2px;
+    border: none;
+    margin: 3px 3px 0;
+
+    font-size: 16px;
+    text-align: center;
+
+    cursor: pointer;
+
+    font-weight:bold;
+}
+
+.calc button:hover {
+    background-color: salmon;
+    color: white;
+}
+
+td {
+    width: 2em;
+}
+
+.opr {
+    background-color: lightslategray;
+}
+
+.cancel {
+    background-color: darkred;
+    color: snow;
+}
+
+.equal {
+    background-color: darkslategray;
+}
+
+
+.indent {
+    margin-left: 4.1em;
+}
