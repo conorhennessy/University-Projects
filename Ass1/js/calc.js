@@ -28,6 +28,9 @@ function operator(opr) {
     if (opr === storedOpr){
         equal();
     }
+    if (opr != storedOpr && numberOutput.textContent != storedNum){
+        equal();
+    }
     if (storedOpr == null || opr !== storedOpr) {
         storedNum = parseFloat(numberOutput.textContent);
         storedOpr = opr;

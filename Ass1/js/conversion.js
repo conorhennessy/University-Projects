@@ -5,12 +5,12 @@ function validate(tagID, conversionType) {
     //Validation of inputs
     var reg = RegExp(/^\d+$/);
 
-    if (reg.test(rangeFrom) == false || reg.test(rangeTo) == false) {
-        if (reg.test(rangeFrom) == false) {
+    if (reg.test(rangeFrom) === false || reg.test(rangeTo) === false) {
+        if (reg.test(rangeFrom) === false) {
             window.alert("The range from value must be an integer! Please try again!");
         }
-        else if (reg.test(rangeTo) == false ) {
-            if (reg.test(rangeFrom) && rangeTo.length == 0) {
+        if (reg.test(rangeTo) === false ) {
+            if (reg.test(rangeFrom) && rangeTo.length === 0) {
                 rangeTo = parseInt(rangeFrom) + 9;
                 document.getElementById("rangeUpper").defaultValue = rangeTo.toString();
                 conversion(tagID, conversionType);
@@ -101,10 +101,10 @@ function conversion(tagID, conversionType) {
 
 
     function c2f(c) {
-        return Math.round((c * 9 / 5 + 32) * 10) / 10;
+        return Number.parseFloat(c * 9 / 5 + 32).toFixed(1);
     }
 
     function f2c(f) {
-        return Math.round(((f - 32) * 5/9) * 10) / 10;
+        return Number.parseFloat((f - 32) * 5/9).toFixed(1);
     }
 }
