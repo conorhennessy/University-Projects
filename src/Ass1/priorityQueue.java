@@ -19,7 +19,7 @@ class pqListException extends RuntimeException {
 public class priorityQueue{
     private pqCell front;
 
-    public void priorityQueue(){
+    public void createpq(){
         front = null;
     }
 
@@ -50,7 +50,7 @@ public class priorityQueue{
 
     public void addtopq(String data, int priority){
         if (20 <= priority && priority <= 1){
-            throw new pqListException("Priority is not in the range of 1 to 20!");
+            throw new pqListException("Priority," + priority + ", is not in the range of 1 to 20!");
         }
         if (isempty()){
             front = new pqCell(data, priority, front);
@@ -87,22 +87,33 @@ public class priorityQueue{
 
     public static void main(String[] args) {
         priorityQueue myPriorityQueue = new priorityQueue();
+        System.out.println("Queue contents: " + myPriorityQueue);
 
+        System.out.println("\nCalling addtopq()  (Adding apple with priority 1)...");
         myPriorityQueue.addtopq("apple", 1);
-        System.out.println(myPriorityQueue);
+        System.out.println("Queue contents: " + myPriorityQueue);
 
+        System.out.println("\nCalling addtopq()  (Adding orange & pineapple with priority 3 & 7 respectively)...");
         myPriorityQueue.addtopq("orange", 3);
         myPriorityQueue.addtopq("pineapple", 7);
-        System.out.println(myPriorityQueue);
+        System.out.println("Queue contents: " + myPriorityQueue);
 
-        myPriorityQueue.addtopq("mango", 4);
-        System.out.println(myPriorityQueue);
-
+        System.out.println("\nCalling addtopq() with a priority that already exists  (Adding kiwi with priority 3)...");
         myPriorityQueue.addtopq("kiwi", 3);
-        System.out.println(myPriorityQueue);
+        System.out.println("Queue contents: " + myPriorityQueue);
 
-        myPriorityQueue.addtopq("guava", 3);
-        System.out.println(myPriorityQueue);
+        System.out.println("\nCalling front()  (should return the data of the front item in que)...");
+        System.out.println(myPriorityQueue.front());
 
+        System.out.println("\nCalling frontpri()  (should return priority of front item in que...");
+        System.out.println(myPriorityQueue.frontpri());
+
+        System.out.println("\nCalling deletefront()  (should remove front item in que)...");
+        System.out.println("Queue contents BEFORE operation: " + myPriorityQueue);
+        myPriorityQueue.deletefront();
+        System.out.println("Queue contents AFTER operation: " + myPriorityQueue);
+
+        System.out.println("\nCalling isempty()  (should return false): ");
+        System.out.println(myPriorityQueue.isempty());
     }
 }
