@@ -1,3 +1,5 @@
+package Lab1;
+
 class ListCell
 { char data;
     ListCell next;
