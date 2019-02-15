@@ -105,15 +105,15 @@ public class priorityQueue{
         System.out.println("\nCalling front()  (should return the data of the front item in que)...");
         System.out.println(myPriorityQueue.front());
 
-        System.out.println("\nCalling frontpri()  (should return priority of front item in que...");
+        System.out.println("\nCalling frontpri()  (should return priority of front item in que)...");
         System.out.println(myPriorityQueue.frontpri());
 
         System.out.println("\nCalling deletefront()  (should remove front item in que)...");
         System.out.println("Queue contents BEFORE operation: " + myPriorityQueue);
         myPriorityQueue.deletefront();
-        System.out.println("Queue contents AFTER operation: " + myPriorityQueue);
+        System.out.println("Queue contents  AFTER operation: " + myPriorityQueue);
 
-        System.out.println("\nCalling isempty()  (should return false): ");
+        System.out.println("\nCalling isempty()  (should return false)...");
         System.out.println(myPriorityQueue.isempty());
     }
 }
