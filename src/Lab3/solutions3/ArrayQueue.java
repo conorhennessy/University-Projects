@@ -1,5 +1,6 @@
 // this static implementation of a queue of objects copies the contents of the array into a larger one if it becomes full
 // (if we wait until an attempt is made to add another element there will be problems distinguishing between full and empty queues)
+package Lab3.solutions3;
 
 
 public class ArrayQueue<T> implements Queue<T>

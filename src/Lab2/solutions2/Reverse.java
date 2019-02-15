@@ -1,3 +1,5 @@
+package Lab2.solutions2;
+
 import java.io.*;
 
 public class Reverse

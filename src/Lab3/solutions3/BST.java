@@ -1,3 +1,5 @@
+package Lab3.solutions3;
+
 public class BST // non-generic version
 { private BTNode<Integer> root;
 

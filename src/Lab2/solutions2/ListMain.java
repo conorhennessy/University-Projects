@@ -1,3 +1,5 @@
+package Lab2.solutions2;
+
 public class ListMain
 { public static void main(String args[])
   { LList<Integer> myList = new LList<Integer>(); // <>

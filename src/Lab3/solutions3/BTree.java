@@ -1,3 +1,5 @@
+package Lab3.solutions3;
+
 public class BTree<T>
 { private BTNode<T> root;
 

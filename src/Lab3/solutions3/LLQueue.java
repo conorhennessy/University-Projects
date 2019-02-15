@@ -1,3 +1,5 @@
+package Lab3.solutions3;
+
 import java.util.*;
 
 public class LLQueue<T> implements Queue<T>
