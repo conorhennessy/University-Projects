@@ -7,7 +7,6 @@ body {
 
     font-family: 'Open Sans', sans-serif;
     color: white;
-
 }
 
 .topBar {
@@ -34,7 +33,7 @@ body {
 
 .menu a {
     text-decoration: none;
-    font-size: 8em;
+    font-size: 7em;
     color: lightgray;
 
     text-align: center;
@@ -64,12 +63,12 @@ h1 {
 
     margin-top: inherit;
 
-    padding-left: 200px;
+    padding-left: 1000px;
     padding-top: 300px;
 }
 
 h2 {
-    font-size: 2em;
+    font-size: 1.75em;
     font-style: italic;
     margin-bottom: 100px;
 }
@@ -77,25 +76,44 @@ h2 {
 .content {
     background-color: #3B3B3B;
     font-size: 7em;
+
+    margin-left: 150px;
 }
 
-.content > div {
-    margin-left: 100px;
+.section {
+    padding-bottom: 200px;
 }
 
-.section > p {
-    margin-left: 100px;
+.section p {
+    margin-left: 150px;
+    font-size: .6em;
+    width: 60%;
+}
+
+.section ul {
+    width: 70%;
+    margin-left: 150px;
 }
 
 .preview {
-    width: 30%;
+    float: none;
+    overflow: hidden;
+
+    width: 1250px;
     background-color: white;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-left: 100px;
     margin-bottom: 25px;
+
+    display: inline-block;
 }
 
-.preview > image {
-    width: auto;
+.preview:first-of-type {
+    margin-left: 200px;
+}
+
+.preview .image {
+    width: 100%;
 }
 
 .caption {
@@ -108,4 +126,21 @@ h2 {
 .caption > p {
     margin-top: 15px;
     margin-bottom: 15px;
+}
+
+
+.quotePanel {
+    width: 70%;
+
+    color: white;
+    background-color: black;
+
+    margin-top: 16px;
+    margin-bottom: 16px;
+
+    padding: 0.01em 16px;
+
+    display: block;
+
+    line-height: 1.5;
 }
