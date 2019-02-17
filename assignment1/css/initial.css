@@ -1,0 +1,111 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #3B3B3B;
+
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+
+}
+
+.topBar {
+    background-image: url('../images/topBarImage.jpg');
+
+    /* Full height */
+    height: 1560px;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.menu {
+    background-color: black;
+
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+
+    overflow: hidden;
+}
+
+.menu a {
+    text-decoration: none;
+    font-size: 8em;
+    color: lightgray;
+
+    text-align: center;
+    float: left;
+
+    padding: 45px 75px;
+
+}
+
+.menu a:hover {
+    background-color: #dddddd;
+    color: black;
+}
+
+@font-face {
+    font-family: generator;
+    src: local('Generator'),
+    url("Generator.ttf");
+}
+
+h1 {
+    font-family: generator, Impact, Charcoal, sans-serif;
+    color: white;
+
+    font-size: 25em;
+    text-align: center;
+
+    margin-top: inherit;
+
+    padding-left: 200px;
+    padding-top: 300px;
+}
+
+h2 {
+    font-size: 2em;
+    font-style: italic;
+    margin-bottom: 100px;
+}
+
+.content {
+    background-color: #3B3B3B;
+    font-size: 7em;
+}
+
+.content > div {
+    margin-left: 100px;
+}
+
+.section > p {
+    margin-left: 100px;
+}
+
+.preview {
+    width: 30%;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-bottom: 25px;
+}
+
+.preview > image {
+    width: auto;
+}
+
+.caption {
+    color: black;
+    font-size: 1em;
+    text-align: center;
+    padding: 10px 20px;
+}
+
+.caption > p {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
