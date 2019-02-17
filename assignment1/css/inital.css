@@ -1,0 +1,13 @@
+body {
+    background-color: #3B3B3B;
+}
+
+div .menuBar {
+    background-image: url("../assignment1/images/topBarImages.jpg");
+
+    min-height: 500px; /* Set a specific height */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
