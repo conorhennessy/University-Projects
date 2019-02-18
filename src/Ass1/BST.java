@@ -53,13 +53,14 @@ public class BST {
         }
     }
 
+    int count;
+
     public int greater(int n) {
-        return 0;
+        count = 0;
         return inOrder(root, n);
     }
 
     //This is a modified version of the toString method in slides for BTree class
-    int count = 0;
     private int inOrder(BTNode node, int n) {
         if (node == null) {
             return 0;
@@ -73,7 +74,27 @@ public class BST {
     }
 
     public int nth(int i) {
-        return 0;
+        count = 0;
+        return nthInOrder(root, i);
+    }
+
+    private int nthInOrder(BTNode node, int i) {
+        if (node == null) {
+            return 0;
+        }
+        count++;
+        nthInOrder(node.left, i);
+        if((int) node.data == i){
+            System.out.println("BEEP" + count);
+            return count;
+        }
+        nthInOrder(node.right, i);
+        return count;
+    }
+
+    public static void main(String[] args) {
+        BST t = new BST();
+        System.out.println("New tree:");
     }
 }
 
