@@ -55,6 +55,21 @@ public class BST {
 
     public int greater(int n) {
         return 0;
+        return inOrder(root, n);
+    }
+
+    //This is a modified version of the toString method in slides for BTree class
+    int count = 0;
+    private int inOrder(BTNode node, int n) {
+        if (node == null) {
+            return 0;
+        }
+        inOrder(node.left, n);
+        if((int) node.data > n){
+            count++;
+        }
+        inOrder(node.right, n);
+        return count;
     }
 
     public int nth(int i) {
