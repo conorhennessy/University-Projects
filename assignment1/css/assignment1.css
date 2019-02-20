@@ -3,14 +3,14 @@ html {
 }
 
 body {
-    background-color: #3B3B3B;
+    background-color: #3A4042;
 
     font-family: 'Open Sans', sans-serif;
     color: white;
 }
 
 .topBar {
-    background-image: url('../images/topBarImage.jpg');
+    background-image: url('../images/image-titleImage.jpg');
 
     /* Full height */
     height: 1560px;
@@ -23,7 +23,7 @@ body {
 }
 
 .menu {
-    background-color: black;
+    background-color: #212121;
 
     font-family: 'Open Sans', sans-serif;
     color: white;
@@ -33,7 +33,7 @@ body {
 
 .menu a {
     text-decoration: none;
-    font-size: 7em;
+    font-size: 6em;
     color: lightgray;
 
     text-align: center;
@@ -44,8 +44,8 @@ body {
 }
 
 .menu a:hover {
-    background-color: #dddddd;
-    color: black;
+    background-color: #8ECCCC;
+    color: #212121;
 }
 
 @font-face {
@@ -68,16 +68,19 @@ h1 {
 }
 
 h2 {
-    font-size: 1.75em;
+    color: white;
+    /*border-bottom: 2px dashed #8ECCCC;*/
+    text-decoration: underline;
+    text-decoration-color: #8ECCCC;
+    font-size: 1.65em;
     font-style: italic;
     margin-bottom: 100px;
 }
 
 .content {
-    background-color: #3B3B3B;
-    font-size: 7em;
+    font-size: 6.5em;
 
-    margin-left: 150px;
+    margin-left: 250px;
 }
 
 .section {
@@ -91,18 +94,41 @@ h2 {
 }
 
 .section ul {
+    font-size: .8em;
     width: 70%;
     margin-left: 150px;
 }
+
+img.about {
+    float: right;
+    display: inline;
+    clear: both;
+    width: 1300px;
+    height: 675px;
+
+    padding-left: 500px;
+}
+
+
+img.example {
+    float: left;
+    width: 1000px;
+    height: 775px;
+}
+
+image.example {
+    padding-right: 50px;
+}
+
 
 .preview {
     float: none;
     overflow: hidden;
 
-    width: 1250px;
+    width: 1050px;
     background-color: white;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    margin-left: 100px;
+    margin-left: 150px;
     margin-bottom: 25px;
 
     display: inline-block;
@@ -112,7 +138,7 @@ h2 {
     margin-left: 200px;
 }
 
-.preview .image {
+.preview .game {
     width: 100%;
 }
 
@@ -128,6 +154,19 @@ h2 {
     margin-bottom: 15px;
 }
 
+.caption > a {
+    font-style: italic;
+    text-decoration: underline;
+    text-decoration-color: #8ECCCC;
+}
+
+a.caption:hover {
+    color: #8ECCCC;
+}
+
+a.caption:visited {
+    color: #50717B;
+}
 
 .quotePanel {
     width: 70%;
@@ -139,6 +178,8 @@ h2 {
     margin-bottom: 16px;
 
     padding: 0.01em 16px;
+
+    margin-left: 150px;
 
     display: block;
 
