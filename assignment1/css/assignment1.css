@@ -1,11 +1,13 @@
+/* Submitted by Reg Number: 1703055 */
+
 html {
-    scroll-behavior: smooth;
+    scroll-behavior: smooth; /* Makes site scrolling smoother */
 }
 
 body {
     background-color: #3A4042;
 
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif;  /* Source https://fonts.google.com/specimen/Open+Sans?selection.family=Open+Sans */
     color: white;
 }
 
@@ -13,7 +15,7 @@ body {
     background-image: url('../images/image-titleImage.jpg');
 
     /* Full height */
-    height: 1560px;
+    height: 1360px;
 
     /* Create the parallax scrolling effect */
     background-attachment: fixed;
@@ -43,22 +45,23 @@ body {
 
 }
 
-.menu a:hover {
+.menu a:hover { /* Adding user interaction for when user hovers over buttons! */
     background-color: #8ECCCC;
     color: #212121;
 }
 
-@font-face {
+@font-face { /* Adding the generator font which is fetched from local folder structure*/
     font-family: generator;
     src: local('Generator'),
     url("Generator.ttf");
+    /* Source: https://www.dafont.com/generator.font?text=I+am+Colin+Ritman */
 }
 
 h1 {
-    font-family: generator, Impact, Charcoal, sans-serif;
+    font-family: generator, Impact, Charcoal, sans-serif; /*Set the order of presidency for the fonts. So it tries for the Generator font first. If not possible it uses one of the following with a default font for complete accessibility in mind*/
     color: white;
 
-    font-size: 25em;
+    font-size: 25em; /* Throughout the site em units are used in order to greatly improve accessibility as browsers are easily able to modify this and all. */
     text-align: center;
 
     margin-top: inherit;
@@ -69,12 +72,18 @@ h1 {
 
 h2 {
     color: white;
-    /*border-bottom: 2px dashed #8ECCCC;*/
     text-decoration: underline;
-    text-decoration-color: #8ECCCC;
+    text-decoration-color: #8ECCCC; /* Making use of my colour palette for the underlines! */
     font-size: 1.65em;
     font-style: italic;
     margin-bottom: 100px;
+}
+
+mark{
+    background-color: #8ECCCC;
+    color: white;
+    opacity: 0.95;
+    filter: alpha(opacity=95); /* Accessibility for IE8 & earlier */
 }
 
 .content {
@@ -90,7 +99,7 @@ h2 {
 .section p {
     margin-left: 150px;
     font-size: .6em;
-    width: 60%;
+    width: 65%;
 }
 
 .section ul {
