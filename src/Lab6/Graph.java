@@ -35,32 +35,36 @@ public class Graph {
         else if (neighbours(v1, v2)) {
             System.out.println("edge is already present");
             return false;
-        } else { // add a new cell with values (v2,w) to the front of the list adjLists[pos1]
+        } else {
+            // add a new cell with values (v2,w) to the front of the list adjLists[pos1]
             adjLists[pos1] = new ListCell(v2, w, adjLists[pos1]);
             // also add a new cell with values (v1,w) to the front of the list adjLists[pos2] - need similar line to above
-            // added succesfully
-            return true;
+            adjLists[pos2] = new ListCell(v1, w, adjLists[pos2]);
+            return true;  // added successfully
         }
     }
 
     public String toString() {
         // should return a string containing all of the edges in the graph with their weights
         // e.g. "(A,B,2), (A,C,3), (B,D,4), (B,A,2), (C,A,3), (D,B,4)"
-        // code below is supplied just to allow file to compile
+        if (adjLists.length == 0){
+            return "Graph is empty";
+        }
         StringBuffer sb = new StringBuffer();
-        for ( int i = 0; i < adjLists.length; i++ ) {
-            ListCell cell = adjLists[i];
-            
+        for ( int pos = 0; pos < adjLists.length; pos++ ) {
+            ListCell cell = adjLists[pos];
+            char vertex = (char) ('A'+pos);
 
+            while ( cell != null ) {
+                sb.append("(" + vertex + "," + cell.vertex + "," + cell.weight + ")");
+                cell = cell.next;
 
-            //sb.append("(" + adjLists[i].vertex + "," + adjLists[i].vertex + "," + adjLists[i].weight + ")");
-            //if (adjLists[i].next != null) {
-            //    sb.append(",");
-            //}
+                if (adjLists[pos].next != null) {
+                    sb.append(", ");
+                }
+            }
         }
         return sb.toString();
-        // to convert the array position into a vertex name simply use something like
-        // char vertex = 'A'+pos;
     }
 
     public boolean neighbours(char v1, char v2) {
