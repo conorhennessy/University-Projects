@@ -1,4 +1,4 @@
-package Ass1;
+import java.util.*;
 
 public class BST {
     private BTNode<Integer> root;
@@ -49,18 +49,21 @@ public class BST {
                 parent.left = leaf;
             else
                 parent.right = leaf;
+
             return true;
         }
     }
 
-    int count;
-
+    /** An recursive function to find number of nodes greater than given value.
+     * @param n - The supplied number to overall find number of nodes containing data greater than n
+     * @return count - A count of how many nodes are values which are greater than n
+     **/
     public int greater(int n) {
-        count = 0;
         return inOrder(root, n);
     }
 
     //This is a modified version of the toString method in slides for BTree class
+    int count = 0;
     private int inOrder(BTNode node, int n) {
         if (node == null) {
             return 0;
@@ -70,32 +73,39 @@ public class BST {
             count++;
         }
         inOrder(node.right, n);
+
         return count;
     }
 
+    /** Added an recursive function to find position in 'Array' as for your cup or what not appears to Intelij.
+     * @param i - The supplied number to overall find number of nodes containing data greater than n
+     * @return nthLocation - A int of here the BST.
+     **/
     public int nth(int i) {
-        count = 0;
+        if ( i < 0 || i > count){
+            throw new NoSuchElementException("Element does can not exist in tree! As 'i' is not in range 0 to count-1");
+        }
         return nthInOrder(root, i);
     }
 
+    int nthLocation = -1; //null
     private int nthInOrder(BTNode node, int i) {
+        int loc = 0;
         if (node == null) {
             return 0;
         }
-        count++;
+        loc++;
         nthInOrder(node.left, i);
         if((int) node.data == i){
-            System.out.println("BEEP" + count);
-            return count;
+            nthLocation = loc;
         }
         nthInOrder(node.right, i);
-        return count;
+
+        //Returning location as the end of search is complete
+        return nthLocation;
+
     }
 
-    public static void main(String[] args) {
-        BST t = new BST();
-        System.out.println("New tree:");
-    }
 }
 
 class BTNode<T> {

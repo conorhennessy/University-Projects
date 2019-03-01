@@ -1,5 +1,3 @@
-package Ass1;
-
 class pqCell {
     String data;
     int priority;
