@@ -1,6 +1,8 @@
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-public class Trie {
+class Trie {
     // Trie implemented by left-child, right-sibling approach
     // Each node contains a different letter and following a left-child, right-sibling implementation.
     // Each node has references to the child nodes associated with itself.
@@ -13,21 +15,13 @@ public class Trie {
     private TrieNode<Character> root;
 
     public Trie() {
-        root = null;
+        root = new TrieNode(null);
     }
 
 
-    /**
-     * Method which attempts to add the supplied word to the Trie.
-     * But first checks if the word supplied contains non-letter characters, checked by use of a reg expression check.
-     * Then checks if word supplied is already present in the Trie, checked by using the find() method created for this assignment.
-     * @param word
-     * @return true, if word is added successfully.
-     *         false, if word cannot be added or if supplied @param word contains non-letters
-     */
     public boolean addWord(String word){
         word = word.toUpperCase();
-        if (!word.matches("^.*[^a-zA-Z].*$")){
+        if (!word.matches("[a-zA-Z]+")){
             System.out.println("ERROR: String supplied contains non-letters!");
             return false;
         }
@@ -36,55 +30,44 @@ public class Trie {
         }
         else {
             //Checks are complete, now try adding word to Trie
-            List<TrieNode<Character>> n = root.children;
-            int i = 0;
+            TrieNode node = root;
 
-            while (n != null){
-                for (TrieNode<Character> child : n){
-                    char childChar = child.data;
-                    n.contains(word)
-                    if (childChar == word.charAt(i)){
-                        // want to progress further in tree
-                        n = child.children;
-
-                    }
+            for (int i = 0; i < word.length(); i++){
+                if (node.children == null) {
+                    //if tree is empty, if so just add it
+                    root.children.put(word.charAt(i), new TrieNode<>(word.charAt(i)));
+                } else if (node.children.containsKey(word.charAt(i))){
+                    // if children contains letter step into that node
+                } else {
+                    // else the children do not contain the letter so need to add letter to the children of this node
+                    node.children.put(word.charAt(i), new TrieNode<>(word.charAt(i)));
                 }
-                i++;
+                node = (TrieNode) node.children.get(word.charAt(i));
+                if (i == word.length() - 1){
+                    // Word is complete, loop will be ending after this executes so set boolean flag to true
+                    node.word = true;
+                }
             }
-
-/*
-            if (root.left == null || root.right == null){  // If Trie empty, start node with char
-                root.left = new TrieNode<>(word.charAt(0));
-            } else {
-                // Word is able to exist in this Trie so progress
-
-                TrieNode<Character> n = root.left;
-                int i = 0;
-                while(n != null){
-                    if (n.data == word.charAt(i)){
-                        if (n.left.data == word.charAt(i)){
-                            n = n.left;
-                        } else if (n.left.data == word.charAt(i)){
-                            n = n.right;
-                        } else {
-                            n.left.data = word.charAt(i);
-                        }
-                    }
-                    else {
-                        System.out.println("oooops");
-                    }
-                    i++;
-                }
-
-            }*/
-
-
-            return true; //TODO this needs to be moved to where the word is created
+            return true;
         }
     }
 
     public boolean find(String word){
-        return false;
+        TrieNode node = root;
+
+        for (int i = 0; i < word.length(); i++){
+            if (node.children.containsKey(word.charAt(i))){
+                if (i == word.length() - 1){
+                    // Letter is found but it's the last letter in word so we are done!
+                    return true;
+                }
+                // Letter is found so step into that node
+                node = (TrieNode) node.children.get(word.charAt(i));
+
+            } else {
+                return false;
+            }
+        }
     }
 
     public List<String> getWords(char c){
@@ -94,20 +77,27 @@ public class Trie {
 
         return words;
     }
-}
 
-class TrieNode<T> {
-    T data;
-    List<TrieNode<T>> children;
+
+    public static void main(String[] args) {
+        Trie testTrie = new Trie();
+        testTrie.addWord("beast");
+        System.out.println(testTrie.root.children);
+    }
+
+}
+class TrieNode<Character> {
+    Character character;
+    Map<Character, TrieNode> children;
     Boolean word;
 
-    TrieNode(T o) {
+    TrieNode(Character o) {
         // Trie implemented by left-child, right-sibling approach
         // Each node contains a different letter and following a left-child, right-sibling implementation.
         // Each node has references to the children nodes associated with itself.
         // Also contains a boolean vale to say if node is end of word.
-        data = o;
-        children = null;
+        character = o;
+        children = new HashMap<>();
         word = false;
     }
 }
