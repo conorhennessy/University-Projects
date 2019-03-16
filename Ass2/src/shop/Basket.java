@@ -3,10 +3,12 @@ package shop;
 import java.text.DecimalFormat;
 import java.util.Collection;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Basket {
 
-    Collection<Product> items;
+    Map<Product, Integer> items;
     ShopDB db;
 
     public static void main(String[] args) {
@@ -23,7 +25,7 @@ public class Basket {
 
     public Basket() {
         db = ShopDB.getSingleton();
-        items = new ArrayList<Product>();
+        items = new HashMap<Product, Integer>();
     }
 
     /**
@@ -37,7 +39,7 @@ public class Basket {
      * in order to calculate that product totals etc.
      *
      */
-    public Collection<Product> getItems() {
+    public Map<Product, Integer> getItems() {
         return items;
     }
 
@@ -59,15 +61,21 @@ public class Basket {
         // need to look the product name up in the
         // database to allow this kind of item adding...
 
-        addItem( db.getProduct( pid ) );
+        Product p = db.getProduct( pid );
 
-    }
-
-    public void addItem(Product p) {
         // ensure that we don't add any nulls to the item list
         if (p != null ) {
-            items.add( p );
+            //if the item is already in map increment quantity
+            if (items.containsKey(p.PID)){
+                items.put(p, items.get(p) + 1);
+            } else {
+                items.put(p, 1);
+            }
         }
+    }
+
+    public Integer getQuantity(Product p){
+        return items.get(p);
     }
 
     /**
@@ -77,7 +85,7 @@ public class Basket {
     public int getTotal() {
         // iterate over the set of products...
         int total = 0;
-        for (Product item : items){
+        for (Product item : items.keySet()){
             total += item.price;
         }
 

@@ -5,6 +5,7 @@ import java.sql.*;
 import java.util.Collection;
 import java.util.LinkedList;
 import java.util.Iterator;
+import java.util.Map;
 
 public class ShopDB {
 
@@ -12,7 +13,7 @@ public class ShopDB {
     static int nOrders = 0;
     static ShopDB singleton;
 
-    public static void main(String[] args) throws Exception  {
+    public static void main(String[] args)  {
         // simple method to test that ShopDB works
         System.out.println("Got this far...");
         ShopDB db = new ShopDB();
@@ -31,7 +32,7 @@ public class ShopDB {
         System.out.println( product );
 
         System.out.println("Testing order: ");
-        basket.addItem( product );
+        basket.addItem( product.PID );
         System.out.println("added an item");
         db.order( basket , "Simon" );
         System.out.println("order done");
@@ -42,7 +43,7 @@ public class ShopDB {
         try {
             Class.forName("org.hsqldb.jdbc.JDBCDriver");
             System.out.println("loaded class");
-            con = DriverManager.getConnection("jdbc:hsqldb:file:\\tomcat\\webapps\\ass2\\shopdb", "sa", "");
+            con = DriverManager.getConnection("jdbc:hsqldb:file:H:\\tomcat\\webapps\\ass2\\shopdb", "sa", "");
             System.out.println("created con");
         } catch (Exception e) {
             System.out.println("Exception: " + e);
@@ -115,18 +116,16 @@ public class ShopDB {
             }
         }
 
-        public void order(Basket basket , String customer) {
+        public void order(Basket basket, String customer) {
             try {
             // create a unique order id
             String orderId = System.currentTimeMillis() + ":" + nOrders++;
 
             // iterate over the basket of contents ...
 
-            Iterator<Product> i = basket.getItems().iterator();
-            while (i.hasNext()) {
-                Product product = i.next();
+            for (Map.Entry<Product, Integer> product : basket.getItems().entrySet()){
                 // and place the order for each one
-                order( con, product, orderId, customer );
+                order( con, product.getKey(), product.getValue(), orderId, customer );
             }
         }
         catch(Exception e) {
@@ -135,13 +134,13 @@ public class ShopDB {
 
     }
 
-    private void order(Connection con, Product p, String orderId, String customer) throws Exception {
+    private void order(Connection con, Product p, Integer quantity, String orderId, String customer) throws Exception {
         PreparedStatement prepStmt = con.prepareStatement("INSERT INTO orders VALUES (?, ?, ?, ? ,?)");
 
         prepStmt.setString(1, p.PID);
         prepStmt.setString(2, orderId);
         prepStmt.setString(3, customer);
-        prepStmt.setDouble(4, 1); //TODO
+        prepStmt.setDouble(4, quantity);
         prepStmt.setDouble(5, p.price);
 
         prepStmt.executeUpdate();
