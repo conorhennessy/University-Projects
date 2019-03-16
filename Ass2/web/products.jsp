@@ -24,7 +24,7 @@
         %>
         <tr>
              <td> <%= product.title %> </td>
-             <td> <%= product.price %> </td>
+             <td> <%= product.getPrice() %> </td>
              <td> <a href = '<%="viewProduct.jsp?pid="+product.PID%>'> <img src="<%= product.thumbnail %>"/> </a> </td>
         </tr>
         <%

@@ -23,7 +23,7 @@
         <h2> <%= product.title %>  by <%= product.artist %> </h2>
         <img src="<%= product.fullimage %>" />
         <p> <%= product.description %> </p>
-        <p> add to basket (make this work!!!)</p>
+        <a href='<%="basket.jsp?addItem="+product.PID%>'> Add to basket </a>
         </div>
         <%
     }

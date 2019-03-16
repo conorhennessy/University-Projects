@@ -1,7 +1,7 @@
 package shop;
 
+import java.text.DecimalFormat;
 import java.util.Collection;
-import java.util.Iterator;
 import java.util.ArrayList;
 
 public class Basket {
@@ -45,6 +45,7 @@ public class Basket {
      * empty the basket - the basket should contain no items after calling this method
      */
     public void clearBasket() {
+        items.clear();
     }
 
     /**
@@ -75,9 +76,13 @@ public class Basket {
      */
     public int getTotal() {
         // iterate over the set of products...
+        int total = 0;
+        for (Product item : items){
+            total += item.price;
+        }
 
         // return the total
-        return 100;
+        return total;
     }
 
     /**
@@ -87,6 +92,10 @@ public class Basket {
      * suitable for inclusion as a total in a web page
      */
     public String getTotalString() {
-		return "";
+        double doubleTotal = (double) getTotal();
+        double total = doubleTotal/100;
+        DecimalFormat df = new DecimalFormat("#0.00");
+        return String.valueOf(df.format(total));
     }
+
 }

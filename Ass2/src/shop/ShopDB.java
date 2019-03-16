@@ -110,13 +110,13 @@ public class ShopDB {
             return list;
         }
         catch(Exception e) {
-            System.out.println( "Exception in getProducts(): " + e );
-            return null;
+                System.out.println( "Exception in getProducts(): " + e );
+                return null;
+            }
         }
-    }
 
-    public void order(Basket basket , String customer) {
-        try {
+        public void order(Basket basket , String customer) {
+            try {
             // create a unique order id
             String orderId = System.currentTimeMillis() + ":" + nOrders++;
 
@@ -136,8 +136,15 @@ public class ShopDB {
     }
 
     private void order(Connection con, Product p, String orderId, String customer) throws Exception {
+        PreparedStatement prepStmt = con.prepareStatement("INSERT INTO orders VALUES (?, ?, ?, ? ,?)");
 
+        prepStmt.setString(1, p.PID);
+        prepStmt.setString(2, orderId);
+        prepStmt.setString(3, customer);
+        prepStmt.setDouble(4, 1); //TODO
+        prepStmt.setDouble(5, p.price);
+
+        prepStmt.executeUpdate();
     }
-
 
 }

@@ -1,6 +1,7 @@
+<%@ page import="shop.ShopDB" %>
 <jsp:useBean id='basket'
-         scope='session'
-         class='shop.Basket'
+             scope='session'
+             class='shop.Basket'
           />
 
 <jsp:useBean id = 'db'
@@ -23,14 +24,18 @@
 
     if (custName != null) {
         // order the basket of items!
+        db.order(basket, custName);
+
         // then empty the basket
+        basket.clearBasket();
+
     %>
-    <h2> Dear <%= custName %> ! Thank you for your order. </h2>
+    <h2> Dear <%= custName %>! Thank you for your order. </h2>
     <%
     }
         else {
         %>
-        <h2> please go back and supply a name </h2>
+        <h2> Please go back and supply a name! </h2>
         <%
     }
 

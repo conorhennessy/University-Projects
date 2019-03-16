@@ -1,5 +1,7 @@
 package shop;
 
+import java.text.DecimalFormat;
+
 public class Product {
     public String PID;
     public String artist;
@@ -23,6 +25,13 @@ public class Product {
 
     public String toString() {
         return title + "\t " + price;
+    }
+
+    public String getPrice() {
+        double doubleTotal = (double) price;
+        double total = doubleTotal/100;
+        DecimalFormat df = new DecimalFormat("#0.00");
+        return String.valueOf(df.format(total));
     }
 
 }
