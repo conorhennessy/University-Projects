@@ -40,6 +40,18 @@ public class Basket {
     }
 
     /**
+     *
+     * @param
+     */
+    public void removeProduct(String currentPID){
+        for (Product i : items.keySet()) {
+            if (currentPID.equals(i.PID)) {
+                items.remove(i);
+            }
+        }
+    }
+
+    /**
      * empty the basket - the basket should contain no items after calling this method
      */
     public void clearBasket() {
@@ -87,6 +99,37 @@ public class Basket {
 
     public Integer getQuantity(Product p) {
         return items.get(p);
+    }
+
+    public void incrementProduct(String currentPID){
+        Integer quantity;
+        for (Product i : items.keySet()) {
+            quantity = items.get(i);
+            if (currentPID.equals(i.PID)) {
+                items.put(i, quantity + 1);
+            }
+        }
+    }
+
+    public void decrementProduct(String currentPID){
+        Integer quantity;
+        for (Product i : items.keySet()) {
+            quantity = items.get(i);
+            if (currentPID.equals(i.PID)) {
+                if (quantity > 1) {
+                    items.put(i, quantity - 1);
+                } else {
+                    removeProduct(i.PID);
+                }
+            }
+        }
+    }
+
+    public String getProductTotal(Product p) {
+        double doubleProductTotal = (double) p.price * getQuantity(p);
+        double productTotal = doubleProductTotal/100;
+        DecimalFormat df = new DecimalFormat("#0.00");
+        return String.valueOf(df.format(productTotal));
     }
 
     /**

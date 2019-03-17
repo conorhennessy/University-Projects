@@ -27,6 +27,8 @@ public class Product {
         return title + "\t " + price;
     }
 
+    public Integer returnPrice() { return price; }
+
     public String getPrice() {
         double doubleTotal = (double) price;
         double total = doubleTotal/100;

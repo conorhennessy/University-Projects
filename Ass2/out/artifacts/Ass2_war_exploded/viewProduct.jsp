@@ -12,18 +12,19 @@
 <%
     String pid = request.getParameter("pid");
     Product product = db.getProduct(pid);
-    // out.println("pid = " + pid);
     if (product == null) {
-        // do something sensible!!!
-        out.println( product );
+%>
+    <h2> Oh no!  No product to show, please return to the products page <a href='<%= "products.jsp" %>'>here</a></h2>
+<%
     }
     else {
         %>
         <div align="center">
-        <h2> <%= product.title %>  by <%= product.artist %> </h2>
-        <img src="<%= product.fullimage %>" />
-        <p> <%= product.description %> </p>
-        <a href='<%="basket.jsp?addItem="+product.PID%>'> Add to basket </a>
+            <h2> <%= product.title %>  by <%= product.artist %> </h2>
+            <img src="<%= product.fullimage %>" />
+            <p> <%= db.getProduct(product.PID).description %> </p>
+            <p> Price &pound;<%= product.getPrice() %> </p>
+            <a href='<%="basket.jsp?addItem="+product.PID%>'> Add to basket </a>
         </div>
         <%
     }

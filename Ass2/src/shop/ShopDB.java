@@ -99,9 +99,9 @@ public class ShopDB {
             while ( rs.next() ) {
                 Product product = new Product(
                         rs.getString("PID"),
-                        rs.getString("Artist"),
-                        rs.getString("Title"),
-                        rs.getString("Description"),
+                        rs.getString("artist"),
+                        rs.getString("title"),
+                        rs.getString("description"),
                         rs.getInt("price"),
                         rs.getString("thumbnail"),
                         rs.getString("fullimage")

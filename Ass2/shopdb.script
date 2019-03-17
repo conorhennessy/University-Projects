@@ -46,6 +46,6 @@ GRANT DBA TO SA
 SET SCHEMA SYSTEM_LOBS
 INSERT INTO BLOCKS VALUES(0,2147483647,0)
 SET SCHEMA PUBLIC
-INSERT INTO PRODUCT VALUES('art1','Simon','Stax','insert description',4999,'thumbnails/art1.gif','images/art1.gif')
-INSERT INTO PRODUCT VALUES('art2','Simon','Linez','insert description',9999,'thumbnails/art2.gif','images/art2.gif')
-INSERT INTO PRODUCT VALUES('art3','Dot','Abstract','insert description',20000,'thumbnails/art3.gif','images/art3.gif')
+INSERT INTO PRODUCT VALUES('art1','Simon','Stax','Stax by Simon is an amazing and simple piece of work -  Acrylic on canvas',4999,'thumbnails/art1.gif','images/art1.gif')
+INSERT INTO PRODUCT VALUES('art2','Simon','Linez','Linez is as simple as it can get - Oils on canvas',9999,'thumbnails/art2.gif','images/art2.gif')
+INSERT INTO PRODUCT VALUES('art3','Dot','Abstract','Abstract is an abstract piece by Dot - Water colour on canvas',20000,'thumbnails/art3.gif','images/art3.gif')

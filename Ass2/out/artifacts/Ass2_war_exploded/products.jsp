@@ -15,12 +15,8 @@
 </tr>
 <%
     for (Product product : db.getAllProducts() ) {
-        // now use HTML literals to create the table
-        // with JSP expressions to include the live data
-        // but this page is unfinished - the thumbnail
-        // needs a hyperlink to the product description,
-        // and there should also be a way of selecting
-        // pictures from a particular artist
+        // there should also be a way of selecting
+        // pictures from a particular artist...
         %>
         <tr>
              <td> <%= product.title %> </td>

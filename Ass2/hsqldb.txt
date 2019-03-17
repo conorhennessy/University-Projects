@@ -7,7 +7,9 @@ java -cp \tomcat\lib\hsqldb.jar org.hsqldb.util.DatabaseManager
 
 A new window will appear. To use the tool to examine and update the database
 for the assignment set the url in this window (which will show something like
-jdbc:hsqldb:mem:.) to be jdbc:hsqldb:file:shopdb
+jdbc:hsqldb:mem:.) to be 
+
+jdbc:hsqldb:file:shopdb
 
 Note that you will not be able to open the database while it is in use in a
 program being run in the Tomcat server or in IntelliJ; if a program has
