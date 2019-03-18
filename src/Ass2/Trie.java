@@ -16,7 +16,7 @@ class Trie {
     private TrieNode<Character> root;
 
     private Trie() {
-        root = new TrieNode(null);
+        root = new TrieNode();
     }
 
 
@@ -31,18 +31,20 @@ class Trie {
             return false;
         } else {
             //Checks are complete, now try adding word to Trie
-            TrieNode node = root;
+            TrieNode node = null;
+            HashMap<Character, TrieNode> children = root.children;
 
             for (int i = 0; i < word.length(); i++) {
                 if (node.children == null) {
                     //if tree is empty, if so just add it and step into it
                     root.children.put(word.charAt(i), new TrieNode<>(word.charAt(i)));
                     node = (TrieNode) node.children.get(word.charAt(i));
-                } else if (!node.children.containsKey(word.charAt(i))) {
+                } else if (children.containsKey(word.charAt(i))) {
                     // Children do not contain the letter so add letter to the children of this node and step into it
                     node.children.put(word.charAt(i), new TrieNode<>(word.charAt(i)));
-                    node = (TrieNode) node.children.get(word.charAt(i));
-                } if (i == word.length() - 1){
+                    node = children.get(word.charAt(i));
+                }
+                if (i == word.length() - 1) {
                     // Word is complete, loop will be ending after this executes so set boolean flag to true
                     node.word = true;
                     return true;
@@ -53,24 +55,30 @@ class Trie {
     }
 
     private boolean find(String word) {
-        TrieNode node = root;
+        word = word.toUpperCase();
+
+        HashMap<Character, TrieNode> children = root.children;
+
+        TrieNode node = null;
+
         for (int i = 0; i < word.length(); i++) {
-            if (node.children.containsKey(word.charAt(i))) {
-                if (i == word.length() - 1) {
-                    return true;
-                }
-                node = (TrieNode) node.children.get(word.charAt(i));
+            if (children.containsKey(word.charAt(i))) {
+                node = children.get(word.charAt(i));
+                children = node.children;
             } else {
-                return false;
+                node = null;
             }
         }
-        return false;
+        return 
     }
 
-    public List<String> getWords(char c) {
-        List<String> words = new ArrayList<>();
 
-        if (!root.children.containsKey(c)) {
+
+    public List<String> getWords(char c) {
+        c = Character.toUpperCase(c);
+        List<String> words = null;
+
+        if (!root.children.containsKey(c) || root == null) {
             // First children of trie does not contain the letter supplied, so no words can exist
             System.out.println("ERROR: Trie does not contain any words starting with\"" + c + "\"!");
             return words;
@@ -80,10 +88,13 @@ class Trie {
             return words;
         } else {
             TrieNode node = root;
-
-            //TODO
+            String word = "";
+            if (node.children.containsKey(c)) {
+                word += c;
+                node = (TrieNode) node.children.get(c);
+                if (node.word) words.add(word);
+            }
         }
-
         return words;
     }
 
@@ -91,6 +102,14 @@ class Trie {
     public static void main(String[] args) {
         Trie testTrie = new Trie();
         testTrie.addWord("pineapple");
+        testTrie.addWord("apple");
+        testTrie.addWord("orange");
+        testTrie.addWord("open");
+
+        System.out.println(testTrie.find("pineapple"));
+
+        System.out.println(testTrie.getWords('o'));
+
         System.out.println(testTrie.root.children);
     }
 
@@ -98,8 +117,10 @@ class Trie {
 
 class TrieNode<Character> {
     Character character;
-    Map<Character, TrieNode> children = new HashMap<Character, TrieNode>();
+    HashMap<Character, TrieNode> children = new HashMap<Character, TrieNode>();
     Boolean word;
+
+    TrieNode() {}
 
     TrieNode(Character o) {
         // Trie implemented by left-child, right-sibling approach
