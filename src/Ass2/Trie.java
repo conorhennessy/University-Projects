@@ -1,58 +1,69 @@
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 class Trie {
-    // Trie implemented by left-child, right-sibling approach
-    // Each node contains a different letter and following a left-child, right-sibling implementation.
-    // Each node has references to the child nodes associated with itself.
+    // Trie implemented by HashMap approach, please see to class and constructor at the bottom
+    // Each node contains a different letter
+    // Each node has references to the children nodes associated with itself, stored in HashMap.
+    // Also contains a boolean vale to say if current node is end of word.
+
+    public TrieNode root;
 
 
     /**
      * Constructor which initialises the trie to be empty
-     * Does so by calling constructor where root will be null.
+     * Does so by calling constructor where root will be a new empty node.
      */
-    private TrieNode<Character> root;
-
-    private Trie() {
+    public Trie() {
         root = new TrieNode();
     }
 
 
-    private boolean addWord(String word) {
+    /**
+     * A method to add a word to the trie.
+     *
+     * @param word is a supplied String which will be added to the trie
+     * @return true  : if successfully added to Trie
+     *         false : if the word is already present
+     *                 if the supplied String (@param word) does not contain only letters.
+     */
+    public boolean addWord(String word) {
         word = word.toUpperCase();
+
         if (!word.matches("[A-Z]+")) {
+            // If word supplied does not contain only letter characters - output and return false!
             System.out.println("ERROR: String supplied contains non-letters!");
             return false;
         }
         if (find(word)) {
-            // word already exists in trie, so will not be added and return false
+            // If word is already present in Trie - return false!
             return false;
         } else {
-            //Checks are complete, now try adding word to Trie
-            TrieNode node = null;
             HashMap<Character, TrieNode> children = root.children;
 
             for (int i = 0; i < word.length(); i++) {
-                if (node.children == null) {
-                    //if tree is empty, if so just add it and step into it
-                    root.children.put(word.charAt(i), new TrieNode<>(word.charAt(i)));
-                    node = (TrieNode) node.children.get(word.charAt(i));
-                } else if (children.containsKey(word.charAt(i))) {
-                    // Children do not contain the letter so add letter to the children of this node and step into it
-                    node.children.put(word.charAt(i), new TrieNode<>(word.charAt(i)));
+                TrieNode node;
+
+                if (children.containsKey(word.charAt(i))) {
+                    // Children contain the letter so step into this node of the children
                     node = children.get(word.charAt(i));
+                } else {
+                    //if  children does not contain the letter - add it and step into it
+                    node = new TrieNode(word.charAt(i));
+                    children.put(word.charAt(i), node);
                 }
+
+                children = node.children;
                 if (i == word.length() - 1) {
-                    // Word is complete, loop will be ending after this executes so set boolean flag to true
+                    // Word is complete, set boolean flag to true and loop will be ending after this executes
                     node.word = true;
                     return true;
                 }
             }
+            return false;
         }
-        return false;
     }
+
 
     private boolean find(String word) {
         word = word.toUpperCase();
@@ -69,9 +80,8 @@ class Trie {
                 node = null;
             }
         }
-        return 
+        return false;
     }
-
 
 
     public List<String> getWords(char c) {
@@ -101,34 +111,33 @@ class Trie {
 
     public static void main(String[] args) {
         Trie testTrie = new Trie();
-        testTrie.addWord("pineapple");
+
         testTrie.addWord("apple");
-        testTrie.addWord("orange");
-        testTrie.addWord("open");
+        testTrie.addWord("grape");
 
-        System.out.println(testTrie.find("pineapple"));
+        //System.out.println(testTrie.find("pineapple"));
 
-        System.out.println(testTrie.getWords('o'));
+        //System.out.println(testTrie.getWords('o'));
 
         System.out.println(testTrie.root.children);
     }
 
 }
 
-class TrieNode<Character> {
+class TrieNode {
     Character character;
     HashMap<Character, TrieNode> children = new HashMap<Character, TrieNode>();
     Boolean word;
 
-    TrieNode() {}
+    TrieNode() {
+    }
 
-    TrieNode(Character o) {
-        // Trie implemented by left-child, right-sibling approach
-        // Each node contains a different letter and following a left-child, right-sibling implementation.
-        // Each node has references to the children nodes associated with itself.
-        // Also contains a boolean vale to say if node is end of word.
-        character = o;
-        children = new HashMap<>();
+    TrieNode(Character c) {
+        // Trie implemented by HashMap approach
+        // Each node contains a different letter
+        // Each node has references to the children nodes associated with itself, stored in HashMap.
+        // Also contains a boolean vale to say if current node is end of word.
+        this.character = c;
         word = false;
     }
 }
