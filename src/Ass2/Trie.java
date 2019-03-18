@@ -1,5 +1,6 @@
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 class Trie {
     // Trie implemented by HashMap approach, please see to class and constructor at the bottom
@@ -32,7 +33,7 @@ class Trie {
 
         if (!word.matches("[A-Z]+")) {
             // If word supplied does not contain only letter characters - output and return false!
-            System.out.println("ERROR: String supplied contains non-letters!");
+            System.out.println("ERROR: String supplied" + word.toLowerCase() + "contains non-letters!");
             return false;
         }
         if (find(word)) {
@@ -67,20 +68,18 @@ class Trie {
 
     private boolean find(String word) {
         word = word.toUpperCase();
-
         HashMap<Character, TrieNode> children = root.children;
-
-        TrieNode node = null;
+        TrieNode node;
 
         for (int i = 0; i < word.length(); i++) {
             if (children.containsKey(word.charAt(i))) {
                 node = children.get(word.charAt(i));
                 children = node.children;
             } else {
-                node = null;
+                return false;
             }
         }
-        return false;
+        return true;
     }
 
 
@@ -114,8 +113,11 @@ class Trie {
 
         testTrie.addWord("apple");
         testTrie.addWord("grape");
+        testTrie.addWord("orange");
+        testTrie.addWord("fish");
 
-        //System.out.println(testTrie.find("pineapple"));
+        System.out.println(testTrie.find("grape"));
+        System.out.println(testTrie.find("pineapple"));
 
         //System.out.println(testTrie.getWords('o'));
 
