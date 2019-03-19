@@ -1,0 +1,196 @@
+/* Submitted by Reg Number: 1703055 */
+
+html {
+    scroll-behavior: smooth; /* Makes site scrolling smoother */
+}
+
+body {
+    background-color: #3A4042;
+
+    font-family: 'Open Sans', sans-serif;  /* Source https://fonts.google.com/specimen/Open+Sans?selection.family=Open+Sans */
+    color: white;
+}
+
+.topBar {
+    background-image: url('../images/image-titleImage.jpg');
+
+    /* Full height */
+    height: 1360px;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.menu {
+    background-color: #212121;
+
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+
+    overflow: hidden;
+}
+
+.menu a {
+    text-decoration: none;
+    font-size: 6em;
+    color: lightgray;
+
+    text-align: center;
+    float: left;
+
+    padding: 45px 75px;
+
+}
+
+.menu a:hover { /* Adding user interaction for when user hovers over buttons! */
+    background-color: #8ECCCC;
+    color: #212121;
+}
+
+@font-face { /* Adding the generator font which is fetched from local folder structure*/
+    font-family: generator;
+    src: local('Generator'),
+    url("Generator.ttf");
+    /* Source: https://www.dafont.com/generator.font?text=I+am+Colin+Ritman */
+}
+
+h1 {
+    font-family: generator, Impact, Charcoal, sans-serif; /*Set the order of presidency for the fonts. So it tries for the Generator font first. If not possible it uses one of the following with a default font for complete accessibility in mind*/
+    color: white;
+
+    font-size: 25em; /* Throughout the site em units are used in order to greatly improve accessibility as browsers are easily able to modify this and all. */
+    text-align: center;
+
+    margin-top: inherit;
+
+    padding-left: 1000px;
+    padding-top: 300px;
+}
+
+h2 {
+    color: white;
+    text-decoration: underline;
+    text-decoration-color: #8ECCCC; /* Making use of my colour palette for the underlines! */
+    font-size: 1.65em;
+    font-style: italic;
+    margin-bottom: 100px;
+}
+
+mark{
+    background-color: #8ECCCC;
+    color: white;
+    opacity: 0.95;
+    filter: alpha(opacity=95); /* Accessibility for IE8 & earlier */
+}
+
+.content {
+    font-size: 6.5em;
+
+    margin-left: 250px;
+}
+
+.section {
+    padding-bottom: 200px;
+}
+
+.section p {
+    margin-left: 150px;
+    font-size: .6em;
+    width: 65%;
+}
+
+.section ul {
+    font-size: .8em;
+    width: 70%;
+    margin-left: 150px;
+}
+
+img.about {
+    float: right;
+    display: inline;
+    clear: both;
+    width: 1300px;
+    height: 675px;
+
+    padding-left: 500px;
+}
+
+
+img.example {
+    float: left;
+    width: 1000px;
+    height: 775px;
+}
+
+image.example {
+    padding-right: 50px;
+}
+
+
+.preview {
+    float: none;
+    overflow: hidden;
+
+    width: 1050px;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-left: 150px;
+    margin-bottom: 25px;
+
+    display: inline-block;
+}
+
+.preview:first-of-type {
+    margin-left: 200px;
+}
+
+.preview .game {
+    width: 100%;
+}
+
+.caption {
+    color: black;
+    font-size: 1em;
+    text-align: center;
+    padding: 10px 20px;
+}
+
+.caption > p {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.caption > a {
+    font-style: italic;
+    text-decoration: underline;
+    text-decoration-color: #8ECCCC;
+}
+
+a.caption:hover {
+    color: #8ECCCC;
+}
+
+a.caption:visited {
+    color: #50717B;
+}
+
+.quotePanel {
+    width: 70%;
+
+    color: white;
+    background-color: black;
+
+    margin-top: 16px;
+    margin-bottom: 16px;
+
+    padding: 0.01em 16px;
+
+    margin-left: 150px;
+
+    display: block;
+
+    line-height: 1.5;
+}
