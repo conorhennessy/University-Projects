@@ -139,7 +139,7 @@ public class Basket {
         // iterate over the set of products...
         int total = 0;
         for (Product item : items.keySet()) {
-            total += item.price;
+            total += (getQuantity(item) * item.price);
         }
 
         // return the total

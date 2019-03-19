@@ -43,7 +43,7 @@ public class ShopDB {
         try {
             Class.forName("org.hsqldb.jdbc.JDBCDriver");
             System.out.println("loaded class");
-            con = DriverManager.getConnection("jdbc:hsqldb:file:H:\\tomcat\\webapps\\ass2\\shopdb", "sa", "");
+            con = DriverManager.getConnection("jdbc:hsqldb:file:\\tomcat\\webapps\\ass2\\shopdb", "sa", "");
             System.out.println("created con");
         } catch (Exception e) {
             System.out.println("Exception: " + e);
