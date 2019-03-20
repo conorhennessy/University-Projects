@@ -1,0 +1,269 @@
+/* Submitted by Reg Number: 1703055 */
+
+html {
+    scroll-behavior: smooth; /* Makes site scrolling smoother */
+}
+
+body {
+    background-color: #3A4042;
+    font-family: 'Open Sans', sans-serif; /* Source https://fonts.google.com/specimen/Open+Sans?selection.family=Open+Sans */
+    color: white;
+}
+
+@font-face {
+    /* Adding the generator font which is fetched from local folder structure*/
+    font-family: generator;
+    src: local('Generator'),
+    url("Generator.ttf");
+    /* Source: https://www.dafont.com/generator.font?text=I+am+Colin+Ritman */
+}
+
+.topBar {
+    /* Full height */
+    height: 100vh;
+    width: 100%;
+
+    /* Create the parallax scrolling effect */
+    background: url('../images/image-titleImage.jpg') no-repeat fixed center;
+    background-size: cover;
+
+    position: relative;
+}
+
+.title {
+    background-color: #364f56;
+    opacity: 0.75;
+    filter: alpha(opacity=75); /* Accessibility for IE8 & earlier */
+}
+
+h1 {
+    font-family: generator, Impact, Charcoal, sans-serif; /*Set the order of presidency for the fonts. So it tries for the Generator font first. If not possible it uses one of the following with a default font for complete accessibility in mind*/
+    font-size: 5em; /* Throughout the site em units are used in order to greatly improve accessibility as browsers are easily able to modify this and all. */
+    text-align: left;
+    letter-spacing: 5px;
+    color: white;
+
+    padding-left: 3%;
+    padding-top: 3%;
+
+    margin-top: inherit;
+    margin-bottom: auto;
+}
+
+.menu {
+    background-color: #212121;
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+
+    position: absolute;
+    float: left;
+    overflow: hidden;
+
+    width: 19%;
+
+    margin-left: 3%;
+
+    display: inline-block;
+}
+
+.menu a {
+    text-decoration: none;
+    font-size: 1.5em;
+    color: lightgray;
+    text-align: center;
+
+    width: 80%;
+
+    float: left;
+
+    padding: 8% 20.5%;
+}
+
+.menu a:hover { /* Adding user interaction for when user hovers over buttons! */
+    background-color: #8ECCCC;
+    color: #212121;
+}
+
+h2 {
+    font-size: 1.65em;
+    font-style: italic;
+    text-decoration: underline;
+    text-decoration-color: #8ECCCC; /* Making use of my colour palette for the underlines! */
+    background: #364f56;
+    color: white;
+
+    height: 2%;
+
+    margin: auto;
+    padding: 2%;
+}
+
+.scrollArrow {
+    position: absolute;
+    left: 45%;
+    bottom: 3%;
+    display: block;
+    text-align: center;
+    font-size: 20px;
+    z-index: 100;
+    text-decoration: none;
+    width: 30px;
+    height: 30px;
+    border-bottom: 4px solid white;
+    border-right: 4px solid white;
+    z-index: 9;
+    -webkit-transform: translate(-50%, 0%) rotate(45deg);
+    -moz-transform: translate(-50%, 0%) rotate(45deg);
+    transform: translate(-50%, 0%) rotate(45deg);
+    -webkit-animation: fade_down 4s ease-in-out infinite;
+    -moz-animation: fade_down 4s ease-in-out infinite;
+    animation: fade_down 4s ease-in-out infinite;
+}
+
+/* Animation for scroll arrow */
+/* Includes accessibility for multiple browsers*/
+@-webkit-keyframes fade_down {
+    0% {
+        -webkit-transform: translate(0, -10px) rotate(45deg);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        -webkit-transform: translate(0, 10px) rotate(45deg);
+        opacity: 0;
+    }
+}
+
+@-moz-keyframes fade_down {
+    0% {
+        -moz-transform: translate(0, -10px) rotate(45deg);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        -moz-transform: translate(0, 10px) rotate(45deg);
+        opacity: 0;
+    }
+}
+
+@keyframes fade_down {
+    0% {
+        transform: translate(0, -10px) rotate(45deg);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate(0, 10px) rotate(45deg);
+        opacity: 0;
+    }
+}
+
+.content {
+    font-size: 1.5em;
+}
+
+.section {
+    padding-bottom: 200px;
+}
+
+.section p {
+    margin-left: 150px;
+    font-size: 1em;
+}
+
+.section ul {
+    font-size: .8em;
+    width: 70%;
+    margin-left: 150px;
+}
+
+img.about {
+    float: right;
+    display: inline;
+    clear: both;
+    width: 40%;
+    height: 50%;
+
+    padding-left: 5%;
+}
+
+img.example {
+    float: left;
+    width: 60%;
+    height: 40%;
+}
+
+image.example {
+    padding-right: 50px;
+}
+
+.preview {
+    float: none;
+    overflow: hidden;
+
+    width: 1050px;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-left: 150px;
+    margin-bottom: 25px;
+
+    display: inline-block;
+}
+
+.preview:first-of-type {
+    margin-left: 200px;
+}
+
+.preview .game {
+    width: 100%;
+}
+
+.caption {
+    color: black;
+    font-size: 1em;
+    text-align: center;
+    padding: 10px 20px;
+}
+
+.caption > p {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.caption > a {
+    font-style: italic;
+    text-decoration: underline;
+    text-decoration-color: #8ECCCC;
+}
+
+a.caption:hover {
+    color: #8ECCCC;
+}
+
+a.caption:visited {
+    color: #50717B;
+}
+
+.quotePanel {
+    width: 70%;
+
+    color: white;
+    background-color: black;
+
+    margin-top: 16px;
+    margin-bottom: 16px;
+
+    padding: 0.01em 16px;
+
+    margin-left: 150px;
+
+    display: block;
+
+    line-height: 1.5;
+}
