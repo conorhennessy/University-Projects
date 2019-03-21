@@ -1,0 +1,154 @@
+body {
+    background-color: #474e5d;
+    font-family: Helvetica, sans-serif;
+}
+
+.menu {
+    background-color: #212121;
+
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+
+    overflow: hidden;
+
+    width: 100%;
+    height: 7%;
+}
+
+.menu a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.menu a:hover { /* Adding user interaction for when user hovers over buttons! */
+    background-color: #8ECCCC;
+    color: #212121;
+}
+
+/* The actual timeline (the vertical ruler) */
+.timeline {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* The actual timeline (the vertical ruler) */
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    background-color: white;
+
+    top: 0;
+    bottom: 0;
+    left: 50%;
+
+    margin-left: -3px;
+}
+
+/* Container around content */
+.container {
+    position: relative;
+    background-color: inherit;
+    width: 50%;
+
+    padding: 10px 40px;
+}
+
+
+
+/* The following places the container on the right or on the left */
+.left {
+    left: -7%;
+}
+
+.right {
+    left: 50%;
+}
+
+
+
+/* The following adds an arrow to the container (pointing right or left as required) */
+.left::before {
+    border: medium solid white;
+    border-width: 10px 0 10px 10px;
+    border-color: transparent transparent transparent white;
+
+    content: " ";
+    height: 0;
+    width: 0;
+
+    position: absolute;
+    z-index: 1;
+
+    right: 30px;
+    top: 23px;
+}
+
+.right::before {
+    content: " ";
+    height: 0;
+    width: 0;
+
+    position: absolute;
+    z-index: 1;
+
+    left: 30px;
+    top: 23px;
+
+    border: medium solid white;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent white transparent transparent;
+}
+
+
+
+/* The actual content itself */
+.content {
+    padding: 20px 30px;
+    background-color: white;
+    position: relative;
+    border-radius: 6px;
+}
+
+/* Media queries - Making the timeline responsive for screens less than 600px wide */
+@media screen and (max-width: 600px) {
+    html, body {
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    /* Place the time line to the left */
+    .timeline::after {
+        left: 31px;
+    }
+
+    /* Full-width containers */
+    .container {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+    }
+
+    /* Make sure that all arrows are pointing leftwards */
+    .container::before {
+        left: 60px;
+        border: medium solid white;
+        border-width: 10px 10px 10px 0;
+        border-color: transparent white transparent transparent;
+    }
+
+    /* Make all right containers behave like the left ones */
+    .right {
+        left: 0%;
+    }
+}
+
+/* Credit to the following tutorial for massively assisting me with creating this
+    https://www.w3schools.com/howto/howto_css_timeline.asp
+*/

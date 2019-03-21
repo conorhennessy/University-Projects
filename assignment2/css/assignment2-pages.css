@@ -1,0 +1,202 @@
+/* Submitted by Reg Number: 1703055 */
+
+html {
+    scroll-behavior: smooth; /* Makes site scrolling smoother */
+}
+
+body {
+    background-color: #3A4042;
+    font-family: 'Open Sans', sans-serif; /* Source https://fonts.google.com/specimen/Open+Sans?selection.family=Open+Sans */
+    color: white;
+}
+
+@font-face {
+    /* Adding the generator font which is fetched from local folder structure*/
+    font-family: generator;
+    src: local('Generator'),
+    url("Generator.ttf");
+    /* Source: https://www.dafont.com/generator.font?text=I+am+Colin+Ritman */
+}
+
+.topBar {
+    /* Full height */
+    height: 100vh;
+    width: 100%;
+
+    /* Create the parallax scrolling effect */
+    background: url('../images/image-titleImage.jpg') no-repeat fixed center;
+    background-size: cover;
+
+    position: relative;
+}
+
+.title {
+    background-color: #364f56;
+    opacity: 0.75;
+    filter: alpha(opacity=75); /* Accessibility for IE8 & earlier */
+}
+
+h1 {
+    font-family: generator, Impact, Charcoal, sans-serif; /*Set the order of presidency for the fonts. So it tries for the Generator font first. If not possible it uses one of the following with a default font for complete accessibility in mind*/
+    font-size: 5em; /* Throughout the site em units are used in order to greatly improve accessibility as browsers are easily able to modify this and all. */
+    text-align: left;
+    letter-spacing: 5px;
+    color: white;
+
+    padding-left: 3%;
+    padding-top: 3%;
+
+    margin-top: inherit;
+    margin-bottom: auto;
+}
+
+.menu {
+    background-color: #212121;
+
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+
+    overflow: hidden;
+
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 10%;
+}
+
+.menu a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.menu a:hover { /* Adding user interaction for when user hovers over buttons! */
+    background-color: #8ECCCC;
+    color: #212121;
+}
+
+
+h2 {
+    font-size: 1.65em;
+    font-style: italic;
+    text-decoration: underline;
+    text-decoration-color: #8ECCCC; /* Making use of my colour palette for the underlines! */
+    background: #364f56;
+    color: white;
+
+    height: 2%;
+
+    margin-top: 50px;
+    padding: 2%;
+}
+
+
+.section {
+    padding-bottom: 5%;
+}
+
+.section p {
+    font-size: .8em;
+}
+
+img.example {
+    width: 23%;
+    height: 40%;
+
+    padding-right: 1.5%;
+
+    margin-bottom: 2%;
+}
+
+img.logo {
+    height: .8em;
+    border-bottom: 4px solid #8ECCCC;
+    transform: translate(0,5px);
+}
+
+.preview {
+    float: none;
+    overflow: hidden;
+
+    width: 15%;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-left: 5%;
+    margin-bottom: 25px;
+
+    display: inline-block;
+}
+
+.preview:first-of-type {
+    margin-left: 10%;
+}
+
+.preview .game {
+    width: 100%;
+}
+
+.caption {
+    color: black;
+    font-size: 1em;
+    text-align: center;
+    padding: 10px 20px;
+}
+
+.caption > p {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.caption > a {
+    font-style: italic;
+    text-decoration: underline;
+    text-decoration-color: #8ECCCC;
+}
+
+a.caption:hover {
+    color: #8ECCCC;
+}
+
+a.caption:visited {
+    color: #50717B;
+}
+
+
+/* For the contact form */
+input[type=text], textarea, select {
+	width: 95%;
+	padding: 12px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+	margin-top: 6px;
+	margin-bottom: 16px;
+	resize: vertical;
+}
+
+input[type=submit] {
+	background-color: #364f56;
+	color: white;
+	padding: 12px 20px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #8ECCCC;
+}
+
+.container {
+	font-size: 1.5em;
+	border-radius: 5px;
+	margin-top: 50px;
+	background-color: #212121;
+	padding: 30px;
+	position: absolute;
+    width: 100%;
+}
