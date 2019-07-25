@@ -38,25 +38,25 @@ Snake game, please see to repo itself to play!
 _This assignment remains as a separate repository for display._
 
 ## CE204 - Data Structure and Algorithms
-> Learnt core algorithms and data structures, as well as being given an introduction to algorithm analysis and basic computability. 
+> Learnt core algorithms and data structures, as well as being given an introduction to algorithm analysis and basic computability.
 ##### Java
 Implementing code data types in Java.  Including linked lists, array queues, binary trees, binary search trees and graphs.
-###### Assignment 1: 
-Binary Search Trees & Priority Queues 
-###### Assignment 2: 
+###### Assignment 1:
+Binary Search Trees & Priority Queues
+###### Assignment 2:
 Full trie implementation.
 
 ## CE206 - HCI  
-> Centered around the specifics in design and implementation of user-oriented interfaces, (in particular, web pages) including good practice in presenting and displaying information.
+> Centred around the specifics in design and implementation of user-oriented interfaces, (in particular, web pages) including good practice in presenting and displaying information.
 ##### HTML & CSS
-###### Assignment 1 & 2: 
+###### Assignment 1 & 2:
 _Coming soon_
 _2 large assignments of personal websites_
 
 ## Web Application Programming - CE212
 > Learnt to implement HTML & JS form-based input systems, Java Server Pages will be implemented, and implement an online shop. Students will design data models, databases, and data classes for web applications.
 ##### HTML & CSS, JS, JSP and an MySQL DB
-###### Assignment 1: 
+###### Assignment 1:
 Made up of 3 parts: Temperature converter, word count tool and calculator. Implemented in JS with supporting HTML & CSS
 ###### Assignment 2:
 A fully functioning shop for a hypothetical artist. Implemented in JS, JSP and an MySQL DB.
@@ -73,5 +73,5 @@ Alpha-Beta pruning was also implemented for further marks
 ##### Python
 ###### All three assignment tasks:
 * A very basic python script to open and modify another program.
-* Python script to extract hidden artifacts in images
+* Python script to extract hidden artefacts in images
 * Python script to decode an encoded messaged encoded with a baby block cipher related to AES.
