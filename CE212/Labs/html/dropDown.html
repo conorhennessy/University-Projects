@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Drop-down menu Test</title>
+
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+        function setStyle() {
+            var par = $("#para");
+
+            var col = $("#col").val();
+            var align = $("#align").val();
+
+            par.css("color", col);
+            par.css("text-align", align);
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <h3>Drop-down menu Test</h3>
+
+    <p id="para" style="color:red">Select a colour for this text</p>
+
+    <p>The colour of this paragraph will not change</p>
+
+    <form>
+    <select id="col">
+        <option value = "red"> Red </option>
+        <option value = "green"> Green </option>
+        <option value = "blue"> Blue </option>
+    </select>
+    <select id="align">
+        <option value = "left"> Left </option>
+        <option value = "center"> Center </option>
+        <option value = "right"> Right </option>
+    </select>
+    <input type="submit" value="Submit" onclick="setStyle();return false" />
+    </form>
+
+
+</body>
+
+</html>

@@ -1,0 +1,92 @@
+body {
+    margin: 4em;
+    width: 400px;
+
+    font-family: "Courier New", Courier, Monospace, Times, serif;
+    font-size: large;
+}
+
+
+.links {
+    text-align: center;
+}
+
+
+.title {
+    text-align: center;
+
+    color: whitesmoke;
+
+    background: firebrick;
+    margin-bottom: 5px;
+}
+
+.title h2 {
+    padding: 10px;
+}
+
+
+.selections {
+    padding: 5px 15px 15px;
+    margin-bottom: 15px;
+    color: white;
+    background: #bd4545;
+}
+
+.selections h3 {
+    margin: 10px;
+}
+
+.selections p {
+    padding-left: 15px;
+    margin: 2px 0;
+    white-space: pre;
+}
+
+.selections button {
+    width: 180px;
+    padding: 14px 3px;
+    margin: 3px;
+    background-color: white;
+    border: 2px solid salmon;
+
+    color: firebrick;
+    font-size: 16px;
+    text-align: center;
+
+    cursor: pointer;
+}
+
+.selections button:hover {
+    background-color: salmon;
+    color: white;
+}
+
+
+/* Buttons div style*/
+.buttons {
+    padding-left: 60px;
+}
+
+table {
+    margin-left:auto;
+    margin-right:auto;}
+
+th {
+    background: darkslategray;
+    color: whitesmoke;
+}
+
+td {
+    text-align: center;
+    width: 4cm;
+}
+
+tr.even {
+    color: snow;
+    background: salmon;
+}
+
+tr.odd {
+    background: whitesmoke;
+}

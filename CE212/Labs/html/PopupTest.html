@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Popup Test</title>
+    <script type="text/javascript">
+        function hello() {
+            var w = window.open();
+            var d = w.document;
+            d.open();
+            d.write('<hr>Hello World</hr>');
+            var popup = document.getElementById('popup');
+            d.write(popup.innerHTML);
+            d.close();
+        }
+        function reply(a) {
+            alert(a);
+        }
+    </script>
+
+    <style type="text/css">
+        .invis {display: none}
+    </style>
+</head>
+
+<body>
+    <a href="javascript: hello()">Open Popup</a>
+
+    <div id="hi">
+
+    </div>
+
+    <div id="popup" class="invis" style="{display: none}">
+        <p>This is invisible?</p>
+        <a href="javascript: window.opener.reply('yes'); close();">Yes</a>
+        <a href="javascript: opener.reply('no'); close();">No</a>
+    </div>
+</body>
+
+</html>

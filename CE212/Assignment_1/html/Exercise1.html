@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Dynamic Temperature Converter</title>
+    <link rel="stylesheet" type="text/css" href="../css/assignment.css"/>
+    <script src="../js/conversion.js" type="text/javascript">
+    </script>
+
+</head>
+
+<body>
+<p class="links">Submitted by 1703055</p>
+<p class="links"><a href="Exercise1.html">Exercise 1</a>  -  <a href="Exercise2.html">Exercise 2</a>  -  <a href="Exercise3.html">Exercise 3</a></p>
+
+<div class="title">
+    <h2>Dynamic Temperature Converter</h2>
+
+    </div>
+
+    <div class="selections">
+        <h3>Specify a temperature range to convert...</h3>
+        <p>From <input type="text" id="rangeLower"><br></p>
+        <p>To   <input type="text" id="rangeUpper"></p>
+        <h3>Select conversion type...</h3>
+        <div class="buttons">
+            <button type="button" value="CtoF" onclick="validate('conversion', 'CtoF')">Celsius to Fahrenheit</button>
+            <button type="button" value="FtoC" onclick="validate('conversion', 'FtoC')">Fahrenheit to Celsius</button>
+        </div>
+
+</div>
+
+<div id="conversion">
+
+</div>
+
+</body>
+</html>

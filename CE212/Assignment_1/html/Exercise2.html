@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Word Count</title>
+    <link rel="stylesheet" type="text/css" href="../css/assignment.css"/>
+    <script src="../js/wordCount.js" type="text/javascript">
+    </script>
+
+</head>
+
+<body>
+<p class="links">Submitted by 1703055</p>
+<p class="links"><a href="Exercise1.html">Exercise 1</a>  -  <a href="Exercise2.html">Exercise 2</a>  -  <a href="Exercise3.html">Exercise 3</a></p>
+
+<div class="title">
+    <h2>Word Count<br>
+    (In alphabetic order)</h2>
+
+</div>
+
+<div class="selections">
+    <h3>Please specify a HTML page to open...</h3>
+    <p>[The page must be on the same file<br>system as this page!]<br> </p>
+    <p>Site:<input type="text" id="url"><br></p>
+    <h3>Open site & count...</h3>
+    <div class="buttons">
+        <button type="button" value="open" onclick="openFile(document.getElementById('url').value)">Open</button>
+        <button type="button" value="count" onclick="wordCount()">Count</button>
+    </div>
+
+</div>
+
+<div id="wordCount">
+
+</div>
+
+</body>
+</html>

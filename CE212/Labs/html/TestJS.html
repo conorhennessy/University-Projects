@@ -1,0 +1,72 @@
+Title
+<html>
+
+<head>
+    <meta http-equiv="Content-Language" content="en-gb">
+    <title>JavaScript Test</title>
+    <style type="text/css">
+        h2 {
+            text-align: center;
+            color: blue
+        }
+
+        body {
+            margin: 1em;
+            width: 400px
+        }
+
+        h3 {
+            color: navy
+        }
+
+        pre {
+            margin: 2em;
+            background: #EEFFFF;
+            border: solid;
+            border-color: navy;
+            padding: 1em;
+            border-width: 1px
+        }
+
+        td {
+            text-align: center
+        }
+
+        .main {
+            width: 400px
+        }
+
+    </style>
+
+    <script type="text/javascript">
+        function Run() {
+            // alert("Running");
+            var ipNode = document.getElementById("Input");
+
+            var opNode = document.getElementById("Output");
+            opNode.textContent = ipNode.value;
+            var evalNode = document.getElementById("Eval");
+            try {
+                evalNode.textContent = eval(ipNode.value);
+            } catch (e) {
+                evalNode.textContent = e;
+            }
+        }
+    </script>
+
+</head>
+
+<body class="main">
+<div>
+    <h3>JavaScript Test</h3>
+
+    <p>Enter JS code in the Text Area, then click run to evaluate it.</p>
+</div>
+<form action="">
+    <p><textarea rows="6" name="Input" id="Input" cols="61"></textarea>
+        <input type="button" value="Run" name="B3" onclick="Run()"><input type="reset" value="Clear" name="B2"></p>
+</form>
+<pre id="Output">&nbsp;</pre>
+<pre id="Eval">&nbsp;</pre>
+</body>
+</html>
