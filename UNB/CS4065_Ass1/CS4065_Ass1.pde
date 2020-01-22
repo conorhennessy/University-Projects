@@ -7,6 +7,7 @@ long start;
 SoundFile[] files;
 
 void setup() {
+    frame.setTitle("CS4065 - Targeting System - Assignment 1 (Conor Hennessy)");
     background(157, 171, 134);
     size(1000, 750);
     textSize(25);
@@ -20,11 +21,11 @@ void setup() {
     }
     
     while (!gotID) {
-      id = showInputDialog("Please enter your User ID");
+      id = showInputDialog("Please enter your User ID number:");
       if (id == null) {
           break;
       } else if ("".equals(id)) {
-          showMessageDialog(null, "Empty User ID Input! Please try again.", "Alert", ERROR_MESSAGE);
+          showMessageDialog(null, "Empty User ID number input!\nPlease try again.", "Alert", ERROR_MESSAGE);
       } else {
         gotID = true;
       }
@@ -76,6 +77,7 @@ void draw() {
 int errorCount = 0;
 float elapsedTime;
 float previousTime;
+int targetDistance;
 
 void mousePressed() {
     if (nowStart) {
@@ -90,7 +92,7 @@ void mousePressed() {
         timer = System.nanoTime() - start;
         elapsedTime = (timer - previousTime) / 1000000;
         previousTime = timer;
-        System.out.printf("%s\t%d\t%d\t%d\t%d\t%.3f\t%d\t\n", id, blockCount, trialCount, randWidth, x - mouseX, elapsedTime, errorCount);
+        System.out.printf("%s\t%d\t%d\t%d\t%d\t%.3f\t%d\t\n", id, blockCount, trialCount, randWidth, targetDistance, elapsedTime, errorCount);
 
         //Play click sound
         files[1].play(0.8, 1.0);
@@ -127,4 +129,6 @@ void moveRect() {
     if (x + randWidth >= width) {
         randWidth = (int)(Math.random() * (((width - x) - 10) + 1)) + 10;
     }
+    
+    targetDistance = leftTurn ? ((x + randWidth) - mouseX) : (mouseX - x);
 }
