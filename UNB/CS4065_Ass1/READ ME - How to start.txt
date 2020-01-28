@@ -1,0 +1,5 @@
+With Processing installed on your device, simply open the file titled CS4065.pde and click run in the top left.
+
+You will be presented with an ID input box - you can use any interger as your ID.
+Once submitted the experiment wil comence and all values will be recorded for each trial
+The experiment consists of 10 blocks of 10 trials. Once complete the recorded values can be found in the console of processing. 
