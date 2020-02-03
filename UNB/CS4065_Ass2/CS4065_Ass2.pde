@@ -2,10 +2,14 @@ import de.voidplus.dollar.*;
 
 OneDollar one;
 
-int shapeID = 0; 
+int shapeID = 1; 
 int moveX, moveY, dragX, dragY;
 int strokeWeight = 5;
 int red, green, blue; 
+
+String shape_STR = "Rectangle";
+String colour_STR = "Black";
+
 ArrayList<int[]> shapes = new ArrayList<int[]>();
 ArrayList<PShape> freeShapes = new ArrayList<PShape>();
 PShape free;
@@ -86,19 +90,23 @@ void draw() {
     }
   }
   fill(0, 102, 153);
-  text("Shape: " + shapeID, width - 250, 30); 
-  text("Colour: "+ red + ", " + green + ", " + blue, width - 250, 60);
-  text("Weight: " + strokeWeight, width - 250, 90); 
+  text("Shape: " + shape_STR, width - 300, 30); 
+  text("Colour: "+ colour_STR, width - 300, 60);
+  text("Weight: " + strokeWeight, width - 300, 90); 
 }
 
 void keyPressed() {
   if (key == 'r') {
+    shape_STR = "Rectangle";
     shapeID = 1;
   } else if (key == 'o') {
+    shape_STR = "Oval";
     shapeID = 2;
   } else if (key == 'l') {
+    shape_STR = "Straight Line";
     shapeID = 3;
   } else if (key == 'f') {
+    shape_STR = "Freeform Line";
     shapeID = 4;
     free = createShape();
     free.beginShape();
@@ -114,22 +122,22 @@ void keyPressed() {
   }
   
   if (key == '!') {
-    // Black
+    colour_STR = "Black";
     red = 0;
     green = 0;
     blue = 0;
   } else if (key == '@') {
-    // Red
+    colour_STR = "Red";
     red = 255;
     green = 0;
     blue = 0;
   } else if (key == '#') {
-    // Green
+    colour_STR = "Green";
     red = 0;
     green = 255;
     blue = 0;
   } else if (key == '$') {
-    // Blue
+    colour_STR = "Blue";
     red = 0;
     green = 0;
     blue = 255;
@@ -145,13 +153,17 @@ void keyPressed() {
 }
 
 void detected(String gesture, float percent, int startX, int startY, int centroidX, int centroidY, int endX, int endY) {
-    if (gesture == "rectangle") {
+  if (gesture == "rectangle") {
+    shape_STR = "Rectangle";
     shapeID = 1;
   } else if (gesture == "oval") {
+    shape_STR = "Oval";
     shapeID = 2;
   } else if (gesture == "straight_line") {
+    shape_STR = "Straight Line";
     shapeID = 3;
   } else if (gesture == "freeform_line") {
+    shape_STR = "Feeform Line";    
     shapeID = 4;
     free = createShape();
     free.beginShape();
@@ -166,22 +178,22 @@ void detected(String gesture, float percent, int startX, int startY, int centroi
   }
   
   if (gesture == "black") {
-    // Black
+    colour_STR = "Black";
     red = 0;
     green = 0;
     blue = 0;
   } else if (gesture == "red") {
-    // Red
+    colour_STR = "Red";
     red = 255;
     green = 0;
     blue = 0;
   } else if (gesture == "green") {
-    // Green
+    colour_STR = "Green";
     red = 0;
     green = 255;
     blue = 0;
   } else if (gesture == "blue") {
-    // Blue
+    colour_STR = "Blue";
     red = 0;
     green = 0;
     blue = 255;
