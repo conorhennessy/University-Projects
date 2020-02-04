@@ -13,6 +13,7 @@ String colour_STR = "Black";
 ArrayList<int[]> shapes = new ArrayList<int[]>();
 ArrayList<PShape> freeShapes = new ArrayList<PShape>();
 PShape free;
+
 void setup() {
   surface.setTitle("CS4065 - Augmented Interactions - Assignment 2 (Conor & Eric)");
   size(1000, 600);
@@ -39,10 +40,6 @@ void setup() {
   // Bind templates to methods (callbacks):
   one.bind("rectangle circle freeform_line straight_line black red green blue thin medium thick", "detected");
 }
-
-
-//TODO 
-// get freeform lines to work.
 
 void draw() {
   background(255);
@@ -211,7 +208,7 @@ void mouseDragged() {
   if (shapeID != 0 && mouseButton == LEFT) {
     dragX = mouseX;
     dragY = mouseY;
-  }  else if (mouseButton == RIGHT) {
+  } else if (mouseButton == RIGHT) {
     // Guesture recognition
     one.track(mouseX, mouseY);
   }
@@ -228,8 +225,7 @@ void mouseReleased() {
       secondPointX = dragX - moveX;
       secondPointY = dragY - moveY;
     }
-    if(shapeID == 4)
-    {
+    if(shapeID == 4) {
       free.endShape();
       free.setStrokeWeight(strokeWeight);
       shapes.add(new int[] {shapeID, moveX, moveY, secondPointX, secondPointY, strokeWeight, red, green, blue, freeShapes.size()});
@@ -237,8 +233,7 @@ void mouseReleased() {
       free = createShape();
       free.beginShape();
     }
-    else
-    {
+    else {
       int[] shape = {shapeID, moveX, moveY, secondPointX, secondPointY, strokeWeight, red, green, blue};
       shapes.add(shape);
     }

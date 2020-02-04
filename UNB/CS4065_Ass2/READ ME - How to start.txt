@@ -1,0 +1,12 @@
+With Processing installed on your device, open the file titled CS4065_Ass2.pde and click the run button to the top left.
+
+You will be presented with a window which you can interact with and draw within.
+
+Please used the supplied 'Cheat sheet' to gain an overview of the different drawing commands you can use.
+To change drawing settings/operations:
+    For keyboard operations, simply press the relevant key.
+    For gestures, right-click and make the required gesture.
+
+The currently selected operation can be seen in the top right of the window.
+
+Drawing is completed by left-clicking and dragging to make the currently selected shape.
