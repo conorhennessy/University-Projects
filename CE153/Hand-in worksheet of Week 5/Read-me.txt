@@ -1,0 +1,8 @@
+The worksheets are those files named with 'Q' at the end, this shows the queries performed.
+
+The resulting outputs are all in the filles named with 'log' at the end.
+
+I also have included the scripts needed to run the scripts, they are all .cmd files with respective names to the corresponding worksheets.
+
+
+- Conor Hennessy

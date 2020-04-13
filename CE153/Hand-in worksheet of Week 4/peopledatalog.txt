@@ -1,0 +1,228 @@
+--------------
+SHOW TABLES
+--------------
+
++------------------+
+| Tables_in_people |
++------------------+
+| people           |
++------------------+
+--------------
+SELECT * FROM people
+--------------
+
++------------+---------+------+------+----------+
+| given_name | surname | sex  | age  | job      |
++------------+---------+------+------+----------+
+| henry      | hammond | male |   65 | cook     |
+| tom        | jones   | male |   41 | musician |
+| peter      | clark   | male |   35 | lawyer   |
+| jack       | wright  | male |   28 | lawyer   |
++------------+---------+------+------+----------+
+--------------
+DESCRIBE people
+--------------
+
++------------+-----------------------+------+-----+---------+-------+
+| Field      | Type                  | Null | Key | Default | Extra |
++------------+-----------------------+------+-----+---------+-------+
+| given_name | varchar(20)           | YES  |     | NULL    |       |
+| surname    | varchar(20)           | YES  |     | NULL    |       |
+| sex        | enum('male','female') | YES  |     | NULL    |       |
+| age        | int(11)               | YES  |     | NULL    |       |
+| job        | varchar(20)           | YES  |     | NULL    |       |
++------------+-----------------------+------+-----+---------+-------+
+--------------
+SELECT given_name, job
+FROM people
+WHERE given_name = "lucy"
+--------------
+
+--------------
+SELECT given_name, age
+FROM people
+WHERE given_name = "lucy"
+--------------
+
+--------------
+SELECT given_name, surname, age, job
+FROM people
+WHERE given_name = "lucy" AND surname = "wilde"
+--------------
+
+--------------
+SELECT given_name, sex
+FROM people
+WHERE sex = "male"
+--------------
+
++------------+------+
+| given_name | sex  |
++------------+------+
+| henry      | male |
+| tom        | male |
+| peter      | male |
+| jack       | male |
++------------+------+
+--------------
+SELECT given_name, sex, job
+FROM people
+WHERE sex = "male" AND job = "accountant"
+--------------
+
+--------------
+SELECT given_name, sex, job, age
+FROM people
+WHERE sex = "male" AND job = "accountant" AND age < 30
+--------------
+
+--------------
+SELECT given_name, sex, job
+FROM people
+WHERE (sex = "male" AND job = "accountant") OR (sex = "female" AND job = "doctor")
+--------------
+
+--------------
+SELECT given_name, age, job
+FROM people
+WHERE job = "lawyer" AND age <= 30
+--------------
+
++------------+------+--------+
+| given_name | age  | job    |
++------------+------+--------+
+| jack       |   28 | lawyer |
++------------+------+--------+
+--------------
+SELECT given_name, job
+FROM people
+WHERE job = "doctor" OR job = "lawyer" OR job = "accountant"
+--------------
+
++------------+--------+
+| given_name | job    |
++------------+--------+
+| peter      | lawyer |
+| jack       | lawyer |
++------------+--------+
+--------------
+SELECT given_name, job
+FROM people
+WHERE job != "cook" AND job != "designer"
+--------------
+
++------------+----------+
+| given_name | job      |
++------------+----------+
+| tom        | musician |
+| peter      | lawyer   |
+| jack       | lawyer   |
++------------+----------+
+--------------
+SELECT given_name, job
+FROM people
+WHERE job != "doctor" OR job != "lawyer" OR job != "accountant"
+--------------
+
++------------+----------+
+| given_name | job      |
++------------+----------+
+| henry      | cook     |
+| tom        | musician |
+| peter      | lawyer   |
+| jack       | lawyer   |
++------------+----------+
+--------------
+SELECT given_name, surname
+FROM people
+WHERE surname LIKE "h%"
+--------------
+
++------------+---------+
+| given_name | surname |
++------------+---------+
+| henry      | hammond |
++------------+---------+
+--------------
+SELECT given_name
+FROM people
+WHERE job LIKE "%er" OR job LIKE "%or"
+--------------
+
++------------+
+| given_name |
++------------+
+| peter      |
+| jack       |
++------------+
+--------------
+UPDATE people SET age="41" WHERE given_name="lucy"
+--------------
+
+--------------
+SELECT given_name, age
+FROM people
+WHERE given_name="lucy"
+--------------
+
+--------------
+UPDATE people SET surname="Armstrong" WHERE given_name="lucy"
+--------------
+
+--------------
+SELECT given_name, surname
+FROM people
+WHERE given_name="lucy"
+--------------
+
+--------------
+UPDATE people SET age="41" WHERE given_name="tom"
+--------------
+
+--------------
+UPDATE people SET job="musician" WHERE given_name="tom"
+--------------
+
+--------------
+SELECT given_name, age, job
+FROM people
+WHERE given_name="tom"
+--------------
+
++------------+------+----------+
+| given_name | age  | job      |
++------------+------+----------+
+| tom        |   41 | musician |
++------------+------+----------+
+--------------
+DELETE FROM people WHERE given_name="max"
+--------------
+
+--------------
+SELECT * FROM people
+--------------
+
++------------+---------+------+------+----------+
+| given_name | surname | sex  | age  | job      |
++------------+---------+------+------+----------+
+| henry      | hammond | male |   65 | cook     |
+| tom        | jones   | male |   41 | musician |
+| peter      | clark   | male |   35 | lawyer   |
+| jack       | wright  | male |   28 | lawyer   |
++------------+---------+------+------+----------+
+--------------
+DELETE FROM people WHERE sex="female"
+--------------
+
+--------------
+SELECT * FROM people
+--------------
+
++------------+---------+------+------+----------+
+| given_name | surname | sex  | age  | job      |
++------------+---------+------+------+----------+
+| henry      | hammond | male |   65 | cook     |
+| tom        | jones   | male |   41 | musician |
+| peter      | clark   | male |   35 | lawyer   |
+| jack       | wright  | male |   28 | lawyer   |
++------------+---------+------+------+----------+

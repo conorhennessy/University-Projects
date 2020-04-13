@@ -1,0 +1,319 @@
+
+/******************************************
+This section describes the situation that the database is about.
+******************************************
+
+
+Here is some data about police enquiries and interviews.
+
+Each table has a name that describes the sort of thing it about, and a list of attributes relevant for that thing.
+
+
+There is a list of enquiries, each with a name, a type of crime, a start date, an end date.
+
+If the enquiry has not ended, the end data is recorded as NULL.  (Not the best way of doing it, but the most obvious.)
+
+        TABLE
+                enquiry
+        ATTRIBUTES
+                enquiry_name
+                crime_type
+                start_date
+                end_date
+
+
+An interview of a witness by an officer occurs as part of an enquiry.
+An interview has an interview_id.  That lets a query identify it.
+An enquiry occurs on a date.
+
+        TABLE
+                interview
+        ATTRIBUTES
+                interview_id
+                enquiry_name
+                officer
+                date
+                witness
+
+
+Most interviews are taped.
+There is a list of tapes, with a tape number for each tape, and the interview number of the interview it is about.
+There is only one interview on any tape, but one interview can occur on several tapes.
+
+        TABLE
+                tape
+        ATTRIBUTES
+                tape_id
+                interview_id
+
+
+A witness has a name ("john smith"), and an address ("13 High St", "Flat 7 Garfield House").
+
+        TABLE
+                witness
+        ATTRIBUTES
+                name
+                address
+
+
+It is assumed that the values that can occur as the "name" attribute of witness
+and as the "witness" attribute of interview are the same - that is, that the attributes have the same domains.
+
+******************************************/
+
+
+/******************************************
+This section sets set up the data about that situation using those tables.
+******************************************/
+
+DROP DATABASE IF EXISTS enquiries;
+CREATE DATABASE enquiries;
+
+USE enquiries;
+
+-- ----------------------------------------------
+
+CREATE TABLE enquiry(
+        enquiry_name    VARCHAR(20),
+        crime_type      VARCHAR(20),
+        start_date      DATE,
+        end_date        DATE );
+
+INSERT INTO enquiry VALUES ("bullrush", "assault", "2010-01-06", "2010-07-06");
+INSERT INTO enquiry VALUES ("poplar", "assault", "2010-03-07", "2010-10-07");
+INSERT INTO enquiry VALUES ("marigold", "drugs", "2010-02-06", "2010-08-06");
+INSERT INTO enquiry VALUES ("berberis", "drugs", "2010-04-29", NULL);
+INSERT INTO enquiry VALUES ("hawthorn", "fraud", "2010-03-22", "2010-03-22");
+INSERT INTO enquiry VALUES ("privet", "fraud", "2010-07-11", NULL);
+INSERT INTO enquiry VALUES ("vacuum", "fraud", "2010-01-21", "2011-11-21");
+
+
+-- ----------------------------------------------
+
+CREATE TABLE interview(
+        interview_id    INT,
+        enquiry_name    VARCHAR(20),
+        officer         VARCHAR(20),
+        date            DATE,
+        witness         VARCHAR(20) );
+
+INSERT INTO interview VALUES (235, "bullrush", "officer41", "2010-06-05", "john smith");
+INSERT INTO interview VALUES (237, "bullrush", "officer16", "2010-02-24", "john smith");
+INSERT INTO interview VALUES (344, "marigold", "officer30", "2010-03-20", "peter jones");
+INSERT INTO interview VALUES (355, "bullrush", "officer30", "2010-03-20", "peter jones");
+INSERT INTO interview VALUES (401, "vacuum", "officer30", "2010-03-20", "paul moon");
+INSERT INTO interview VALUES (404, "vacuum", "officer30", "2010-03-21", "mary moon");
+INSERT INTO interview VALUES (288, "berberis", "officer11", "2010-06-21", "pat summers");
+
+
+-- ----------------------------------------------
+
+CREATE TABLE tape(
+        tape_id         VARCHAR(10),
+        interview_id    INT );
+
+INSERT INTO tape VALUES ("tape41", 235);
+INSERT INTO tape VALUES ("tape41a", 235);
+INSERT INTO tape VALUES ("tape53", 237);
+INSERT INTO tape VALUES ("tape09", 404);
+
+
+-- ----------------------------------------------
+
+CREATE TABLE witness(
+        name        VARCHAR(20),
+        address     VARCHAR(30) );
+
+INSERT INTO witness VALUES ( "john smith", "13 high st");
+INSERT INTO witness VALUES ( "mary smith", "13 high st");
+INSERT INTO witness VALUES ( "peter jones", "flat 7 davis house");
+INSERT INTO witness VALUES ( "pat summers", "16 long rd");
+INSERT INTO witness VALUES ( "paul moon", "16 long rd");
+INSERT INTO witness VALUES ( "mary moon", "16 long rd");
+
+
+
+/******************************************
+
+These are some queries about the enquiries scenario.
+SQL code to ask these queries is needed.
+
+The questions are commented out, by using -- and a space at the start of the line.
+
+Put your SQL queries after the question in English.
+Then this file can be run as a script.  You can run it
+        either from inside SQL, while developing the queries,
+        or from outside when the queries have been developed and you want a log of the results.
+
+
+******************************************/
+-- "A quick query to show what tables are created"
+USE enquiries
+SHOW TABLES;
+-- "set key words to letters"
+
+-- which interview is each tape about?
+SELECT interview_id, tape_id FROM tape;
+
+
+-- which enquiry has john smith been interviewed as part of?
+SELECT DISTINCT enquiry_name FROM interview
+WHERE witness = "john smith";
+-- "you can use DISTINCT to only get one responce back"
+
+
+-- which enquiries are there that have ended, and when?
+--      The condition ... IS NULL is a way of testing whether ... is NULL or not
+SELECT enquiry_name, end_date FROM enquiry
+WHERE end_date IS NOT NULL;
+
+
+-- In a SELECT ... query, ... can be nothing but some constants - strings or numbers.
+--   Try that out
+SELECT "hello";
+
+
+-- which enquiries are there that have not ended?  Indicate that in the results.
+SELECT DISTINCT enquiry_name, crime_type, end_date, "ongoing" FROM enquiry
+WHERE end_date IS NULL;
+
+
+-- which officers have interviewed someone in connection with assault?
+-- SELECT DISTINCT interview.officer, interview.enquiry_name, enquiry.crime_type 
+SELECT officer, interview.enquiry_name, enquiry.crime_type
+FROM interview, enquiry
+WHERE interview.enquiry_name = enquiry.enquiry_name and enquiry.crime_type = "assault";
+
+
+-- which officers have interviewed someone in connection with a crime other than assault?
+--      And what crime was it?
+SELECT DISTINCT officer, interview.enquiry_name, enquiry.crime_type
+FROM interview, enquiry
+WHERE interview.enquiry_name = enquiry.enquiry_name and enquiry.crime_type != "assault";
+
+
+-- which witnesses have been interviewed in connection with an assault or drugs?
+SELECT DISTINCT interview.witness, enquiry.crime_type
+FROM interview, enquiry
+WHERE enquiry.crime_type in ("assault", "drugs") AND interview.enquiry_name = enquiry.enquiry_name ;
+
+-- WHERE enquiry.crime_type = "assault" OR enquiry.crime_type = "drugs";
+
+
+-- has john smith been interviewed in connection with an assault?
+--      How will it gives replies that mean "yes" or "no"?
+--      There seem to be several ways of doing that, but some may be too elaborate
+
+        -- simple solution
+SELECT DISTINCT interview.witness, enquiry.crime_type, enquiry.enquiry_name
+FROM interview, enquiry
+WHERE enquiry.crime_type = "assault" AND interview.witness = "john smith" AND enquiry.enquiry_name = interview.enquiry_name;
+
+
+        -- this is a reasonable approximation -
+        --      it is not about "whether" but about "how often"
+
+-- ??? 
+
+        -- this is cleaner but much more complicated
+
+        /*
+        it asks
+
+        is there a witness called "john smith"
+           (one has to say "FROM witness" because
+                any query has to tell SQL where to look for possible answers)
+            and is there an interview that
+                involved "john smith"
+                and was part of an enquiry about assault?
+        */
+
+-- ??? 
+
+
+-- which tapes will have the voice of which witnesses on them?
+
+SELECT tape.interview_id, interview.interview_id, witness
+FROM interview, tape
+WHERE tape.iterview_id = interview.interview_id;
+        -- that relies on interview.witness and witness.name having the same domains
+
+
+-- This involves comparison of dates (which are really a special use of numbers).
+-- Which enquiries were in progress on 2010-04-01 ?
+
+-- ??? 
+
+
+/***********************
+The final queries are somewhat harder/ more complex, but do illustrate useful techniques
+************************/
+
+
+/***********************
+These queries involve aggregation / grouping
+************************/
+
+-- how many enquiries have there been?
+
+-- ??? 
+
+
+-- what crime_types are there, and how many enquiries have there been for each crime_type?
+
+        -- This is equivalent to
+        -- how many enquiries have there been, grouped by crime_type?
+
+-- ??? 
+
+
+/**********************
+This query involves a negation, and can be answered with a subquery
+***********************/
+
+-- which interview were not taped?
+
+        -- That is equivalent to:
+        -- for which enquiries does no tape of any interview exist?
+
+-- ??? 
+
+
+/********************************************************
+********************************************************/
+
+-- has anyone been interviewed in connection with more than one enquiry?
+
+        -- This can be answered in at least two different ways:
+
+
+        -- (1) by counting
+
+        -- If one groups interviews by witness interviewed,
+        -- and counts the number of enquiries that those interviews were part of,
+        -- how many enquiries isthat?  
+
+-- ???
+
+        -- Is it greater than 1 for any witness?
+
+-- ???
+
+        -- (2) by using two copies of the same table
+
+/*
+One might start by thinking "I have a table about interviews, so I will look for a row in the table with a certain witness, and another row in the same table with the same witness, and then check that the enquiry attribute is different in the two rows."  But there is no way of getting two different rows at once from a single copy of one table.  One ends up with nonsense such as
+
+        SELECT interview.witness
+        FROM  interview
+        WHERE interview.enquiry <> interview.enquiry
+
+What one wants is not two rows from the same table, but two rows, each from a separate copy of the same table.
+*/
+
+-- ???
+
+        -- ask this if one is interested in which enquiries they were,
+        -- but notice that this query counts each enquiry involved multiple times
+
+-- ??? 

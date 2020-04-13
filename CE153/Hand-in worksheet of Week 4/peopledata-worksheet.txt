@@ -1,0 +1,169 @@
+
+/***********************************************
+A
+
+The file peopledata.txt is a MySQL script that creates a simple table,
+containing some data (of a type traditional in database exercises) about some people.  
+-- I added a 'SELECT * FROM people;' to output the table to check everything is ok
+*/
+
+-- Start a MySQL server and client = 
+-- done by mysqld --console --standalone in one window and rhen mysql -u root to get mySQL going
+
+-- run that script from within in the MySQL client = 
+-- mysql -t -v -u root < peopledata.txt > peoplelog.txt
+
+
+
+USE people;
+-- use		SHOW TABLES;    to show the table exists
+
+SHOW TABLES;
+
+
+-- use 		SELECT * FROM people;	to show the table's contents
+
+SELECT * FROM people;
+
+-- use       	DESCRIBE  table;	to describe the table. What does that show?
+/*
+There is more information about DESCRIBE in  the online reference about  using SQL (under the MySQL system in particular) at 
+
+	http://dev.mysql.com/doc/refman/5.7/en/tutorial.html  
+
+You can find more about DESCRIBE there 
+    by using the search function there, 
+    or by looking directly at 
+
+	https://dev.mysql.com/doc/refman/5.7/en/describe.html
+
+*/
+
+DESCRIBE people;
+
+
+-- use   	quit
+-- to quit the MySQL client and return to the command window
+
+
+/*************************************************
+B
+
+Now that the data has been put into a table, give some SQL queries to answer these questions.
+
+*/ 
+
+-- find the jobs of every person called Lucy
+SELECT given_name, job
+FROM people
+WHERE given_name = "lucy";
+
+
+-- find Lucy Wilde's age
+SELECT given_name, age
+FROM people
+WHERE given_name = "lucy";
+
+-- find Lucy Wilde's age and job
+SELECT given_name, surname, age, job
+FROM people
+WHERE given_name = "lucy" AND surname = "wilde";
+
+-- find all the men
+SELECT given_name, sex
+FROM people
+WHERE sex = "male";
+
+-- find all the male accountants 
+SELECT given_name, sex, job
+FROM people
+WHERE sex = "male" AND job = "accountant";
+
+-- find all the male accountants under 30
+SELECT given_name, sex, job, age
+FROM people
+WHERE sex = "male" AND job = "accountant" AND age < 30 ;
+
+-- find all the women doctors, and all the men accountants
+
+   /* is what you need
+      all the people who are female and doctors and male and accountants ?*/
+ 
+SELECT given_name, sex, job
+FROM people
+WHERE (sex = "male" AND job = "accountant") OR (sex = "female" AND job = "doctor");
+
+-- are there lawyers under 30?
+
+SELECT given_name, age, job
+FROM people
+WHERE job = "lawyer" AND age <= 30;
+
+-- find all the doctors, lawyers, accountants, using OR
+SELECT given_name, job
+FROM people
+WHERE job = "doctor" OR job = "lawyer" OR job = "accountant";
+
+-- find all the doctors, lawyers, accountants, without using OR
+SELECT given_name, job
+FROM people
+WHERE job != "cook" AND job != "designer"; 
+
+-- find all the people who are not doctors, lawyers or accountants,
+SELECT given_name, job
+FROM people
+WHERE job != "doctor" OR job != "lawyer" OR job != "accountant";
+
+-- which people have surnames starting with H?
+SELECT given_name, surname
+FROM people
+WHERE surname LIKE "h%";
+
+-- which people have jobs ending "-er" or "-or"?
+SELECT given_name
+FROM people
+WHERE job LIKE "%er" OR job LIKE "%or";
+
+
+
+/*************************************************
+C
+
+This is about updating tables that have been created
+
+Using the data about people, give SQL commands that record these changes
+*/
+
+-- Lucy Wilde becomes 41
+UPDATE people SET age="41" WHERE given_name="lucy";
+-- This output is just to check it has updated but isn't necessary (this is used throughout part C)
+SELECT given_name, age
+FROM people
+WHERE given_name="lucy";
+
+-- Lucy Wilde marries and changes her surname to Armstrong
+UPDATE people SET surname="Armstrong" WHERE given_name="lucy";
+
+SELECT given_name, surname
+FROM people
+WHERE given_name="lucy"; 
+
+-- Tom Jones becomes 41 and changes profession to musician
+UPDATE people SET age="41" WHERE given_name="tom";
+UPDATE people SET job="musician" WHERE given_name="tom";
+
+SELECT given_name, age, job
+FROM people
+WHERE given_name="tom"; 
+
+-- All data about Max Hale is deleted as unreliable
+DELETE FROM people WHERE given_name="max";
+
+-- Show the current contents of "people"
+SELECT * FROM people;
+
+-- All data about women is deleted 
+DELETE FROM people WHERE sex="female";
+
+-- Show the current contents of "people"
+SELECT * FROM people;

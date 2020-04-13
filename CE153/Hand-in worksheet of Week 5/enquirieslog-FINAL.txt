@@ -1,0 +1,252 @@
+--------------
+DROP DATABASE IF EXISTS enquiries
+--------------
+
+--------------
+CREATE DATABASE enquiries
+--------------
+
+--------------
+CREATE TABLE enquiry(
+        enquiry_name    VARCHAR(20),
+        crime_type      VARCHAR(20),
+        start_date      DATE,
+        end_date        DATE )
+--------------
+
+--------------
+INSERT INTO enquiry VALUES ("bullrush", "assault", "2010-01-06", "2010-07-06")
+--------------
+
+--------------
+INSERT INTO enquiry VALUES ("poplar", "assault", "2010-03-07", "2010-10-07")
+--------------
+
+--------------
+INSERT INTO enquiry VALUES ("marigold", "drugs", "2010-02-06", "2010-08-06")
+--------------
+
+--------------
+INSERT INTO enquiry VALUES ("berberis", "drugs", "2010-04-29", NULL)
+--------------
+
+--------------
+INSERT INTO enquiry VALUES ("hawthorn", "fraud", "2010-03-22", "2010-03-22")
+--------------
+
+--------------
+INSERT INTO enquiry VALUES ("privet", "fraud", "2010-07-11", NULL)
+--------------
+
+--------------
+INSERT INTO enquiry VALUES ("vacuum", "fraud", "2010-01-21", "2011-11-21")
+--------------
+
+--------------
+CREATE TABLE interview(
+        interview_id    INT,
+        enquiry_name    VARCHAR(20),
+        officer         VARCHAR(20),
+        date            DATE,
+        witness         VARCHAR(20) )
+--------------
+
+--------------
+INSERT INTO interview VALUES (235, "bullrush", "officer41", "2010-06-05", "john smith")
+--------------
+
+--------------
+INSERT INTO interview VALUES (237, "bullrush", "officer16", "2010-02-24", "john smith")
+--------------
+
+--------------
+INSERT INTO interview VALUES (344, "marigold", "officer30", "2010-03-20", "peter jones")
+--------------
+
+--------------
+INSERT INTO interview VALUES (355, "bullrush", "officer30", "2010-03-20", "peter jones")
+--------------
+
+--------------
+INSERT INTO interview VALUES (401, "vacuum", "officer30", "2010-03-20", "paul moon")
+--------------
+
+--------------
+INSERT INTO interview VALUES (404, "vacuum", "officer30", "2010-03-21", "mary moon")
+--------------
+
+--------------
+INSERT INTO interview VALUES (288, "berberis", "officer11", "2010-06-21", "pat summers")
+--------------
+
+--------------
+CREATE TABLE tape(
+        tape_id         VARCHAR(10),
+        interview_id    INT )
+--------------
+
+--------------
+INSERT INTO tape VALUES ("tape41", 235)
+--------------
+
+--------------
+INSERT INTO tape VALUES ("tape41a", 235)
+--------------
+
+--------------
+INSERT INTO tape VALUES ("tape53", 237)
+--------------
+
+--------------
+INSERT INTO tape VALUES ("tape09", 404)
+--------------
+
+--------------
+CREATE TABLE witness(
+        name        VARCHAR(20),
+        address     VARCHAR(30) )
+--------------
+
+--------------
+INSERT INTO witness VALUES ( "john smith", "13 high st")
+--------------
+
+--------------
+INSERT INTO witness VALUES ( "mary smith", "13 high st")
+--------------
+
+--------------
+INSERT INTO witness VALUES ( "peter jones", "flat 7 davis house")
+--------------
+
+--------------
+INSERT INTO witness VALUES ( "pat summers", "16 long rd")
+--------------
+
+--------------
+INSERT INTO witness VALUES ( "paul moon", "16 long rd")
+--------------
+
+--------------
+INSERT INTO witness VALUES ( "mary moon", "16 long rd")
+--------------
+
+--------------
+SHOW TABLES
+--------------
+
++---------------------+
+| Tables_in_enquiries |
++---------------------+
+| enquiry             |
+| interview           |
+| tape                |
+| witness             |
++---------------------+
+--------------
+SELECT interview_id, tape_id FROM tape
+--------------
+
++--------------+---------+
+| interview_id | tape_id |
++--------------+---------+
+|          235 | tape41  |
+|          235 | tape41a |
+|          237 | tape53  |
+|          404 | tape09  |
++--------------+---------+
+--------------
+SELECT DISTINCT enquiry_name FROM interview
+WHERE witness = "john smith"
+--------------
+
++--------------+
+| enquiry_name |
++--------------+
+| bullrush     |
++--------------+
+--------------
+SELECT enquiry_name, end_date FROM enquiry
+WHERE end_date IS NOT NULL
+--------------
+
++--------------+------------+
+| enquiry_name | end_date   |
++--------------+------------+
+| bullrush     | 2010-07-06 |
+| poplar       | 2010-10-07 |
+| marigold     | 2010-08-06 |
+| hawthorn     | 2010-03-22 |
+| vacuum       | 2011-11-21 |
++--------------+------------+
+--------------
+SELECT "hello"
+--------------
+
++-------+
+| hello |
++-------+
+| hello |
++-------+
+--------------
+SELECT DISTINCT enquiry_name, crime_type, end_date, "ongoing" FROM enquiry
+WHERE end_date IS NULL
+--------------
+
++--------------+------------+----------+---------+
+| enquiry_name | crime_type | end_date | ongoing |
++--------------+------------+----------+---------+
+| berberis     | drugs      | NULL     | ongoing |
+| privet       | fraud      | NULL     | ongoing |
++--------------+------------+----------+---------+
+--------------
+SELECT officer, interview.enquiry_name, enquiry.crime_type
+FROM interview, enquiry
+WHERE interview.enquiry_name = enquiry.enquiry_name and enquiry.crime_type = "assault"
+--------------
+
++-----------+--------------+------------+
+| officer   | enquiry_name | crime_type |
++-----------+--------------+------------+
+| officer41 | bullrush     | assault    |
+| officer16 | bullrush     | assault    |
+| officer30 | bullrush     | assault    |
++-----------+--------------+------------+
+--------------
+SELECT DISTINCT officer, interview.enquiry_name, enquiry.crime_type
+FROM interview, enquiry
+WHERE interview.enquiry_name = enquiry.enquiry_name and enquiry.crime_type != "assault"
+--------------
+
++-----------+--------------+------------+
+| officer   | enquiry_name | crime_type |
++-----------+--------------+------------+
+| officer30 | marigold     | drugs      |
+| officer30 | vacuum       | fraud      |
+| officer11 | berberis     | drugs      |
++-----------+--------------+------------+
+--------------
+SELECT DISTINCT interview.witness, enquiry.crime_type
+FROM interview, enquiry
+WHERE enquiry.crime_type in ("assault", "drugs") AND interview.enquiry_name = enquiry.enquiry_name
+--------------
+
++-------------+------------+
+| witness     | crime_type |
++-------------+------------+
+| john smith  | assault    |
+| peter jones | drugs      |
+| peter jones | assault    |
+| pat summers | drugs      |
++-------------+------------+
+--------------
+SELECT DISTINCT interview.witness, enquiry.crime_type, enquiry.enquiry_name
+		FROM interview, enquiry
+		WHERE enquiry.crime_type = "assault" AND interview.witness = "john smith" AND enquiry.enquiry_name = interview.enquiry_name
+--------------
+
++------------+------------+--------------+
+| witness    | crime_type | enquiry_name |
++------------+------------+--------------+
+| john smith | assault    | bullrush     |
++------------+------------+--------------+

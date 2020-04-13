@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Example 32</title>
+    <style>
+      p.alert {
+      position: static;
+      top: 50px; /* Positioning will be ignored for static. */
+      left: 100px;
+      color: red;
+      font-size: 300%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Example - Important Points in its static position</h1>
+
+    <p class="alert">Important Points</p>
+
+    <h1>CSS Position</h1>
+
+    <p>Can position element in four ways:</p>
+
+    <p>
+      <strong>Static:</strong> Positioned according to normal flow (see
+      above). Not affected by top, bottom, left, and right properties.
+    </p> 
+
+    <p>
+      <strong>Fixed:</strong> Positioned relative to the browser window. Will
+      not move even if content of window is scrolled.
+    </p> 
+
+    <p>
+      NB: Removed from normal flow and independent of it. Can overlap with
+      other elements.
+    </p>
+
+    <p>
+      <strong>Relative:</strong> Positioned relative to its position in normal
+      flow.
+    </p> 
+
+    <p>
+      NB: Space it takes in normal flow remains the same. Can overlap with
+      other elements.
+    </p> 
+
+    <p>
+      <strong>Absolute:</strong> Positioned according to first parent element
+      which is not static (i.e. normal flow). Often this is html element,
+      i.e. whole document.
+    </p> 
+</body>
+</html>

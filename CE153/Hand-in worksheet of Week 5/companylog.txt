@@ -1,0 +1,380 @@
+--------------
+DROP DATABASE IF EXISTS CompanyDB
+--------------
+
+--------------
+CREATE DATABASE CompanyDB
+--------------
+
+--------------
+CREATE TABLE Employee (
+        NI                              INT UNSIGNED NOT NULL,
+        FirstName               VARCHAR(30) NOT NULL,
+        Surname                 VARCHAR(30) NOT NULL,
+        Address                 VARCHAR(70) NOT NULL,
+        Sex                             ENUM('M', 'F') NOT NULL,
+        Date_of_birth   DATE NOT NULL,
+        Salary                  DECIMAL(8,2),
+        supervises              INT UNSIGNED,
+        works_in                INT UNSIGNED NOT NULL,
+        PRIMARY KEY (NI)
+)
+--------------
+
+--------------
+INSERT INTO Employee values(888665555, 'James','Borg', '450 Stone, Houston, TX', 'M', '1937-11-10', 55000, NULL, 1)
+--------------
+
+--------------
+INSERT INTO Employee values(333445555, 'Franklin','Wong', '638 Voss, Houston, TX', 'M', '1955-12-08', 40000, 888665555, 5)
+--------------
+
+--------------
+INSERT INTO Employee values(123456789, 'John','Smith', '731 Fondren, Houston, TX', 'M', '1965-01-09', 30000, 333445555, 5)
+--------------
+
+--------------
+INSERT INTO Employee values(987654321, 'Jennifer','Wallace', '291 Berry, Bellaire, TX', 'F', '1941-06-20', 43000, 888665555, 4)
+--------------
+
+--------------
+INSERT INTO Employee values(999887777, 'Alicia','Zelaya', '3321 Castle, Spring, TX', 'F','1968-07-19', 25000, 987654321, 4)
+--------------
+
+--------------
+INSERT INTO Employee values(666884444, 'Ramesh','Narayan', '975 Fire Oak, Humble, TX', 'M','1962-09-15', 38000, 333445555, 5)
+--------------
+
+--------------
+INSERT INTO Employee values(453453453, 'Joyce','English', '5631 Rice, Houston, TX', 'F','1972-07-31', 25000, 333445555, 5)
+--------------
+
+--------------
+INSERT INTO Employee values(987987987, 'Ahmad','Jabbar', '980 Dallas, Houston, TX', 'M','1969-03-29', 25000, 987654321, 4)
+--------------
+
+--------------
+CREATE TABLE Department (
+        DepartmentID    INT UNSIGNED NOT NULL,
+        Name                    VARCHAR(60) NOT NULL,
+        Location                VARCHAR(60) NOT NULL,
+        manages                 INT UNSIGNED NOT NULL,
+        PRIMARY KEY (DepartmentID)
+)
+--------------
+
+--------------
+INSERT INTO Department values(5, 'Research', 'Bellaire', 333445555)
+--------------
+
+--------------
+INSERT INTO Department values(4, 'Administration', 'Stafford', 987654321)
+--------------
+
+--------------
+INSERT INTO Department values(1, 'Headquarters', 'Houston', 888665555)
+--------------
+
+--------------
+CREATE TABLE Project (
+        ProjectID       INT UNSIGNED NOT NULL,
+        Name            VARCHAR(60) NOT NULL,
+        Location        VARCHAR(60) NOT NULL,
+        controls        INT UNSIGNED,
+        PRIMARY KEY (ProjectID)
+)
+--------------
+
+--------------
+INSERT INTO Project values(1, 'ProductX', 'Bellaire', 5)
+--------------
+
+--------------
+INSERT INTO Project values(2, 'ProductY', 'Sugarland', 5)
+--------------
+
+--------------
+INSERT INTO Project values(3, 'ProductZ', 'Houston', 5)
+--------------
+
+--------------
+INSERT INTO Project values(10, 'Computerisation', 'Stafford', 4)
+--------------
+
+--------------
+INSERT INTO Project values(20, 'Reorganisation', 'Houston', 1)
+--------------
+
+--------------
+INSERT INTO Project values(30, 'Newbenefits', 'Stafford', 4)
+--------------
+
+--------------
+CREATE TABLE works_on (
+        EmployeeNI      INT UNSIGNED NOT NULL,
+        ProjectID       INT UNSIGNED NOT NULL,
+        Hours   DECIMAL(5,2)
+)
+--------------
+
+--------------
+INSERT INTO works_on values(123456789, 1, 32.5)
+--------------
+
+--------------
+INSERT INTO works_on values(123456789, 2, 7.5)
+--------------
+
+--------------
+INSERT INTO works_on values(666884444, 3, 40)
+--------------
+
+--------------
+INSERT INTO works_on values(453453453, 1, 20)
+--------------
+
+--------------
+INSERT INTO works_on values(453453453, 2, 20)
+--------------
+
+--------------
+INSERT INTO works_on values(333445555, 2, 10)
+--------------
+
+--------------
+INSERT INTO works_on values(333445555, 3, 10)
+--------------
+
+--------------
+INSERT INTO works_on values(333445555, 10, 10)
+--------------
+
+--------------
+INSERT INTO works_on values(333445555, 20, 10)
+--------------
+
+--------------
+INSERT INTO works_on values(999887777, 30, 30)
+--------------
+
+--------------
+INSERT INTO works_on values(999887777, 10, 10)
+--------------
+
+--------------
+INSERT INTO works_on values(987987987, 10, 35)
+--------------
+
+--------------
+INSERT INTO works_on values(987987987, 30, 5)
+--------------
+
+--------------
+INSERT INTO works_on values(987654321, 30, 20)
+--------------
+
+--------------
+INSERT INTO works_on values(987654321, 20, 15)
+--------------
+
+--------------
+INSERT INTO works_on values(888665555, 20, NULL)
+--------------
+
+--------------
+SELECT FirstName, Surname, Date_of_birth, Address
+FROM Employee
+WHERE FirstName = "John"
+--------------
+
++-----------+---------+---------------+--------------------------+
+| FirstName | Surname | Date_of_birth | Address                  |
++-----------+---------+---------------+--------------------------+
+| John      | Smith   | 1965-01-09    | 731 Fondren, Houston, TX |
++-----------+---------+---------------+--------------------------+
+--------------
+SELECT NI, FirstName from Employee
+--------------
+
++-----------+-----------+
+| NI        | FirstName |
++-----------+-----------+
+| 123456789 | John      |
+| 333445555 | Franklin  |
+| 453453453 | Joyce     |
+| 666884444 | Ramesh    |
+| 888665555 | James     |
+| 987654321 | Jennifer  |
+| 987987987 | Ahmad     |
+| 999887777 | Alicia    |
++-----------+-----------+
+--------------
+SELECT Employee.NI, Department.Name
+FROM Employee, Department
+WHERE Employee.works_in = Department.DepartmentID
+--------------
+
++-----------+----------------+
+| NI        | Name           |
++-----------+----------------+
+| 123456789 | Research       |
+| 333445555 | Research       |
+| 453453453 | Research       |
+| 666884444 | Research       |
+| 888665555 | Headquarters   |
+| 987654321 | Administration |
+| 987987987 | Administration |
+| 999887777 | Administration |
++-----------+----------------+
+--------------
+SELECT Employee.FirstName, Employee.Surname, Department.Name
+FROM Employee, Department
+WHERE Department.DepartmentID = "5"
+--------------
+
++-----------+---------+----------+
+| FirstName | Surname | Name     |
++-----------+---------+----------+
+| John      | Smith   | Research |
+| Franklin  | Wong    | Research |
+| Joyce     | English | Research |
+| Ramesh    | Narayan | Research |
+| James     | Borg    | Research |
+| Jennifer  | Wallace | Research |
+| Ahmad     | Jabbar  | Research |
+| Alicia    | Zelaya  | Research |
++-----------+---------+----------+
+--------------
+SELECT DISTINCT Employee.NI,  Employee.FirstName, Employee.Surname, Project.ProjectID, Project.controls
+FROM Employee, works_on, Project
+WHERE works_on.ProjectID = Project.ProjectID AND Project.controls = "5"
+--------------
+
++-----------+-----------+---------+-----------+----------+
+| NI        | FirstName | Surname | ProjectID | controls |
++-----------+-----------+---------+-----------+----------+
+| 123456789 | John      | Smith   |         1 |        5 |
+| 123456789 | John      | Smith   |         2 |        5 |
+| 123456789 | John      | Smith   |         3 |        5 |
+| 333445555 | Franklin  | Wong    |         1 |        5 |
+| 333445555 | Franklin  | Wong    |         2 |        5 |
+| 333445555 | Franklin  | Wong    |         3 |        5 |
+| 453453453 | Joyce     | English |         1 |        5 |
+| 453453453 | Joyce     | English |         2 |        5 |
+| 453453453 | Joyce     | English |         3 |        5 |
+| 666884444 | Ramesh    | Narayan |         1 |        5 |
+| 666884444 | Ramesh    | Narayan |         2 |        5 |
+| 666884444 | Ramesh    | Narayan |         3 |        5 |
+| 888665555 | James     | Borg    |         1 |        5 |
+| 888665555 | James     | Borg    |         2 |        5 |
+| 888665555 | James     | Borg    |         3 |        5 |
+| 987654321 | Jennifer  | Wallace |         1 |        5 |
+| 987654321 | Jennifer  | Wallace |         2 |        5 |
+| 987654321 | Jennifer  | Wallace |         3 |        5 |
+| 987987987 | Ahmad     | Jabbar  |         1 |        5 |
+| 987987987 | Ahmad     | Jabbar  |         2 |        5 |
+| 987987987 | Ahmad     | Jabbar  |         3 |        5 |
+| 999887777 | Alicia    | Zelaya  |         1 |        5 |
+| 999887777 | Alicia    | Zelaya  |         2 |        5 |
+| 999887777 | Alicia    | Zelaya  |         3 |        5 |
++-----------+-----------+---------+-----------+----------+
+--------------
+SELECT Location, Project.controls, Surname, Address, Date_of_birth, Project.ProjectID
+FROM Project, Employee
+WHERE Project.location = "Stafford"
+--------------
+
++----------+----------+---------+--------------------------+---------------+-----------+
+| Location | controls | Surname | Address                  | Date_of_birth | ProjectID |
++----------+----------+---------+--------------------------+---------------+-----------+
+| Stafford |        4 | Smith   | 731 Fondren, Houston, TX | 1965-01-09    |        10 |
+| Stafford |        4 | Smith   | 731 Fondren, Houston, TX | 1965-01-09    |        30 |
+| Stafford |        4 | Wong    | 638 Voss, Houston, TX    | 1955-12-08    |        10 |
+| Stafford |        4 | Wong    | 638 Voss, Houston, TX    | 1955-12-08    |        30 |
+| Stafford |        4 | English | 5631 Rice, Houston, TX   | 1972-07-31    |        10 |
+| Stafford |        4 | English | 5631 Rice, Houston, TX   | 1972-07-31    |        30 |
+| Stafford |        4 | Narayan | 975 Fire Oak, Humble, TX | 1962-09-15    |        10 |
+| Stafford |        4 | Narayan | 975 Fire Oak, Humble, TX | 1962-09-15    |        30 |
+| Stafford |        4 | Borg    | 450 Stone, Houston, TX   | 1937-11-10    |        10 |
+| Stafford |        4 | Borg    | 450 Stone, Houston, TX   | 1937-11-10    |        30 |
+| Stafford |        4 | Wallace | 291 Berry, Bellaire, TX  | 1941-06-20    |        10 |
+| Stafford |        4 | Wallace | 291 Berry, Bellaire, TX  | 1941-06-20    |        30 |
+| Stafford |        4 | Jabbar  | 980 Dallas, Houston, TX  | 1969-03-29    |        10 |
+| Stafford |        4 | Jabbar  | 980 Dallas, Houston, TX  | 1969-03-29    |        30 |
+| Stafford |        4 | Zelaya  | 3321 Castle, Spring, TX  | 1968-07-19    |        10 |
+| Stafford |        4 | Zelaya  | 3321 Castle, Spring, TX  | 1968-07-19    |        30 |
++----------+----------+---------+--------------------------+---------------+-----------+
+--------------
+SELECT DISTINCT Employee.FirstName, Employee.Surname, "Supervisor:", Employee.FirstName, Employee.Surname
+FROM Employee
+WHERE supervises = NI
+--------------
+
+--------------
+SELECT DISTINCT Salary
+FROM Employee
+--------------
+
++----------+
+| Salary   |
++----------+
+| 30000.00 |
+| 40000.00 |
+| 25000.00 |
+| 38000.00 |
+| 55000.00 |
+| 43000.00 |
++----------+
+--------------
+SELECT FirstName, Surname, Address
+FROM Employee
+WHERE Address LIKE "%Houston%"
+--------------
+
++-----------+---------+--------------------------+
+| FirstName | Surname | Address                  |
++-----------+---------+--------------------------+
+| John      | Smith   | 731 Fondren, Houston, TX |
+| Franklin  | Wong    | 638 Voss, Houston, TX    |
+| Joyce     | English | 5631 Rice, Houston, TX   |
+| James     | Borg    | 450 Stone, Houston, TX   |
+| Ahmad     | Jabbar  | 980 Dallas, Houston, TX  |
++-----------+---------+--------------------------+
+--------------
+SELECT FirstName, Surname, Date_of_birth
+FROM Employee
+WHERE Date_of_birth LIKE "195%"
+--------------
+
++-----------+---------+---------------+
+| FirstName | Surname | Date_of_birth |
++-----------+---------+---------------+
+| Franklin  | Wong    | 1955-12-08    |
++-----------+---------+---------------+
+--------------
+???
+
+
+
+
+
+
+
+???
+
+???
+
+
+
+
+
+???
+
+
+
+
+
+
+???
+--------------
+

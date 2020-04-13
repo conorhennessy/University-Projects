@@ -1,0 +1,102 @@
+
+/*************************
+
+This is an example of how one can use two copies of a table in a single query,
+and why one might want to.
+
+****************************/
+
+DROP DATABASE IF EXISTS twocopies;
+CREATE DATABASE twocopies;
+USE twocopies;
+
+
+/**************************************************
+This is some simple data about where people have been on holiday.
+*/
+
+DROP TABLE IF EXISTS holidays;
+
+CREATE TABLE holidays (
+        person  VARCHAR(20),
+        destination VARCHAR(20)
+);
+
+INSERT INTO holidays VALUES( "fred", "france" );
+INSERT INTO holidays VALUES( "fred", "germany" );
+INSERT INTO holidays VALUES( "tom", "france" );
+INSERT INTO holidays VALUES( "jack", "germany" );
+
+/*
+The question to be answered is: has anyone been on holiday to more than one country?
+
+One might start by thinking "I have a table about holidays, so I will look for a row in the table about  a certain person, and another row in the same table about the same person, and then check that the destination  attribute is different in the two rows."  But there is no way of getting two different rows at once from a single copy of one table. One ends up with nonsense such as 
+
+        SELECT holidays.person
+        FROM  holidays 
+        WHERE holidays.destination <> holidays.destination
+
+What one wants is not two rows from the same table, but two rows, each from a different copy of the same table.
+
+One can do that by referring to a single table under different aliases.  To refer to a table under an alias, do
+        
+        table AS alias
+*/
+
+        SELECT holidays1.person
+        FROM holidays AS holidays1, holidays AS holidays2
+        WHERE holidays1.person = holidays2.person
+              AND  holidays1.destination <> holidays2.destination;
+
+/*
+In fact, that rightly leads to fred being found twice: on one occasion he went to France, but he also went to Germany on a different occasion; and on one occasion he went to Germany, but he also went to France on a different occasion.
+
+To get rid of that, ask for DISTINCT answers.
+*/
+
+        SELECT DISTINCT holidays1.person
+        FROM holidays AS holidays1, holidays AS holidays2
+        WHERE holidays1.person = holidays2.person
+              AND  holidays1.destination <> holidays2.destination;
+
+
+/**********************************************
+
+Here is another application of the same idea.
+Here though you are asked to apply that idea in a query.
+
+*/
+
+/* 
+This creates a table holding some data database about who loves whom.
+
+The first column is the lover, the second is the beloved.
+*/
+
+DROP TABLE IF EXISTS Loves;
+
+CREATE TABLE Loves (
+        lover           VARCHAR(30) NOT NULL,
+        beloved         VARCHAR(30) NOT NULL
+);
+
+INSERT INTO Loves values( 'lucy', 'tom' );
+INSERT INTO Loves values( 'tom', 'mary' );
+INSERT INTO Loves values( 'mary', 'tom' );
+INSERT INTO Loves values( 'peter', 'mary' );
+INSERT INTO Loves values( 'peter', 'lucy' );
+INSERT INTO Loves values( 'peter', 'peter' );
+
+
+/*
+
+But alas not all love is requited.  Your query should return pairs of people where
+the first person loves the second - and the second person also loves the first.
+*/
+
+SELECT Loves1.lover, Loves1.beloved
+FROM Loves AS Loves1, Loves AS Loves2
+WHERE Loves1.beloved = Loves2.lover
+      AND Loves2.beloved = Loves1.lover;
+
+

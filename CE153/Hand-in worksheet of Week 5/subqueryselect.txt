@@ -1,0 +1,68 @@
+/*******************
+
+This script is an example of using a subquery in the SELECT part of a query.
+ 
+It is in fact the example used in the lecture slides.
+ 
+*******************/
+ 
+-- --------------------------------------------------------------
+
+DROP DATABASE IF EXISTS subqueryselect;
+CREATE DATABASE subqueryselect;
+
+USE subqueryselect;
+
+-- ----------------------------------------------------------------
+
+CREATE TABLE Person (
+        name  VARCHAR(40)
+);
+
+CREATE TABLE Owns (
+        owner   VARCHAR(40),
+        horse   VARCHAR(40),
+        value   INTEGER
+);
+
+-- --------------------------------------------------------------
+
+INSERT INTO Person VALUES ( "fred" );
+INSERT INTO Person VALUES ( "bert" );
+INSERT INTO Person VALUES ( "mary" );
+
+INSERT INTO Owns VALUES ( "fred", "shergar", 1000 );
+INSERT INTO Owns VALUES ( "mary", "arkle", 1500 );
+INSERT INTO Owns VALUES ( "bert", "godolphin arabian", 500 );
+INSERT INTO Owns VALUES ( "mary", "dobbin", 40 );
+INSERT INTO Owns VALUES ( "bert", "boxer", 70 );
+INSERT INTO Owns VALUES ( "fred", "byerly turk", 900 );
+
+
+-- The query is "what is the most valuable horse that Fred owns?"
+-- Here the query is by itself as a main query
+
+SELECT MAX(VALUE)
+FROM Owns
+WHERE Owns.owner = "fred";
+
+-- Here a very similar query is used as a sub-query.
+-- One is interested in the most valuable horse owned, not just by in Fred, but by each person. 
+
+SELECT name, (SELECT MAX(VALUE)
+              FROM Owns
+              WHERE Owns.owner = Person.name)
+FROM Person;
+
+
+
+-- A minor point
+
+-- One can use AS in order to give something else (a table, a result) another name.
+-- Doing that can make the output of a query look better.
+
+SELECT name, (SELECT MAX(VALUE)
+              FROM Owns
+              WHERE Owns.owner = Person.name) AS "most valuable horse"
+FROM Person;
+

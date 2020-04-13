@@ -1,0 +1,88 @@
+# Create database (if it exists drop it)
+DROP DATABASE IF EXISTS uniDB;
+CREATE DATABASE uniDB;
+
+USE uniDB;
+
+-- Create various tables...
+CREATE TABLE lecturer (
+		email_prefix   VARCHAR(25),
+		name           VARCHAR(25),
+		course_code    INT,
+		PRIMARY KEY(email_prefix)
+);
+
+
+CREATE TABLE modules (
+		module_code            INT,
+		course_code            INT,
+		lecturer_email_prefix  VARCHAR(25),
+		PRIMARY KEY(module_code),
+		FOREIGN KEY(lecturer_email_prefix) REFERENCES lecturer(email_prefix)
+);
+
+CREATE TABLE degree_scheme (
+		course_code   INT,
+		level         VARCHAR(10),
+		length        INT,
+		PRIMARY KEY(course_code)
+);
+
+CREATE TABLE student (
+		reg_num       INT,
+		name          VARCHAR(25),
+		course_code   INT,
+		PRIMARY KEY(reg_num),
+		FOREIGN KEY(course_code) REFERENCES degree_scheme(course_code)
+);
+
+CREATE TABLE takes (
+		reg_num       INT,
+		module_code   INT,
+		mark          INT,
+		PRIMARY KEY(reg_num, module_code),
+		FOREIGN KEY(reg_num) REFERENCES student(reg_num),
+		FOREIGN KEY(module_code) REFERENCES modules(module_code)
+);
+
+CREATE TABLE module_in_year (
+		module_code   INT,
+		course_code   INT,
+		year          INT,
+		PRIMARY KEY(module_code, course_code),
+		FOREIGN KEY(module_code) REFERENCES modules(module_code),
+		FOREIGN KEY(course_code) REFERENCES degree_scheme(course_code)
+);
+
+-- Input random data into tables
+INSERT INTO lecturer VALUES ("sam", "Sam Steel", 153);
+INSERT INTO lecturer VALUES ("sands", "Mike Sanderson", 151);
+INSERT INTO lecturer VALUES ("jeffm", "Jeff Mendle", 186);
+
+INSERT INTO modules VALUES (531, 153, "sam");
+INSERT INTO modules VALUES (511, 151, "sands");
+INSERT INTO modules VALUES (861, 186, "jeffm");
+
+INSERT INTO degree_scheme VALUES (400, "Bsc", 3);
+INSERT INTO degree_scheme VALUES (606, "Phd", 5);
+
+INSERT INTO student VALUES (17811, "Conor", 400);
+INSERT INTO student VALUES (17692, "Bob", 606);
+
+INSERT INTO takes VALUES (17811, 531, 56);
+INSERT INTO takes VALUES (17811, 511, 80);
+INSERT INTO takes VALUES (17692, 861, 74);
+
+INSERT INTO module_in_year VALUES (531, 400, 1);
+INSERT INTO module_in_year VALUES (511, 400, 2);
+INSERT INTO module_in_year VALUES (861, 606, 1);
+
+-- Output all tables and database contents 
+SHOW tables;
+
+SELECT * FROM lecturer;
+SELECT * FROM modules;
+SELECT * FROM degree_scheme;
+SELECT * FROM student;
+SELECT * FROM takes;
+SELECT * FROM module_in_year;

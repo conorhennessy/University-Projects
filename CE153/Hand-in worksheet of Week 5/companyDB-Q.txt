@@ -1,0 +1,283 @@
+/********************************
+
+This labsheet creates a database of tables that describe a company, and then asks some queries about them.
+
+Some of these queries are relatively difficult.  At this stage, not being able to do them all would not be unexpected.
+
+**************************************
+
+
+Here are some tables that describe a company.
+
+They are held in a database called Company.   
+This is a description of that database:
+
+-- A given company is organised into departments, which are identified by a unique name, and have a single location (an address).
+
+-- Each department controls a number of projects (a project does not belong to more than one department), which are identified by a unique name, and have a single location (an address).
+
+-- The information stored for an employee is first and last name, national insurance number, address, salary, sex, and date of birth.
+
+-- An employee is assigned to one department, but may work on several projects, not necessarily controlled by the same department. 
+
+-- The number of hours per week worked by an employee on a given project is also recorded. 
+
+-- The database  provides information on who is the supervisor of any given employee.  
+
+
+
+This data is held in these tables, with the attributes (columns) listed.   
+
+(The table have PRIMARY KEYs and there is some extra information about some of the attributes.  These are  important or useful ideas, but will be covered later.  They can be ignored for now.  This could have been deleted, but has been left in.)
+
+        Table
+                Employee 
+        attributes 
+                NI                      
+                FirstName               
+                Surname                 
+                Address                 
+                Sex                     
+                Date_of_birth   
+                Salary                  
+                supervises      -- NI number of other employee who supervises this employee
+                works_in                
+
+        Table
+                Department 
+        attributes
+                DepartmentID    
+                Name            
+                Location        
+                manages         -- the NI number of the manager of the department
+
+        Table
+                Project 
+        attributes
+                ProjectID       
+                Name            
+                Location        
+                controls        -- DepartmentID of department that controls project
+
+        Table
+                works_on 
+        attributes
+                EmployeeNI      
+                ProjectID       
+                Hours   
+
+
+
+Running this file as a script will create the database, populate it with sample data.
+
+************************************************
+This section creates and loads the tables.
+************************************************/
+
+
+DROP DATABASE IF EXISTS CompanyDB;
+CREATE DATABASE CompanyDB;
+USE CompanyDB;
+
+##########
+### CREATE NECESSARY TABLES AND POPULATE DATA
+## EMPLOYEE
+CREATE TABLE Employee (
+        NI                              INT UNSIGNED NOT NULL,
+        FirstName               VARCHAR(30) NOT NULL,
+        Surname                 VARCHAR(30) NOT NULL,
+        Address                 VARCHAR(70) NOT NULL,
+        Sex                             ENUM('M', 'F') NOT NULL,
+        Date_of_birth   DATE NOT NULL,
+        Salary                  DECIMAL(8,2),
+        supervises              INT UNSIGNED,
+        works_in                INT UNSIGNED NOT NULL,
+        PRIMARY KEY (NI)
+);
+
+INSERT INTO Employee values(888665555, 'James','Borg', '450 Stone, Houston, TX', 'M', '1937-11-10', 55000, NULL, 1);
+INSERT INTO Employee values(333445555, 'Franklin','Wong', '638 Voss, Houston, TX', 'M', '1955-12-08', 40000, 888665555, 5);
+INSERT INTO Employee values(123456789, 'John','Smith', '731 Fondren, Houston, TX', 'M', '1965-01-09', 30000, 333445555, 5);
+INSERT INTO Employee values(987654321, 'Jennifer','Wallace', '291 Berry, Bellaire, TX', 'F', '1941-06-20', 43000, 888665555, 4);
+INSERT INTO Employee values(999887777, 'Alicia','Zelaya', '3321 Castle, Spring, TX', 'F','1968-07-19', 25000, 987654321, 4);
+INSERT INTO Employee values(666884444, 'Ramesh','Narayan', '975 Fire Oak, Humble, TX', 'M','1962-09-15', 38000, 333445555, 5);
+INSERT INTO Employee values(453453453, 'Joyce','English', '5631 Rice, Houston, TX', 'F','1972-07-31', 25000, 333445555, 5);
+INSERT INTO Employee values(987987987, 'Ahmad','Jabbar', '980 Dallas, Houston, TX', 'M','1969-03-29', 25000, 987654321, 4);
+
+## DEPARTMENT
+CREATE TABLE Department (
+        DepartmentID    INT UNSIGNED NOT NULL,
+        Name                    VARCHAR(60) NOT NULL,
+        Location                VARCHAR(60) NOT NULL,
+        manages                 INT UNSIGNED NOT NULL,
+        PRIMARY KEY (DepartmentID)
+);
+
+INSERT INTO Department values(5, 'Research', 'Bellaire', 333445555);
+INSERT INTO Department values(4, 'Administration', 'Stafford', 987654321);
+INSERT INTO Department values(1, 'Headquarters', 'Houston', 888665555);
+
+## PROJECT
+CREATE TABLE Project (
+        ProjectID       INT UNSIGNED NOT NULL,
+        Name            VARCHAR(60) NOT NULL,
+        Location        VARCHAR(60) NOT NULL,
+        controls        INT UNSIGNED,
+        PRIMARY KEY (ProjectID)
+);
+
+INSERT INTO Project values(1, 'ProductX', 'Bellaire', 5);
+INSERT INTO Project values(2, 'ProductY', 'Sugarland', 5);
+INSERT INTO Project values(3, 'ProductZ', 'Houston', 5);
+INSERT INTO Project values(10, 'Computerisation', 'Stafford', 4);
+INSERT INTO Project values(20, 'Reorganisation', 'Houston', 1);
+INSERT INTO Project values(30, 'Newbenefits', 'Stafford', 4);
+
+## WORKS_ON
+CREATE TABLE works_on (
+        EmployeeNI      INT UNSIGNED NOT NULL,
+        ProjectID       INT UNSIGNED NOT NULL,
+        Hours   DECIMAL(5,2)
+);
+
+INSERT INTO works_on values(123456789, 1, 32.5);
+INSERT INTO works_on values(123456789, 2, 7.5);
+INSERT INTO works_on values(666884444, 3, 40);
+INSERT INTO works_on values(453453453, 1, 20);
+INSERT INTO works_on values(453453453, 2, 20);
+INSERT INTO works_on values(333445555, 2, 10);
+INSERT INTO works_on values(333445555, 3, 10);
+INSERT INTO works_on values(333445555, 10, 10);
+INSERT INTO works_on values(333445555, 20, 10);
+INSERT INTO works_on values(999887777, 30, 30);
+INSERT INTO works_on values(999887777, 10, 10);
+INSERT INTO works_on values(987987987, 10, 35);
+INSERT INTO works_on values(987987987, 30, 5);
+INSERT INTO works_on values(987654321, 30, 20);
+INSERT INTO works_on values(987654321, 20, 15);
+INSERT INTO works_on values(888665555, 20, NULL);
+
+
+/*****************************************
+
+
+You should now attempt the following queries.
+
+You are not allowed to edit the script the produced the database!
+
+Feel free to use the MySQL client to develop your solutions, but eventually all your queries should be contained in the Queries.sql file.
+
+
+Queries
+Write SQL queries for each of the following. You are advised to use the MySQL client to prototype your answers, and then copy them into the queries.sql file provided for future reference.
+
+*****************************/
+
+
+-- Query 1        modest
+-- Retrieve the date of birth and address of the employee(s) whose name is "John Smith".
+SELECT FirstName, Surname, Date_of_birth, Address
+FROM Employee
+WHERE FirstName = "John";
+
+
+-- Query 2      modest
+-- Select all employee national insurance numbers in the database.
+SELECT NI, FirstName from Employee;
+
+
+-- Query 3      modest
+-- Retrieve the employee national insurance number and department name for all employees.
+SELECT Employee.NI, Department.Name
+FROM Employee, Department
+WHERE Employee.works_in = Department.DepartmentID;
+
+
+-- Query 4      medium 
+-- Retrieve the name and address of all employees who work for the "Research" department.
+SELECT Employee.FirstName, Employee.Surname, Department.Name
+FROM Employee, Department
+WHERE Department.DepartmentID = "5";
+
+
+-- Query 5      medium!
+-- Find the names of employees who work on any of the projects controlled by department number 5.
+SELECT DISTINCT Employee.NI,  Employee.FirstName, Employee.Surname, Project.ProjectID, Project.controls
+FROM Employee, works_on, Project
+WHERE works_on.ProjectID = Project.ProjectID AND Project.controls = "5";
+
+
+-- an alternative solution using grouping to change how the results are presented, harder
+/***** this bit dosent work :( - will fix soon
+-- This is trying to group with aggregation!
+SELECT DISTINCT Employee.NI,  Employee.FirstName, Employee.Surname, Project.controls, COUNT(Project.ProjectID)
+FROM Employee, works_on, Project
+WHERE works_on.ProjectID = Project.ProjectID AND Project.controls = "5"
+GROUP BY Employee.NI,  Employee.FirstName, Employee.Surname, Project.controls;
+*****/
+
+-- Query 6      medium
+-- For every project located in "Stafford", list the project number, the controlling department number, and the department manager"s last name, address and date of birth.
+SELECT Location, Project.controls, Surname, Address, Date_of_birth, Project.ProjectID
+FROM Project, Employee
+WHERE Project.location = "Stafford" ;
+-- Everything doubled up as they work on both project 10 and 30
+
+-- Query 7      medium
+-- For each employee, retrieve the employee's first and last name and the first and last name of his or her immediate supervisor.
+SELECT DISTINCT Employee.FirstName, Employee.Surname, "Supervisor:", Employee.FirstName, Employee.Surname
+FROM Employee
+WHERE supervises = NI;
+-- couldnt get this one ot work properly
+
+-- Can you also find returns the supervisor's NI? 
+
+
+
+-- Query 8      modest
+-- Retrieve all distinct salary values.
+SELECT DISTINCT Salary
+FROM Employee;
+
+
+-- Query 9      modest
+-- Retrieve all employees whose address is in Houston, Texas.
+SELECT FirstName, Surname, Address
+FROM Employee
+WHERE Address LIKE "%Houston%";
+
+
+-- Query 10     modest
+-- Find all employees who were born during the 1950s.
+SELECT FirstName, Surname, Date_of_birth
+FROM Employee
+WHERE Date_of_birth LIKE "195%";
+
+
+-- Query 11     medium
+-- For each department, retrieve the department number, the number of employees in the department, and their average salary.
+-- two alternative solutions - one is fine!
+???
+
+
+-- Query 12     medium
+-- For each project, retrieve the project number, the project name, and the number of employees who work on that project.
+
+-- two alternative solutions - one is fine!
+
+???
+
+???
+
+
+-- Query 13     difficult!
+-- For each project, on which more than two employees work, retrieve the project number, the project name, and the number of employees who work on the project.
+
+???
+
+
+-- Query 14     difficult!
+-- For each department that has more than two employees, retrieve the department number and the number of its employees who are making more than £30,000.
+
+
+???

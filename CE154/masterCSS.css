@@ -1,0 +1,137 @@
+/* MASTER CSS for whole site, individual pages may have overriding CSS in place*/
+body {
+	margin: 0px;
+}
+
+
+div.header{
+	padding: 0.2em;
+	color: white;
+	background-color: whitesmoke;
+	clear: both;
+}
+
+p.search{
+	font-weight: bold;
+	font-size: 15px;
+	color: #728EA8;
+}
+
+.header ul{
+	list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+	float: right;
+	display: inline-block;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.header li{
+	float: right;
+	display: inline-block;
+	width: 90px;
+	padding-top: 5px;
+}
+
+h1 {
+	padding: 0;
+	margin: 0;
+	text-align: left;
+	color: #728EA8;
+	display: inline;
+}
+
+h2 {
+		font-size: 30px;
+}
+
+
+div.left {
+	clear: both;
+	float: left;
+	width: 167px;
+	margin: 0;
+	text-align: center;
+}
+
+.left ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+
+
+div.content {
+	margin-left: 170px;
+	border-left: 1px solid gray;
+	padding: 1em;
+	text-align: left;
+	height: 700px;
+	width: 100%;
+}
+
+
+a:link, a:visited {
+    display: block;
+    text-align: center;
+    width: 100%;
+    background-color: #728EA8;
+    text-decoration: none;
+    font-weight: bold;
+    color: #FFFFFF;
+    padding: 5px;
+}
+
+a:hover, a:active {
+    background-color: #5B7286;
+}
+
+/* Buy button*/
+a:link.buy, a:visited.buy {
+    display: block;
+    text-align: center;
+    width: 240px;
+    background-color: #728EA8;
+    text-decoration: none;
+    font-weight: bold;
+    color: #FFFFFF;
+    padding: 5px;
+	margin-left: 15px;
+}
+
+a:hover.buy, a:active.buy {
+    background-color: #5B7286;
+}
+
+a:link.sold, a:visited.sold {
+    display: block;
+    text-align: center;
+    width: 240px;
+    background-color: red;
+    text-decoration: none;
+    font-weight: bold;
+    color: #FFFFFF;
+    padding: 5px;
+	margin-left: 15px;
+}
+
+a:hover.sold, a:active.sold {
+    background-color: darkred;
+}
+
+
+
+
+img {
+	float: left;
+	padding: 15px;
+}
+
+form  { display: table; padding-bottom: 15px; }
+p     { display: table-row; }
+label { display: table-cell; padding-bottom: 15px; }
+input { display: table-cell; }

@@ -1,0 +1,99 @@
+--------------
+DROP DATABASE IF EXISTS subqueryselect
+--------------
+
+--------------
+CREATE DATABASE subqueryselect
+--------------
+
+--------------
+CREATE TABLE Person (
+        name  VARCHAR(40)
+)
+--------------
+
+--------------
+CREATE TABLE Owns (
+        owner   VARCHAR(40),
+        horse   VARCHAR(40),
+        value   INTEGER
+)
+--------------
+
+--------------
+INSERT INTO Person VALUES ( "fred" )
+--------------
+
+--------------
+INSERT INTO Person VALUES ( "bert" )
+--------------
+
+--------------
+INSERT INTO Person VALUES ( "mary" )
+--------------
+
+--------------
+INSERT INTO Owns VALUES ( "fred", "shergar", 1000 )
+--------------
+
+--------------
+INSERT INTO Owns VALUES ( "mary", "arkle", 1500 )
+--------------
+
+--------------
+INSERT INTO Owns VALUES ( "bert", "godolphin arabian", 500 )
+--------------
+
+--------------
+INSERT INTO Owns VALUES ( "mary", "dobbin", 40 )
+--------------
+
+--------------
+INSERT INTO Owns VALUES ( "bert", "boxer", 70 )
+--------------
+
+--------------
+INSERT INTO Owns VALUES ( "fred", "byerly turk", 900 )
+--------------
+
+--------------
+SELECT MAX(VALUE)
+FROM Owns
+WHERE Owns.owner = "fred"
+--------------
+
++------------+
+| MAX(VALUE) |
++------------+
+|       1000 |
++------------+
+--------------
+SELECT name, (SELECT MAX(VALUE)
+              FROM Owns
+              WHERE Owns.owner = Person.name)
+FROM Person
+--------------
+
++------+------------------------------------------------------------------------------------------+
+| name | (SELECT MAX(VALUE)
+              FROM Owns
+              WHERE Owns.owner = Person.name) |
++------+------------------------------------------------------------------------------------------+
+| fred |                                                                                     1000 |
+| bert |                                                                                      500 |
+| mary |                                                                                     1500 |
++------+------------------------------------------------------------------------------------------+
+--------------
+SELECT name, (SELECT MAX(VALUE)
+              FROM Owns
+              WHERE Owns.owner = Person.name) AS "most valuable horse"
+FROM Person
+--------------
+
++------+---------------------+
+| name | most valuable horse |
++------+---------------------+
+| fred |                1000 |
+| bert |                 500 |
+| mary |                1500 |
++------+---------------------+

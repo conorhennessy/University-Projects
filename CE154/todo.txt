@@ -1,0 +1,4 @@
+TODO
+-----------------
+customer review button next to items, if logged in use radio buttons to make review
+~ do designy stuff

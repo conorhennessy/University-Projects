@@ -1,0 +1,109 @@
+--------------
+DROP DATABASE IF EXISTS twocopies
+--------------
+
+--------------
+CREATE DATABASE twocopies
+--------------
+
+--------------
+DROP TABLE IF EXISTS holidays
+--------------
+
+--------------
+CREATE TABLE holidays (
+        person  VARCHAR(20),
+        destination VARCHAR(20)
+)
+--------------
+
+--------------
+INSERT INTO holidays VALUES( "fred", "france" )
+--------------
+
+--------------
+INSERT INTO holidays VALUES( "fred", "germany" )
+--------------
+
+--------------
+INSERT INTO holidays VALUES( "tom", "france" )
+--------------
+
+--------------
+INSERT INTO holidays VALUES( "jack", "germany" )
+--------------
+
+--------------
+SELECT holidays1.person
+        FROM holidays AS holidays1, holidays AS holidays2
+        WHERE holidays1.person = holidays2.person
+              AND  holidays1.destination <> holidays2.destination
+--------------
+
++--------+
+| person |
++--------+
+| fred   |
+| fred   |
++--------+
+--------------
+SELECT DISTINCT holidays1.person
+        FROM holidays AS holidays1, holidays AS holidays2
+        WHERE holidays1.person = holidays2.person
+              AND  holidays1.destination <> holidays2.destination
+--------------
+
++--------+
+| person |
++--------+
+| fred   |
++--------+
+--------------
+DROP TABLE IF EXISTS Loves
+--------------
+
+--------------
+CREATE TABLE Loves (
+        lover           VARCHAR(30) NOT NULL,
+        beloved         VARCHAR(30) NOT NULL
+)
+--------------
+
+--------------
+INSERT INTO Loves values( 'lucy', 'tom' )
+--------------
+
+--------------
+INSERT INTO Loves values( 'tom', 'mary' )
+--------------
+
+--------------
+INSERT INTO Loves values( 'mary', 'tom' )
+--------------
+
+--------------
+INSERT INTO Loves values( 'peter', 'mary' )
+--------------
+
+--------------
+INSERT INTO Loves values( 'peter', 'lucy' )
+--------------
+
+--------------
+INSERT INTO Loves values( 'peter', 'peter' )
+--------------
+
+--------------
+SELECT Loves1.lover, Loves1.beloved
+FROM Loves AS Loves1, Loves AS Loves2
+WHERE Loves1.beloved = Loves2.lover
+      AND Loves2.beloved = Loves1.lover
+--------------
+
++-------+---------+
+| lover | beloved |
++-------+---------+
+| mary  | tom     |
+| tom   | mary    |
+| peter | peter   |
++-------+---------+
